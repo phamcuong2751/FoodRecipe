@@ -13,7 +13,8 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Home" Height="450" Width="800">
+        Title="Home" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
 
     <Canvas>
         <!--Tố Ngô-->
