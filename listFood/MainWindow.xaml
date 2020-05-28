@@ -1,5 +1,4 @@
 ﻿<Window x:Class="listFood.Home"
-        Loaded="Window_Loaded"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -14,26 +13,64 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Home" Height="450" Width="850">
+        Title="Home" Height="450" Width="800">
 
     <Canvas>
-        <materialDesign:ColorZone
-  Mode= "PrimaryLight"
-  Padding="16" Width="843"
-            Background="#AA381F">
+        <!--Tố Ngô-->
+        <materialDesign:DrawerHost Panel.ZIndex="100" HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            Canvas.Left="-4" Canvas.Top="2" Width="798" Height="416">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <StackPanel Width="200" Height="auto" Background="#AA381F">
+                    <TextBlock   Margin="4"
+                            HorizontalAlignment="Center"> LEFT FIELD
+                    </TextBlock>
+                </StackPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            <materialDesign:DrawerHost.TopDrawerContent>
+                <StackPanel  Margin="16"
+                      HorizontalAlignment="Center"
+                      Orientation="Horizontal">
+                </StackPanel>
+            </materialDesign:DrawerHost.TopDrawerContent>
+            <materialDesign:DrawerHost.RightDrawerContent>
+                <StackPanel Margin="16">
+
+                </StackPanel>
+            </materialDesign:DrawerHost.RightDrawerContent>
+            <materialDesign:DrawerHost.BottomDrawerContent>
+                <StackPanel Margin="16" HorizontalAlignment="Center" Orientation="Horizontal">
+                </StackPanel>
+            </materialDesign:DrawerHost.BottomDrawerContent>
+            <Grid MinWidth="480" MinHeight="480">
+                <Grid VerticalAlignment="Top"  HorizontalAlignment="Left">
+                    <Button Background="#AA381F" BorderBrush="#AA381F" Width="70" Height="70"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0" 
+                            Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                            CommandParameter="{x:Static Dock.Left}"
+                            Grid.Column="0"
+                            Margin="15,-3,-7,11">
+                        <materialDesign:PackIcon Kind="Menu" FontSize="20" Height="52" Width="53" />
+                    </Button>
+                </Grid>
+            </Grid>
+            <!--Tố Ngô-->
+
+
+            <!--Cường Xl-->
+        </materialDesign:DrawerHost>
+        <materialDesign:ColorZone Mode= "PrimaryLight" Padding="16" Width="795" Background="#AA381F">
             <DockPanel>
                 <StackPanel
       Orientation="Horizontal"
       materialDesign:RippleAssist.IsCentered="True">
 
-                    <materialDesign:ColorZone
-        Mode="Standard"
-        Padding="8 4 8 4"
+                    <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4"
         CornerRadius="20"
         Panel.ZIndex="1"
-        Margin="16 0 0 0"
+        Margin="380 0 0 0"
         materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="374">
-                        <Grid>
+                        <Grid >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="19*"/>
                                 <RowDefinition Height="13*"/>
@@ -79,6 +116,6 @@
         <Image Source="/img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="261" />
         <Image Source="img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="94" />
 
-
+        <!--Cường Xl-->
     </Canvas>
 </Window>
