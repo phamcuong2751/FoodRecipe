@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Home" Height="450" Width="800">
+        Title="Home" Height="450" Width="800" WindowStartupLocation="CenterScreen">
 
     <Canvas>
         <!--Tố Ngô-->
@@ -21,10 +21,10 @@
             VerticalAlignment="Center"
             Canvas.Left="-4" Canvas.Top="2" Width="798" Height="416">
             <materialDesign:DrawerHost.LeftDrawerContent>
-                <StackPanel Width="200" Height="auto" Background="#AA381F">
-                    <TextBlock   Margin="4"
-                            HorizontalAlignment="Center"> LEFT FIELD
-                    </TextBlock>
+                <StackPanel Width="240" Height="auto" Background="#AA381F">
+                    <TextBlock  Text="MENU" FontSize="30" FontWeight="Bold"
+                        Foreground="White"
+                        Margin="30" HorizontalAlignment="Center">                     </TextBlock>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
             <materialDesign:DrawerHost.TopDrawerContent>
