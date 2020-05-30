@@ -25,7 +25,7 @@
         <TextBlock FontSize="20" Margin="124,96,320,321" TextAlignment="Center" FontFamily="Font/#Caveman" Text="WELCOME TO "/>
         <TextBlock FontSize="35" Margin="126,130,318,278" TextAlignment="Center" FontFamily="Font/#Caveman" Text="APP "/>
         <TextBlock FontSize="40" Margin="112,206,318,122" TextAlignment="Center" FontFamily="Font/#Caveman"><Run Text="FOOD "/><LineBreak/><Run Text="RECIPE"/></TextBlock>
-        <CheckBox  Content="Không hiển thị lần sau"  Name="Change" Click="Check" IsChecked="False" Margin="458,364,94,58" FontWeight="Bold" >
+        <CheckBox  Content="Không hiển thị lần sau"  Name="Change" Click="Check" IsChecked="False" Margin="458,364,94,58" FontWeight="Bold" Checked="Change_Checked" >
             <CheckBox.Style>
                 <Style TargetType="{x:Type CheckBox}">
                     <Setter Property="Visibility" Value="Visible"/>

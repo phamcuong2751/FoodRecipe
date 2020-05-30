@@ -20,7 +20,7 @@
         <!--Tố Ngô-->
         <materialDesign:DrawerHost Panel.ZIndex="100" HorizontalAlignment="Center" 
             VerticalAlignment="Center"
-            Canvas.Left="-4" Canvas.Top="2" Width="798" Height="416">
+            Canvas.Left="-4" Canvas.Top="2" Width="360" Height="416">
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Width="240" Height="auto" Background="#AA381F">
                     <TextBlock  Text="MENU" FontSize="30" FontWeight="Bold"
@@ -90,14 +90,14 @@
               Kind="Magnify"
               Opacity=".56" Height="22" Width="22" />
                             </Button>
-                            <TextBox
+                            <TextBox 
             Grid.Column="1"
             Margin="8,4,0,4"
             materialDesign:HintAssist.Hint="Nhập từ khoá để tìm công thức..."
             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
             BorderThickness="0"
             MinWidth="200"
-            VerticalAlignment="Center" Grid.RowSpan="2" />
+            VerticalAlignment="Center" Grid.RowSpan="2" TextChanged="TextBox_TextChanged"></TextBox>
 
                         </Grid>
                     </materialDesign:ColorZone>

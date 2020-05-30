@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using System.Globalization;
+using OpenQA.Selenium.Remote;
 
 namespace listFood
 {
@@ -22,6 +25,8 @@ namespace listFood
     /// </summary>
     public partial class Home : Window
     {
+        private string test;
+
         public class Food
         {
             public int ID { get; set; }
@@ -51,8 +56,10 @@ namespace listFood
             //Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@"sandbox_test.xlsx");
             //Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
             //Excel.Range xlRange = xlWorksheet.UsedRange;
-            
+
         }
+
+        
     }
 }
 

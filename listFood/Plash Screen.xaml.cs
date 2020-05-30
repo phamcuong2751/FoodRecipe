@@ -56,14 +56,9 @@ namespace Test_Splash_Screen
             dt.Stop();
             this.Close();
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Check(object sender, RoutedEventArgs e)
         {
-           if(Change.IsChecked == true)
+            if (Change.IsChecked == true)
             {
                 string newData = "true";
                 File.WriteAllText(dataFile, newData);
@@ -73,38 +68,6 @@ namespace Test_Splash_Screen
                 string newData = "fasle";
                 File.WriteAllText(dataFile, newData);
             }
-        }
-
-
-
-        private void Window_Closing(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_StylusButtonDown(object sender, StylusButtonEventArgs e)
-        {
-
-        }
-
-        private void ProgressBar_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
-        {
-
         }
     }
 }
