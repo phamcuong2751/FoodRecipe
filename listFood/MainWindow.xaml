@@ -19,8 +19,7 @@
     <Canvas>
         <!--Tố Ngô-->
         <materialDesign:DrawerHost Panel.ZIndex="100" HorizontalAlignment="Center" 
-            VerticalAlignment="Center"
-            Canvas.Left="-4" Canvas.Top="2" Width="798" Height="416">
+            VerticalAlignment="Center" Width="795" Height="421">
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Width="200" Height="auto" Background="#AA381F">
                     <TextBlock   Margin="4"
@@ -56,7 +55,6 @@
                 </Grid>
             </Grid>
             <!--Tố Ngô-->
-
 
             <!--Cường Xl-->
         </materialDesign:DrawerHost>
