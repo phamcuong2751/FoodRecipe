@@ -19,8 +19,7 @@
     <Canvas>
         <!--Tố Ngô-->
         <materialDesign:DrawerHost Panel.ZIndex="100" HorizontalAlignment="Center" 
-            VerticalAlignment="Center" Width="795" Height="421">
-            VerticalAlignment="Center"
+            VerticalAlignment="Center" 
             Canvas.Left="2" Canvas.Top="2" Width="87" Height="70">
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Width="240" Height="auto" Background="#AA381F">
