@@ -20,12 +20,12 @@
         <!--Tố Ngô-->
         <materialDesign:DrawerHost Panel.ZIndex="100" HorizontalAlignment="Center" 
             VerticalAlignment="Center"
-            Canvas.Left="-4" Canvas.Top="2" Width="360" Height="416">
+            Canvas.Left="2" Canvas.Top="2" Width="87" Height="70">
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Width="240" Height="auto" Background="#AA381F">
                     <TextBlock  Text="MENU" FontSize="30" FontWeight="Bold"
                         Foreground="White"
-                        Margin="30" HorizontalAlignment="Center">                     </TextBlock>
+                        Margin="30" HorizontalAlignment="Center"></TextBlock>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
             <materialDesign:DrawerHost.TopDrawerContent>
@@ -34,16 +34,11 @@
                       Orientation="Horizontal">
                 </StackPanel>
             </materialDesign:DrawerHost.TopDrawerContent>
-            <materialDesign:DrawerHost.RightDrawerContent>
-                <StackPanel Margin="16">
-
-                </StackPanel>
-            </materialDesign:DrawerHost.RightDrawerContent>
             <materialDesign:DrawerHost.BottomDrawerContent>
                 <StackPanel Margin="16" HorizontalAlignment="Center" Orientation="Horizontal">
                 </StackPanel>
             </materialDesign:DrawerHost.BottomDrawerContent>
-            <Grid MinWidth="480" MinHeight="480">
+            <Grid MinWidth="480" MinHeight="480" Margin="0,0,-393,-354" Width="318">
                 <Grid VerticalAlignment="Top"  HorizontalAlignment="Left">
                     <Button Background="#AA381F" BorderBrush="#AA381F" Width="70" Height="70"
                             materialDesign:ShadowAssist.ShadowDepth="Depth0" 
