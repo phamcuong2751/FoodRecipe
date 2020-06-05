@@ -25,8 +25,6 @@ namespace listFood
     /// </summary>
     public partial class Home : Window
     {
-        private string test;
-
         public class Food
         {
             public int ID { get; set; }

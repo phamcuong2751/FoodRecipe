@@ -18,38 +18,26 @@
 
     <Canvas>
         <!--Tố Ngô-->
-        <materialDesign:DrawerHost Panel.ZIndex="100" HorizontalAlignment="Center" 
-            VerticalAlignment="Center" Canvas.Left="2" Canvas.Top="2" Width="87" Height="70">
+        <materialDesign:DrawerHost Panel.ZIndex="100"
+             Width="790" Height="422">
             <materialDesign:DrawerHost.LeftDrawerContent>
-                <StackPanel Width="240" Height="auto" Background="#AA381F">
-                    <TextBlock  Text="MENU" FontSize="30" FontWeight="Bold" Foreground="White"
-                        Margin="30" HorizontalAlignment="Center">
+                <StackPanel Width="200" Background="#AA381F" >
+                    <TextBlock Margin="4" HorizontalAlignment="Center" Text="MENU" 
+                               FontSize="30" FontWeight="Bold" Foreground="White">
                     </TextBlock>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-            <materialDesign:DrawerHost.TopDrawerContent>
-                <StackPanel  Margin="16" HorizontalAlignment="Center" Orientation="Horizontal">
-                </StackPanel>
-            </materialDesign:DrawerHost.TopDrawerContent>
-            <materialDesign:DrawerHost.BottomDrawerContent>
-                <StackPanel Margin="16" HorizontalAlignment="Center" Orientation="Horizontal">
-                </StackPanel>
-            </materialDesign:DrawerHost.BottomDrawerContent>
-            <Grid MinWidth="480" MinHeight="480" Margin="0,0,-393,-354" Width="318">
-                <Grid VerticalAlignment="Top"  HorizontalAlignment="Left">
-                    <Button Background="#AA381F" BorderBrush="#AA381F" Width="70" Height="70"
-                            materialDesign:ShadowAssist.ShadowDepth="Depth0" 
-                            Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
-                            CommandParameter="{x:Static Dock.Left}"
-                            Grid.Column="0" Margin="15,-3,-7,11">
-                        <materialDesign:PackIcon Kind="Menu" FontSize="20" Height="52" Width="53" />
-                    </Button>
-                </Grid>
+            <Grid  MinWidth="480" MinHeight="480">
+                <Button Panel.ZIndex="100" Background="#AA381F" BorderBrush="#AA381F" HorizontalAlignment="Center"
+ VerticalAlignment="Center"                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+        Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" Height="Auto" Margin="17,-2,698,417">
+                    <materialDesign:PackIcon
+          Kind="Menu" Height="44" Width="55" />
+                </Button>
             </Grid>
-            <!--Tố Ngô-->
-
-            <!--Cường Xl-->
         </materialDesign:DrawerHost>
+        <!--Tố Ngô-->
+        <!--Cường Xl-->
         <materialDesign:ColorZone Mode= "PrimaryLight" Padding="16" Width="795" Background="#AA381F">
             <DockPanel>
                 <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
@@ -70,7 +58,7 @@
                             </Button>
                             <TextBox  Grid.Column="1" Margin="8,4,0,4" materialDesign:HintAssist.Hint="Nhập từ khoá để tìm công thức..."
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0"  MinWidth="200"
-                             VerticalAlignment="Center" Grid.RowSpan="2" TextChanged="TextBox_TextChanged"></TextBox>
+                             VerticalAlignment="Center" Grid.RowSpan="2"></TextBox>
                         </Grid>
                     </materialDesign:ColorZone>
                 </StackPanel>
