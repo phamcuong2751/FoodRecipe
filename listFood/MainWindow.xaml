@@ -17,9 +17,9 @@
         WindowStartupLocation="CenterScreen">
 
     <Canvas>
-        <!--Tố Ngô-->
+        <!--Tố Ngu-->
         <materialDesign:DrawerHost Panel.ZIndex="100"
-             Width="790" Height="422">
+             Width="795" Height="422">
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Width="200" Background="#AA381F" >
                     <Button Margin="4 20 4 40" HorizontalAlignment="Center"
@@ -35,36 +35,41 @@
                             <RowDefinition Height="45*"></RowDefinition>
                             <RowDefinition Height="45*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Border BorderThickness="0 0.3 0 0.3" BorderBrush="White" Grid.Row="0" >
-                            <Button Click="Button_Home" Content="Trang chủ" Padding="0" Background="#AA381F"
-                                   materialDesign:ShadowAssist.ShadowDepth="Depth0" 
-                                   BorderBrush="#AA381F"  FontSize="15" Foreground="White" Margin="0 10 0 10"
-                                   HorizontalAlignment="Left" FontWeight="Light"></Button>
-                        </Border>
-                        <Border BorderThickness="0 0.3 0 0.3" BorderBrush="White"  Grid.Row="1" >
-                            <Button Click="Button_Food" Content="Danh sách món ăn" Padding="0" 
-                                   Background="#AA381F" materialDesign:ShadowAssist.ShadowDepth="Depth0" 
-                                   BorderBrush="#AA381F" FontSize="15" Foreground="White" Margin="0 10 0 10"
-                                   HorizontalAlignment="Left" FontWeight="Light"></Button>
-                        </Border>
-                        <Border BorderThickness="0 0.3 0 0.3" BorderBrush="White" Grid.Row="2">
-                            <Button Click="Button_Add" Content="Thêm món" FontSize="15" Foreground="White" Margin="0 10 0 10"
-                                   Padding="0" Background="#AA381F" 
-                                   materialDesign:ShadowAssist.ShadowDepth="Depth0" BorderBrush="#AA381F" 
-                                   HorizontalAlignment="Left" FontWeight="Light"></Button>
-                        </Border>
-                        <Border BorderThickness="0 0.3 0 0.3" BorderBrush="White" Grid.Row="3" >
-                            <Button Click="Button_Info" Content="Thông tin" 
-                                   Padding="0" Background="#AA381F" 
-                                   materialDesign:ShadowAssist.ShadowDepth="Depth0" BorderBrush="#AA381F" 
-                                   FontSize="15" Foreground="White" Margin="0 10 0 10"
-                                   HorizontalAlignment="Left" FontWeight="Light"></Button>
-                        </Border>
-                        <Button Click="Button_Out" Content="Thoát" 
-                                   Padding="0" Background="#AA381F" 
-                                   materialDesign:ShadowAssist.ShadowDepth="Depth0" BorderBrush="#AA381F" 
-                                   FontSize="15" Foreground="White" Margin="0 10 0 10"
-                                   HorizontalAlignment="Left" FontWeight="Light"></Button>
+                        <Button Content="Trang chủ"
+                                FontWeight="Light"
+                                Background="#AA381F"
+                                BorderBrush="#fff"
+                                BorderThickness="0 0.5 0 0.5"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="Auto" Margin="0,0,0,5.333" />
+                        <Button Content="Danh sách món ăn"
+                                FontWeight="Light"
+                                Background="#AA381F"
+                                BorderBrush="#fff"
+                                BorderThickness="0 0 0 0.5"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0" 
+                                Height="Auto" Margin="0,45,0,4.667" Grid.RowSpan="2"/>
+                        <Button Content="Thêm món" Grid.Row="2"
+                                FontWeight="Light"
+                                Background="#AA381F"
+                                BorderBrush="#fff"
+                                BorderThickness="0 0 0 0.5"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                Height="Auto" Margin="0,0.333,0,5.333"/>
+                        <Button Content="Thông tin" Grid.Row="2"
+                                FontWeight="Light"
+                                Background="#AA381F"
+                                BorderBrush="#fff"
+                                BorderThickness="0 0 0 0.5"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                Height="Auto" Margin="0,44.333,0,4.667" Grid.RowSpan="2"/>
+                        <Button Content="Thoát" Grid.Row="4"
+                                FontWeight="Light"
+                                Background="#AA381F"
+                                BorderBrush="#fff"
+                                BorderThickness="0 0 0 0.5"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                Height="Auto"/>
+
                     </Grid>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
@@ -78,7 +83,7 @@
                 </Button>
             </Grid>
         </materialDesign:DrawerHost>
-        <!--Tố Ngô-->
+        <!--Tố Ngu-->
         <!--Cường Xl-->
         <materialDesign:ColorZone Mode= "PrimaryLight" Padding="16" Width="795" Background="#AA381F">
             <DockPanel>
