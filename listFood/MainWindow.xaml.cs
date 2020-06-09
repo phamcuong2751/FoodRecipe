@@ -36,16 +36,6 @@ namespace listFood
             InitializeComponent();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// new code
-
-
-
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //List<Food> listFoods = new List<Food>();
@@ -56,8 +46,10 @@ namespace listFood
             //Excel.Range xlRange = xlWorksheet.UsedRange;
 
         }
-
-        
+        private void Button_Out(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
 
