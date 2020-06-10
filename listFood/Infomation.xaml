@@ -1,0 +1,16 @@
+﻿<Window x:Class="listFood.Infomation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:listFood"
+        mc:Ignorable="d"
+        Title="Infomation" Height="650" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <Border Background="#AA381F">
+                <TextBlock Text="INFOMATION" HorizontalAlignment="Center" FontSize="40" FontWeight="Light" Foreground="White" Margin="10"></TextBlock>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

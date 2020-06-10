@@ -36,7 +36,10 @@
                             <RowDefinition Height="45*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <!--Code Cường-->
-                        <Button Content="Trang chủ"
+                        <!--Tố Edit Button Home-->
+                        <Button
+                                Click="Button_Home"
+                                Content="Trang chủ"
                                 FontWeight="Light"
                                 Background="#AA381F"
                                 BorderBrush="#fff"
@@ -57,14 +60,18 @@
                                 BorderThickness="0 0 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0"
                                 Height="Auto" Margin="0,0.333,0,5.333"/>
-                        <Button Content="Thông tin" Grid.Row="2"
+                        <!--Tố Edit Button Infomation-->
+                        <Button Click="Button_Infomation"
+                                Content="Thông tin" Grid.Row="2"
                                 FontWeight="Light"
                                 Background="#AA381F"
                                 BorderBrush="#fff"
                                 BorderThickness="0 0 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0"
                                 Height="Auto" Margin="0,44.333,0,4.667" Grid.RowSpan="2"/>
-                        <Button Content="Thoát" Grid.Row="4"
+                        <!--Tố Edit Button Out-->
+                        <Button Click="Button_Out"
+                                Content="Thoát" Grid.Row="4"
                                 FontWeight="Light"
                                 Background="#AA381F"
                                 BorderBrush="#fff"
@@ -139,7 +146,6 @@
                        Text="SALAD CÀ CHUA DƯA CHUỘT"/>
             <TextBlock Width="345" Height="29"
                        Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-
         </ListBox>
         <!--Cường Xl-->
     </Canvas>

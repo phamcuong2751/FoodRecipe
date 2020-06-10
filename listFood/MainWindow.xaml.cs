@@ -50,6 +50,19 @@ namespace listFood
         {
             Application.Current.Shutdown();
         }
+
+        private void Button_Home(object sender, RoutedEventArgs e)
+        {
+            Home hr = new Home();
+            hr.Show();
+            this.Hide();
+        }
+
+        private void Button_Infomation(object sender, RoutedEventArgs e)
+        {
+            Infomation info = new Infomation();
+            info.Show();
+        }
     }
 }
 
