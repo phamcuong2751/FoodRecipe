@@ -63,6 +63,11 @@ namespace listFood
             Infomation info = new Infomation();
             info.Show();
         }
+
+        private void ListBox_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
     }
 }
 
