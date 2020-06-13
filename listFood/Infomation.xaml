@@ -11,6 +11,14 @@
             <Border Background="#AA381F">
                 <TextBlock Text="INFOMATION" HorizontalAlignment="Center" FontSize="40" FontWeight="Light" Foreground="White" Margin="10"></TextBlock>
             </Border>
+            <Grid Height="547">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>

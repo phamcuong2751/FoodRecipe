@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Home" MinHeight="600" MinWidth="800" WindowStartupLocation="CenterScreen"
-        WindowState="Maximized">
+        >
     <Grid>
         <!--Thanh Menu-->
         <!--<materialDesign:DrawerHost Panel.ZIndex="500">
@@ -90,10 +90,11 @@
         </materialDesign:DrawerHost>-->
         <!--Thanh Menu-->
         <StackPanel>
-            <materialDesign:ColorZone Padding="16"  Background="#AA381F">
-                <DockPanel>
-                    <StackPanel FlowDirection="LeftToRight" materialDesign:RippleAssist.IsCentered="True">
-                        <materialDesign:ColorZone
+            <DockPanel>
+                <materialDesign:ColorZone Padding="16"  Background="#AA381F">
+                    <DockPanel>
+                        <StackPanel FlowDirection="LeftToRight" materialDesign:RippleAssist.IsCentered="True">
+                            <materialDesign:ColorZone
                             HorizontalAlignment="Right"
                             Mode="Standard" 
                             Padding="8 4 8 4" 
@@ -102,58 +103,55 @@
                             Margin="380 0 0 0" 
                             materialDesign:ShadowAssist.ShadowDepth="Depth1" 
                             Width="302">
-                            <Grid >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="19*"/>
-                                    <RowDefinition Height="13*"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.RowSpan="2">
-                                    <materialDesign:PackIcon Kind="Magnify" Opacity=".56" Height="22" Width="22" />
-                                </Button>
-                                <TextBox  
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="19*"/>
+                                        <RowDefinition Height="13*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.RowSpan="2">
+                                        <materialDesign:PackIcon Kind="Magnify" Opacity=".56" Height="22" Width="22" />
+                                    </Button>
+                                    <TextBox  
                                     Grid.Column="1" Margin="8,4,0,4"
                                     materialDesign:HintAssist.Hint="Nhập từ khoá để tìm công thức..."
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     BorderThickness="0"  MinWidth="200"
                                     VerticalAlignment="Center" Grid.RowSpan="2"/>
-                            </Grid>
-                        </materialDesign:ColorZone>
-                    </StackPanel>
-                </DockPanel>
-            </materialDesign:ColorZone>
-            <Border Height="auto">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="7*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <Grid Height="auto" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-                            <Canvas Grid.Row="0">
-                                <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                </Grid>
+                            </materialDesign:ColorZone>
+                        </StackPanel>
+                    </DockPanel>
+                </materialDesign:ColorZone>
+            </DockPanel>
+            <DockPanel>
+                <StackPanel>
+                    <Grid Height="auto" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Canvas Grid.Row="0">
+                            <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
                         Fill="#AA381F" Canvas.Left="62" Canvas.Top="40"/>
-                                <Image Source="/img/Canh.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="70" Canvas.Top="40" />
-                                <Image Source="/img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="207" />
-                            </Canvas>
-                            <Canvas Grid.Row="1">
-                                <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                            <Image Source="/img/Canh.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="70" Canvas.Top="40" />
+                            <Image Source="/img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="207" />
+                        </Canvas>
+                        <Canvas Grid.Row="1">
+                            <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
                     Fill="#AA381F" Canvas.Left="70" Canvas.Top="207"/>
-                                <Image Source="/img/Vit_nuong.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="78" Canvas.Top="207" />
-                                <Image Source="img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="40" />
-                            </Canvas>
-                        </Grid>
-                    </StackPanel>
-                    <ListBox Grid.Column="1" Canvas.Left="381" Height="500" Canvas.Top="24" Margin="2,3,2,0">
+                            <Image Source="/img/Vit_nuong.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="78" Canvas.Top="207" />
+                            <Image Source="img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="40" />
+                        </Canvas>
+                    </Grid>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Right">
+                    <ListBox Canvas.Left="381" Height="428" Canvas.Top="24" Margin="2,3,2,0" Width="262">
                         <TextBlock Width="345" Height="29"
                        Text="SALAD CÀ CHUA DƯA CHUỘT"/>
                         <TextBlock Width="345" Height="29"
@@ -193,8 +191,8 @@
                         <TextBlock Width="345" Height="29"
                        Text="SALAD CÀ CHUA DƯA Thuis"/>
                     </ListBox>
-                </Grid>
-            </Border>
+                </StackPanel>
+            </DockPanel>
         </StackPanel>
         <!--Cường Xl-->
     </Grid>
