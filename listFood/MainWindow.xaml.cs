@@ -49,6 +49,7 @@ namespace listFood
         private void Button_Out(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+
         }
 
         private void Button_Home(object sender, RoutedEventArgs e)

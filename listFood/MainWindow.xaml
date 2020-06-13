@@ -153,7 +153,9 @@
                             </Canvas>
                         </Grid>
                     </StackPanel>
-                    <ListBox Grid.Column="1" Canvas.Left="381" Height="500" Canvas.Top="24" Margin="2,3,2,0">
+                    <Label Content="Các món ăn tương tự"/>
+          
+                    <ListBox Grid.Column="1" Canvas.Left="381" Canvas.Top="24" Margin="1.667,66,2.333,-0.333">
                         <TextBlock Width="345" Height="29"
                        Text="SALAD CÀ CHUA DƯA CHUỘT"/>
                         <TextBlock Width="345" Height="29"
@@ -196,6 +198,6 @@
                 </Grid>
             </Border>
         </StackPanel>
-        <!--Cường Xl-->
+        <!--Code Cường-->
     </Grid>
 </Window>
