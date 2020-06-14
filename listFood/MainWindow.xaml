@@ -185,14 +185,12 @@
                                 <DockPanel>
                                     <Image Source="/img/icon_app.ico" Height="70"/>
                                     <StackPanel Margin="20 0 0 0">
-                                       
-
                                         <TextBlock Margin="0 10 0 0"
                                                     Text="{Binding Name}" 
                                                     FontWeight="Light"
                                                     Foreground="#AA381F" 
                                                     FontSize="15"/>
-                                        <TextBlock Text="{Binding Author}" 
+                                        <TextBlock Text="{Binding Making}" 
                                                     FontSize="10"
                                                     FontWeight="Light"/>
                                         <TextBlock Text="{Binding Year}"
