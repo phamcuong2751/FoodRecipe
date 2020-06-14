@@ -25,6 +25,9 @@
         <DataTemplate x:Name="food2" DataType="{x:Type dialog:ListFood}">
             <dialog:ListFood DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="food3" DataType="{x:Type dialog:OpenWindowFood}">
+            <dialog:OpenWindowFood DataContext="{Binding}"/>
+        </DataTemplate>
         <local:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
     </Window.Resources>
     <Grid>
@@ -179,10 +182,10 @@
                                    HorizontalContentAlignment="Right"
                                    FontSize="10" Foreground="Gray" Width="421"  />
                     </DockPanel>
-                    <ListBox Name ="ListBox_Food" BorderThickness="0" Margin="10 10 0 10" Height="450">
+                    <ListBox MouseDoubleClick="DockPanel_MouseDown" Name ="ListBox_Food" BorderThickness="0" Margin="10 10 0 10" Height="450">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <DockPanel MouseDown="DockPanel_MouseDown">
+                                <DockPanel>
                                     <Image RenderOptions.BitmapScalingMode="HighQuality" Source="{Binding _cover,Converter={StaticResource pathConverter}}" Width="70" Height="70"/>
                                     <StackPanel Margin="20 0 0 0">
                                         <TextBlock Margin="0 10 0 0"

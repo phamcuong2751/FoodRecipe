@@ -88,10 +88,13 @@ namespace listFood
         }
         private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if(e.ClickCount == 2)
-            {
-                MessageBox.Show("Đã double click");
-            }
+            var index = ListBox_Food.SelectedIndex;
+            var food = listFood[index];
+            //var screen = new OpenWindowOfFood(food);
+            //if (screen.ShowDiaglog() == true)
+            var openWindow = new OpenWindowFood(food);
+            DataContext = openWindow;
+            
         }
 
         private void Button_Out(object sender, RoutedEventArgs e)
