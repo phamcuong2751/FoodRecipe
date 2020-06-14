@@ -84,14 +84,14 @@ namespace listFood
             ListBox_Food.ItemsSource = listFood;
         }
 
-        private void Button_Home(object sender, RoutedEventArgs e)
+        private void Button_Home(RoutedEventArgs e, object sender)
         {
             Home hr = new Home();
             hr.Show();
             this.Hide();
         }
 
-        private void Button_Infomation(object sender, RoutedEventArgs e)
+        private void Button_Infomation(RoutedEventArgs e, object sender)
         {
             Infomation info = new Infomation();
             info.Show();
@@ -106,7 +106,7 @@ namespace listFood
         {
             DataContext = new ListFood();
         }
-        private void Button_Out(object sender, RoutedEventArgs e)
+        private void Button_Out(RoutedEventArgs e, object sender)
         {
             var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if(DR == MessageBoxResult.Yes )
