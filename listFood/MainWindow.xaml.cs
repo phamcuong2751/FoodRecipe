@@ -98,9 +98,7 @@ namespace listFood
             ListBox_Food.ItemsSource = listFood;
 
         }
-        
-
-
+       
     }
 }
 

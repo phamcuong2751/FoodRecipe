@@ -21,7 +21,7 @@
     </Window.Resources>
     <Grid Background="LightGray">
         <!--Thanh Menu-->
-        <!--<materialDesign:DrawerHost Panel.ZIndex="500">
+        <materialDesign:DrawerHost Panel.ZIndex="500">
             <Button 
                     Panel.ZIndex="100" 
                     Background="#AA381F" 
@@ -91,7 +91,7 @@
                     </Grid>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-        </materialDesign:DrawerHost>-->
+        </materialDesign:DrawerHost>
         <!--Thanh Menu-->
         <!--Code Cường-->
         <StackPanel>
@@ -169,18 +169,8 @@
                                    HorizontalContentAlignment="Right"
                                    FontSize="10" Foreground="Gray" Width="421"  />
                     </DockPanel>
-                    <ListView Name ="ListBox_Food" BorderThickness="0" Margin="10 10 0 10" Height="450">
-                        <ListView.Resources>
-                            <SolidColorBrush x:Key="ItemBackgroundHover" Color="Transparent" />
-                            <Style TargetType="ListViewItem">
-                                <Style.Triggers>
-                                    <Trigger Property="Validation.HasError" Value="True">
-                                        <Setter Property="Background" Value="White" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ListView.Resources>
-                        <ListView.ItemTemplate>
+                    <ListBox Name ="ListBox_Food" BorderThickness="0" Margin="10 10 0 10" Height="450">
+                        <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <DockPanel>
                                     <Image Source="/img/icon_app.ico" Height="70"/>
@@ -190,17 +180,27 @@
                                                     FontWeight="Light"
                                                     Foreground="#AA381F" 
                                                     FontSize="15"/>
-                                        <TextBlock Text="{Binding _howToFood}" 
+                                        <DockPanel>
+                                            <TextBlock Text="Cách nấu: " Margin="0 0 10 0"
+                                                       FontSize="10"
+                                                       FontWeight="Bold"/>
+                                            <TextBlock Text="{Binding _howToFood}" 
                                                     FontSize="10"
                                                     FontWeight="Light"/>
-                                        <TextBlock Text="{Binding _rating}"
+                                        </DockPanel>
+                                        <DockPanel>
+                                            <TextBlock Text="Nguyên liệu: " 
+                                                       FontSize="10"
+                                                       FontWeight="Bold"/>
+                                            <TextBlock Text="{Binding _material}"
                                                     FontSize="10"
-                                                    FontWeight="Light"/>
+                                                    FontWeight="Light" TextWrapping="WrapWithOverflow"/>
+                                        </DockPanel>
                                     </StackPanel>
                                 </DockPanel>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                     <DockPanel Margin="10 5 10 0 ">
 
                         <Image RenderOptions.BitmapScalingMode="HighQuality" Source="img/food.ico" Height="15" />
