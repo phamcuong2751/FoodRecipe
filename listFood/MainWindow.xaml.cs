@@ -84,25 +84,18 @@ namespace listFood
             ListBox_Food.ItemsSource = listFood;
         }
 
-        private void StackPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Button_Home(object sender, RoutedEventArgs e)
         {
-            if (e.ClickCount == 2)
-            {
-                MessageBox.Show("Đã ấn double click");
-            }
+            Home hr = new Home();
+            hr.Show();
+            this.Hide();
         }
-        //private void Button_Home(object sender, RoutedEventArgs e)
-        //{
-        //    Home hr = new Home();
-        //    hr.Show();
-        //    this.Hide();
-        //}
 
-        //private void Button_Infomation(object sender, RoutedEventArgs e)
-        //{
-        //    Infomation info = new Infomation();
-        //    info.Show();
-        //}
+        private void Button_Infomation(object sender, RoutedEventArgs e)
+        {
+            Infomation info = new Infomation();
+            info.Show();
+        }
 
         private void Button_List(object sender, RoutedEventArgs e)
         {
@@ -113,14 +106,14 @@ namespace listFood
         {
             DataContext = new ListFood();
         }
-        //private void Button_Out(object sender, RoutedEventArgs e)
-        //{
-        //    var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-        //    if (DR == MessageBoxResult.Yes)
-        //    {
-        //        Application.Current.Shutdown();
-        //    }
-        //}
+        private void Button_Out(object sender, RoutedEventArgs e)
+        {
+            var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if(DR == MessageBoxResult.Yes )
+            {
+                Application.Current.Shutdown();
+            }    
+        }
     }
 }
 
