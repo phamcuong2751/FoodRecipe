@@ -96,10 +96,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Food.cs" />
-=======
->>>>>>> phucuong
     <Compile Include="Infomation.xaml.cs">
       <DependentUpon>Infomation.xaml</DependentUpon>
     </Compile>
@@ -137,7 +133,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="data\dataOfFood.txt" />
-<<<<<<< HEAD
     <None Include="data\img\splashscreen\food_1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -237,8 +232,6 @@
     <None Include="data\img\splashscreen\food_9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-=======
->>>>>>> phucuong
     <Content Include="Font\CAVEMAN.TTF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
