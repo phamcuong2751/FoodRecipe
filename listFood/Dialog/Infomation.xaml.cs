@@ -10,14 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace listFood
+namespace listFood.Dialog
 {
     /// <summary>
     /// Interaction logic for Infomation.xaml
     /// </summary>
-    public partial class Infomation : Window
+    public partial class Infomation : UserControl
     {
         public Infomation()
         {

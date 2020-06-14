@@ -38,8 +38,7 @@ namespace listFood
 
         private void Button_Infomation(object sender, RoutedEventArgs e)
         {
-            Infomation info = new Infomation();
-            info.Show();
+            DataContext = new Infomation();
         }
 
         private void ListBox_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
@@ -79,12 +78,12 @@ namespace listFood
         }
         private void Button_List(object sender, RoutedEventArgs e)
         {
-            DataContext = new AddFood();
+            DataContext = new ListFood();
         }
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
-            DataContext = new ListFood();
+            DataContext = new AddFood();
         }
         private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {

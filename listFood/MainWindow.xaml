@@ -7,7 +7,8 @@
         xmlns:dialog="clr-namespace:listFood.Dialog"
         xmlns:viewdialog="clr-namespace:listFood.ViewDialog"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local1="clr-namespace:listFood"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:local1="clr-namespace:listFood"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -15,7 +16,10 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Home" MinHeight="600" MinWidth="800" WindowStartupLocation="CenterScreen"
+        Title="Home" 
+        MinHeight="700"
+        MinWidth="900"
+        WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         Loaded="Window_Loaded" >
     <Window.Resources>
@@ -24,6 +28,9 @@
         </DataTemplate>
         <DataTemplate x:Name="food2" DataType="{x:Type dialog:ListFood}">
             <dialog:ListFood DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="info" DataType="{x:Type dialog:ListFood}">
+            <dialog:Infomation DataContext="{Binding}"/>
         </DataTemplate>
         <local:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
     </Window.Resources>
@@ -38,26 +45,34 @@
                     materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                     BorderBrush="#AA381F" 
                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" 
-                    Height="66" Width="78">
-                <materialDesign:PackIcon
-                        Kind="Menu" Height="34" Width="38" />
+                    Height="60" Width="72" Margin="8,6,0,0">
+                <materialDesign:PackIcon 
+                    Kind="Menu" 
+                    Height="34" 
+                    Width="38" />
             </Button>
             <materialDesign:DrawerHost.LeftDrawerContent>
-                <StackPanel Width="200" Background="#AA381F" >
-                    <Button Margin="4 20 4 40" HorizontalAlignment="Center"
-                            Padding="0" Content="MENU" 
-                            Background="#AA381F" materialDesign:ShadowAssist.ShadowDepth="Depth0" 
-                            BorderBrush="#AA381F" FontSize="30" FontWeight="Bold" Foreground="White">
+                <StackPanel Width="200"
+                            Background="#AA381F" >
+                    <Button Margin="4 20 4 40" 
+                            HorizontalAlignment="Center"
+                            Padding="0"
+                            Content="MENU" 
+                            Background="#AA381F"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0" 
+                            BorderBrush="#AA381F" 
+                            FontSize="30" 
+                            FontWeight="Bold" 
+                            Foreground="White">
                     </Button>
                     <Grid Height="225" Width="150">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="45*"></RowDefinition>
-                            <RowDefinition Height="45*"></RowDefinition>
-                            <RowDefinition Height="45*"></RowDefinition>
-                            <RowDefinition Height="45*"></RowDefinition>
-                            <RowDefinition Height="45*"></RowDefinition>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="45*"/>
                         </Grid.RowDefinitions>
-
                         <Button Click="Button_Home"
                                 Content="Trang chủ"
                                 FontWeight="Light"
@@ -65,7 +80,8 @@
                                 BorderBrush="#fff"
                                 BorderThickness="0 0.5 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0" 
-                                Height="Auto" Margin="0,0,0,5.333"/>
+                                Height="Auto" 
+                                Margin="0,0,0,5.333"/>
                         <Button Click="Button_List"
                                 Content="Danh sách món ăn"
                                 FontWeight="Light"
@@ -73,7 +89,9 @@
                                 BorderBrush="#fff"
                                 BorderThickness="0 0 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0" 
-                                Height="Auto" Margin="0,45,0,4.667" Grid.RowSpan="2"/>
+                                Height="Auto" 
+                                Margin="0,45,0,4.667"
+                                Grid.RowSpan="2"/>
                         <Button Click="Button_Add"
                                 Content="Thêm món" Grid.Row="2"
                                 FontWeight="Light"
@@ -81,17 +99,23 @@
                                 BorderBrush="#fff"
                                 BorderThickness="0 0 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                                Height="Auto" Margin="0,0.333,0,5.333"/>
-                        <Button Content="Thông tin" Grid.Row="2"
-                                Click="Button_Infomation"
+                                Height="Auto"
+                                Margin="0,0.333,0,5.333"/>
+                        <Button Click="Button_Infomation"
+                                Content="Thông tin" 
+                                Grid.Row="2"
                                 FontWeight="Light"
                                 Background="#AA381F"
                                 BorderBrush="#fff"
                                 BorderThickness="0 0 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                                Height="Auto" Margin="0,44.333,0,4.667" Grid.RowSpan="2"/>
-                        <Button Content="Thoát" Grid.Row="4"
-                                Click="Button_Out"
+                                Height="Auto"
+                                Margin="0,44.333,0,4.667" 
+                                Grid.RowSpan="2"/>
+                        <Button Click="Button_Out"
+                                IsCancel="True"
+                                Content="Thoát" 
+                                Grid.Row="4"
                                 FontWeight="Light"
                                 Background="#AA381F"
                                 BorderBrush="#fff"
@@ -106,9 +130,11 @@
         <!--Code Cường-->
         <StackPanel>
             <StackPanel>
-                <materialDesign:ColorZone Padding="16"  Background="#AA381F">
+                <materialDesign:ColorZone Padding="16" 
+                                          Background="#AA381F">
                     <DockPanel>
-                        <StackPanel FlowDirection="LeftToRight" materialDesign:RippleAssist.IsCentered="True">
+                        <StackPanel FlowDirection="LeftToRight"
+                                    materialDesign:RippleAssist.IsCentered="True">
                             <materialDesign:ColorZone
                             HorizontalAlignment="Right"
                             Mode="Standard" 
@@ -128,15 +154,23 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.RowSpan="2">
-                                        <materialDesign:PackIcon Kind="Magnify" Opacity=".56" Height="22" Width="22" />
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.RowSpan="2">
+                                        <materialDesign:PackIcon 
+                                            Kind="Magnify" 
+                                            Opacity="1" 
+                                            Height="22" 
+                                            Width="22" />
                                     </Button>
                                     <TextBox  
-                                    Grid.Column="1" Margin="8,4,0,4"
+                                    Grid.Column="1" 
+                                    Margin="8,4,0,4"
                                     materialDesign:HintAssist.Hint="Nhập từ khoá để tìm công thức..."
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                    BorderThickness="0"  MinWidth="200"
-                                    VerticalAlignment="Center" Grid.RowSpan="2"/>
+                                    BorderThickness="0" 
+                                    MinWidth="200"
+                                    VerticalAlignment="Center" 
+                                    Grid.RowSpan="2"/>
                                 </Grid>
                             </materialDesign:ColorZone>
                         </StackPanel>
@@ -144,59 +178,105 @@
                 </materialDesign:ColorZone>
             </StackPanel>
         </StackPanel>
-        <Grid Margin="0 75 0 0">
+        <Grid Margin="0,74,0,0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
                 <Grid Height="auto" >
-
-                    <Canvas Grid.Row="0" Margin="0,0,0.333,0" Grid.RowSpan="3">
-                        <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                        Fill="#AA381F" Canvas.Left="62" Canvas.Top="40"/>
-                        <Image Source="/img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="207" Panel.ZIndex="100"/>
-                        <Image Source="/img/Canh.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="70" Canvas.Top="40" />
-
+                    <Canvas Grid.Row="0" 
+                            Margin="0,0,0.333,0" 
+                            Grid.RowSpan="3">
+                        <Ellipse Height="120" 
+                                 Width="120"
+                                 HorizontalAlignment="Center" 
+                                 VerticalAlignment="Bottom"
+                                 Fill="#AA381F" 
+                                 Canvas.Left="62" 
+                                 Canvas.Top="40"/>
+                        <Image Source="/img/star-1.png" 
+                               Height="30" 
+                               Canvas.Left="167" 
+                               Canvas.Top="207" 
+                               Panel.ZIndex="100"/>
+                        <Image Source="/img/Canh.png"
+                               Height="120" 
+                               Width="120" 
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               Canvas.Left="70" 
+                               Canvas.Top="40" />
                     </Canvas>
-                    <Canvas Grid.Row="1" Margin="0,0,0.333,0" Grid.RowSpan="2">
-                        <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                    Fill="#AA381F" Canvas.Left="70" Canvas.Top="207"/>
-                        <Image Source="img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="40" />
-                        <Image Source="/img/Vit_nuong.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="78" Canvas.Top="207" />
-
+                    <Canvas Grid.Row="1"
+                            Margin="0,0,0.333,0" 
+                            Grid.RowSpan="2">
+                        <Ellipse Height="120" 
+                                 Width="120" 
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Bottom"
+                                 Fill="#AA381F" 
+                                 Canvas.Left="70" 
+                                 Canvas.Top="207"/>
+                        <Image Source="img/star-1.png"
+                               Height="30" 
+                               Canvas.Left="167" 
+                               Canvas.Top="40" />
+                        <Image Source="/img/Vit_nuong.png" 
+                               Height="120" 
+                               Width="120" 
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               Canvas.Left="78"
+                               Canvas.Top="207" />
                     </Canvas>
                 </Grid>
             </StackPanel>
-
-            <Border Background="#fff" CornerRadius="7" Margin="10 20" Grid.Column="1" >
+            <Border Background="#fff"
+                    CornerRadius="7" 
+                    Margin="10 20" 
+                    Grid.Column="1" >
                 <StackPanel>
                     <DockPanel>
-                        <Label Content="Danh sách món ăn" Margin="10 0 0 0"
-                                   Foreground="#AA381F"  FontWeight="DemiBold" FontSize="20"/>
-                        <Label Name="lblTime" Margin="0"
-                                   HorizontalAlignment="Right" 
-                                   HorizontalContentAlignment="Right"
-                                   FontSize="10" Foreground="Gray" Width="421"  />
+                        <Label Content="Danh sách món ăn"
+                               Margin="10 0 0 0"
+                               Foreground="#AA381F"
+                               FontWeight="DemiBold"
+                               FontSize="20"/>
+                        <Label Name="lblTime" 
+                               Margin="0"
+                               HorizontalAlignment="Right" 
+                               HorizontalContentAlignment="Right"
+                               FontSize="10"
+                               Foreground="Gray" 
+                               Width="421"  />
                     </DockPanel>
-                    <ListBox Name ="ListBox_Food" BorderThickness="0" Margin="10 10 0 10" Height="450">
+                    <ListBox Name ="ListBox_Food" 
+                             BorderThickness="0" 
+                             Margin="10 10 0 10"
+                             Height="450">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <DockPanel MouseDown="DockPanel_MouseDown">
-                                    <Image RenderOptions.BitmapScalingMode="HighQuality" Source="{Binding _cover,Converter={StaticResource pathConverter}}" Width="70" Height="70"/>
+                                    <Image 
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="{Binding _cover,Converter={StaticResource pathConverter}}" 
+                                        Width="70" 
+                                        Height="70"/>
                                     <StackPanel Margin="20 0 0 0">
-                                        <TextBlock Margin="0 10 0 0"
+                                        <TextBlock  Margin="0 10 0 0"
                                                     Text="{Binding _nameOfFood}" 
                                                     FontWeight="Light"
                                                     Foreground="#AA381F" 
                                                     FontSize="15"/>
                                         <DockPanel>
-                                            <TextBlock Text="Cách nấu: " Margin="0 0 10 0"
+                                            <TextBlock Text="Cách nấu: " 
+                                                       Margin="0 0 10 0"
                                                        FontSize="10"
                                                        FontWeight="Bold"/>
                                             <TextBlock Text="{Binding _howToFood}" 
-                                                    FontSize="10"
-                                                    FontWeight="Light"/>
+                                                       FontSize="10"
+                                                       FontWeight="Light"/>
                                         </DockPanel>
                                         <DockPanel>
                                             <TextBlock Text="Nguyên liệu: " 
@@ -204,7 +284,8 @@
                                                        FontWeight="Bold"/>
                                             <TextBlock Text="{Binding _material}"
                                                     FontSize="10"
-                                                    FontWeight="Light" TextWrapping="WrapWithOverflow"/>
+                                                    FontWeight="Light"
+                                                       TextWrapping="WrapWithOverflow"/>
                                         </DockPanel>
                                     </StackPanel>
                                 </DockPanel>
@@ -212,14 +293,18 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <DockPanel Margin="10 5 10 0 ">
-
-                        <Image RenderOptions.BitmapScalingMode="HighQuality" Source="img/food.ico" Height="15" />
-                        <StackPanel Margin="5 0 0 0" Width="353"
-                                        HorizontalAlignment="Left">
-                            <Label Content="Chúc bạn có một bữa ăn vui vẻ" Padding="0" Margin="0 5"
-                                               Foreground="Gray"  FontSize="13"
-                                               VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-
+                        <Image RenderOptions.BitmapScalingMode="HighQuality"
+                               Source="img/food.ico" 
+                               Height="15" />
+                        <StackPanel Margin="5 0 0 0" 
+                                    Width="353"
+                                    HorizontalAlignment="Left">
+                            <Label Content="Chúc bạn có một bữa ăn vui vẻ" 
+                                   Padding="0" Margin="0 5"
+                                   Foreground="Gray" 
+                                   FontSize="13"
+                                   VerticalAlignment="Center" 
+                                   VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </DockPanel>
                 </StackPanel>

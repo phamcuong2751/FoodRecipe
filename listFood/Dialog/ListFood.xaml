@@ -6,7 +6,25 @@
              xmlns:local="clr-namespace:listFood.Dialog"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="AliceBlue">
-            
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" 
+                    Height="75"
+                    VerticalAlignment="Top" 
+                    Background="#AA381F">
+            <TextBlock Text="DANH SÁCH MÓN ĂN" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       FontWeight="Light"
+                       Margin="10"
+                       FontSize="40" 
+                       Foreground="White"></TextBlock>
+        </StackPanel>
+        <StackPanel Background="White"
+                    Grid.Row="1" >
+        </StackPanel>
     </Grid>
 </UserControl>

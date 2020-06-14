@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="listFood.Dialog.AddFood"
+﻿<UserControl x:Class="listFood.Dialog.Infomation"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -11,17 +11,21 @@
             <RowDefinition Height="75"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        
         <StackPanel Grid.Row="0" 
                     Height="75"
                     VerticalAlignment="Top" 
                     Background="#AA381F">
-            <TextBlock Text="THÊM MÓN ĂN" 
+            <DockPanel>
+                <TextBlock Text="THÔNG TIN" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center" 
                        FontWeight="Light"
                        Margin="10"
                        FontSize="40" 
                        Foreground="White"></TextBlock>
+                
+            </DockPanel>
         </StackPanel>
         <StackPanel Background="White"
                     Grid.Row="1" >
