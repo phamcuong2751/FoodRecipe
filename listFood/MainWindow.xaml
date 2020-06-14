@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Test_Splash_Screen"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local1="clr-namespace:listFood"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -14,8 +14,11 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Home" MinHeight="600" MinWidth="800" WindowStartupLocation="CenterScreen"
-        WindowState="Maximized">
-    <Grid>
+        WindowState="Maximized" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local1:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
+    </Window.Resources>
+    <Grid Background="LightGray">
         <!--Thanh Menu-->
         <!--<materialDesign:DrawerHost Panel.ZIndex="500">
             <Button 
@@ -89,11 +92,13 @@
             </materialDesign:DrawerHost.LeftDrawerContent>
         </materialDesign:DrawerHost>-->
         <!--Thanh Menu-->
+        <!--Code Cường-->
         <StackPanel>
-            <materialDesign:ColorZone Padding="16"  Background="#AA381F">
-                <DockPanel>
-                    <StackPanel FlowDirection="LeftToRight" materialDesign:RippleAssist.IsCentered="True">
-                        <materialDesign:ColorZone
+            <StackPanel>
+                <materialDesign:ColorZone Padding="16"  Background="#AA381F">
+                    <DockPanel>
+                        <StackPanel FlowDirection="LeftToRight" materialDesign:RippleAssist.IsCentered="True">
+                            <materialDesign:ColorZone
                             HorizontalAlignment="Right"
                             Mode="Standard" 
                             Padding="8 4 8 4" 
@@ -102,102 +107,117 @@
                             Margin="380 0 0 0" 
                             materialDesign:ShadowAssist.ShadowDepth="Depth1" 
                             Width="302">
-                            <Grid >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="19*"/>
-                                    <RowDefinition Height="13*"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.RowSpan="2">
-                                    <materialDesign:PackIcon Kind="Magnify" Opacity=".56" Height="22" Width="22" />
-                                </Button>
-                                <TextBox  
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="19*"/>
+                                        <RowDefinition Height="13*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.RowSpan="2">
+                                        <materialDesign:PackIcon Kind="Magnify" Opacity=".56" Height="22" Width="22" />
+                                    </Button>
+                                    <TextBox  
                                     Grid.Column="1" Margin="8,4,0,4"
                                     materialDesign:HintAssist.Hint="Nhập từ khoá để tìm công thức..."
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     BorderThickness="0"  MinWidth="200"
                                     VerticalAlignment="Center" Grid.RowSpan="2"/>
-                            </Grid>
-                        </materialDesign:ColorZone>
-                    </StackPanel>
-                </DockPanel>
-            </materialDesign:ColorZone>
-            <Border Height="auto">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="7*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <Grid Height="auto" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-                            <Canvas Grid.Row="0">
-                                <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                        Fill="#AA381F" Canvas.Left="62" Canvas.Top="40"/>
-                                <Image Source="/img/Canh.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="70" Canvas.Top="40" />
-                                <Image Source="/img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="207" />
-                            </Canvas>
-                            <Canvas Grid.Row="1">
-                                <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                    Fill="#AA381F" Canvas.Left="70" Canvas.Top="207"/>
-                                <Image Source="/img/Vit_nuong.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="78" Canvas.Top="207" />
-                                <Image Source="img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="40" />
-                            </Canvas>
-                        </Grid>
-                    </StackPanel>
-                    <Label Content="Các món ăn tương tự"/>
-          
-                    <ListBox Grid.Column="1" Canvas.Left="381" Canvas.Top="24" Margin="1.667,66,2.333,-0.333">
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA CHUỘT"/>
-                        <TextBlock Width="345" Height="29"
-                       Text="SALAD CÀ CHUA DƯA Thuis"/>
-                    </ListBox>
-                </Grid>
-            </Border>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                        </StackPanel>
+                    </DockPanel>
+                </materialDesign:ColorZone>
+            </StackPanel>
         </StackPanel>
+        <Grid Margin="0 75 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Grid Height="auto" >
+
+                    <Canvas Grid.Row="0" Margin="0,0,0.333,0" Grid.RowSpan="3">
+                        <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                        Fill="#AA381F" Canvas.Left="62" Canvas.Top="40"/>
+                        <Image Source="/img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="207" Panel.ZIndex="100"/>
+                        <Image Source="/img/Canh.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="70" Canvas.Top="40" />
+
+                    </Canvas>
+                    <Canvas Grid.Row="1" Margin="0,0,0.333,0" Grid.RowSpan="2">
+                        <Ellipse Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                    Fill="#AA381F" Canvas.Left="70" Canvas.Top="207"/>
+                        <Image Source="img/star-1.png" Height="30" Canvas.Left="167" Canvas.Top="40" />
+                        <Image Source="/img/Vit_nuong.png" Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Canvas.Left="78" Canvas.Top="207" />
+
+                    </Canvas>
+                </Grid>
+            </StackPanel>
+
+            <Border Background="#fff" CornerRadius="7" Margin="10 20" Grid.Column="1" >
+                <StackPanel>
+                    <DockPanel>
+                        <Label Content="Upcoming" Margin="10 0 0 0"
+                                   Foreground="#333"  FontWeight="DemiBold" FontSize="20"/>
+                        <Label x:Name="TodayFunction" Content="Today" Margin="0"
+                                   HorizontalAlignment="Right" 
+                                   HorizontalContentAlignment="Right"
+                                   FontSize="10" Foreground="Gray" Width="421"  />
+                    </DockPanel>
+                    <ListView Name ="View_Box" BorderThickness="0" Margin="10 10" Height="450">
+                        <ListView.Resources>
+                            <SolidColorBrush x:Key="ItemBackgroundHover" Color="Transparent" />
+                            <Style TargetType="ListViewItem">
+                                <Style.Triggers>
+                                    <Trigger Property="Validation.HasError" Value="True">
+                                        <Setter Property="Background" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <StackPanel>
+                                        <TextBlock Margin="0 10 0 0"
+                                                    Text="{Binding Name}" 
+                                                    FontWeight="Bold"
+                                                    Foreground="#10375c" 
+                                                    FontSize="20"/>
+                                        <TextBlock Text="{Binding Author}" 
+                                                    FontSize="15"
+                                                    FontWeight="Light"/>
+                                        <TextBlock Text="{Binding Year}"
+                                                    FontSize="15"
+                                                    FontWeight="Light"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <DockPanel Margin="10 5 10 0 ">
+
+                        <Border  CornerRadius="10"
+                                     Height="15" Width="15"
+                                     HorizontalAlignment="Center"
+                                     BorderBrush="#9d9d9d"
+                                     BorderThickness="1"
+                                     VerticalAlignment="Center"/>
+                        <StackPanel Margin="5 0 0 0" Width="353"
+                                        HorizontalAlignment="Left">
+                            <Label Content="List redesign goals" Padding="0" Margin="0 5"
+                                               Foreground="Gray"  FontSize="13"
+                                               VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
         <!--Code Cường-->
     </Grid>
 </Window>

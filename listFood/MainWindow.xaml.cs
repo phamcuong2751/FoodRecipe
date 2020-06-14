@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using OpenQA.Selenium.Remote;
+using System.ComponentModel;
 
 namespace listFood
 {
@@ -25,6 +26,8 @@ namespace listFood
     /// </summary>
     public partial class Home : Window
     {
+        private BindingList<Book> _list;
+
         public class Food
         {
             public int ID { get; set; }
@@ -36,16 +39,6 @@ namespace listFood
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            //List<Food> listFoods = new List<Food>();
-            //using Excel = Microsoft.Office.Interop.Excel;
-            //Excel.Application xlApp = new Excel.Application();
-            //Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@"sandbox_test.xlsx");
-            //Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
-            //Excel.Range xlRange = xlWorksheet.UsedRange;
-
-        }
         private void Button_Out(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -69,6 +62,74 @@ namespace listFood
         {
 
         }
+        
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _list = new BindingList<Book>()
+            {
+                new Book() {  Name = "Vẽ em  bằng màu của nỗi nhớ", Author ="Phạm Minh Tâm", ImageBook = "/img/bia01.jpg", Year = 2013  },
+                new Book() {  Name = "Đừng Lựa Chọn An Nhàn Khi Còn Trẻ", Author ="Cảnh Thiên, Đặng Quân (Dịch)", ImageBook = "/img/bia02.jpg", Year = 2019  },
+                new Book() {  Name = "Tuổi Trẻ Đáng Giá Bao Nhiêu", Author ="Rosie Nguyễn", ImageBook = "/img/bia03.jpg", Year = 2016  },
+                new Book() {  Name = "Nhà Giả Kim", Author ="Paulo Ceolho", ImageBook = "/img/bia04.jpg", Year = 1988 },
+                new Book() {  Name = "Tôi Quyết Định Sống Cho Chính Tôi", Author ="Kim Suhyun", ImageBook = "/img/bia05.jpg", Year = 2016  },
+                new Book() {  Name = "Tôi, Tương Lai Và Thế Giới", Author ="Nguyễn Phi Vân", ImageBook = "/img/bia06.jpg", Year = 2018 },
+                new Book() {  Name = "Đàn Ông Sao Hỏa Đàn Bà Sao Kim", Author ="John Gray", ImageBook = "/img/bia07.jpg", Year = 1992 },
+                new Book() {  Name = "Tìm Mình Trong Thế Giới Hậu Tuổi Thơ", Author ="Đặng Hoàng Giang", ImageBook = "/img/bia08.jpg", Year = 2019 },
+                new Book() {  Name = "Chuyến Tàu Một Chiều Không Trở Lại", Author ="Kiên Trần", ImageBook = "/img/bia09.jpg", Year = 2019 },
+                new Book() {  Name = "Sống Thực Tế Giữa Đời Thực Dụng", Author ="Mễ Mông", ImageBook = "/img/bia10.jpg", Year = 2018 },
+            };
+
+            View_Box.ItemsSource = _list;
+        }
+
+        
     }
 }
 
+public class Book : INotifyPropertyChanged
+{
+    private string _imagebook;
+    public string ImageBook
+    {
+        get => _imagebook;
+        set
+        {
+            _imagebook = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ImageBook"));
+        }
+    }
+
+    private string _namebook;
+    public string Name
+    {
+        get => _namebook; set
+        {
+            _namebook = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NameBook"));
+        }
+    }
+
+    private string _authorbook;
+    public string Author
+    {
+        get => _authorbook;
+        set
+        {
+            _authorbook = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Author"));
+        }
+    }
+
+    private int _yearbook;
+    public int Year
+    {
+        get => _yearbook;
+        set
+        {
+            _yearbook = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Year"));
+        }
+    }
+    public event PropertyChangedEventHandler PropertyChanged;
+
+}
