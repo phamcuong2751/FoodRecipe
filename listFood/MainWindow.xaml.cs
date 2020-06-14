@@ -80,8 +80,6 @@ namespace listFood
                 listFood.Add(newFood);
             }
             ListBox_Food.ItemsSource = listFood;
-
         }
-
     }
 }
