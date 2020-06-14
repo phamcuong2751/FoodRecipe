@@ -101,6 +101,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Home.Food.cs" />
     <Compile Include="RelativeToAbsolutePathConverter.cs" />
     <Page Include="Infomation.xaml">
       <SubType>Designer</SubType>
@@ -159,6 +160,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="data\dataOfFood.txt" />
     <Content Include="Font\CAVEMAN.TTF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -198,9 +200,7 @@
   <ItemGroup>
     <Resource Include="img\star-1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="img\Untitled-1.png" />
   </ItemGroup>

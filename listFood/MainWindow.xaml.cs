@@ -19,6 +19,7 @@ using System.Globalization;
 using OpenQA.Selenium.Remote;
 using System.ComponentModel;
 using System.Windows.Threading;
+using System.Collections.ObjectModel;
 
 namespace listFood
 {
@@ -27,14 +28,9 @@ namespace listFood
     /// </summary>
     public partial class Home : Window
     {
-        private BindingList<Book> _list;
+    
 
-        public class Food
-        {
-            public int ID { get; set; }
-            public string nameOfFood { get; set; }
-            public string howToFood { get; set; }
-        }
+        
         public Home()
         {
             InitializeComponent();
@@ -72,74 +68,41 @@ namespace listFood
         {
 
         }
-        
+        public class Food
+        {
+            public string _nameOfFood { get; set; }
+            public string _howToFood { get; set; }
+            public int _rating { get; set; }
+            public string _cover { get; set; }
+            public string _material { get; set; }
+        }
+        ObservableCollection<Food> listFood = new ObservableCollection<Food>();
+        string dataFile = "";
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _list = new BindingList<Book>()
+            string folder = AppDomain.CurrentDomain.BaseDirectory; // "C:\Users\dev\"
+            folder = folder.Remove(folder.IndexOf("bin"));
+            dataFile = $"{folder}Data\\dataOfFood.txt";
+
+            // Nạp danh sách món ăn đang có từ tập tin
+            var items = File.ReadAllLines(dataFile).ToList();
+            foreach (string item in items)
             {
-                new Book() {  Name = "Canh dưa nấu bò", Making ="Phạm Minh Tâm", Year = 2013  },
-                new Book() {  Name = "Đừng Lựa Chọn An Nhàn Khi Còn Trẻ", Making ="Cảnh Thiên, Đặng Quân (Dịch)", Year = 2019  },
-                new Book() {  Name = "Tuổi Trẻ Đáng Giá Bao Nhiêu", Making ="Rosie Nguyễn", Year = 2016  },
-                new Book() {  Name = "Nhà Giả Kim", Making ="Paulo Ceolho", Year = 1988 },
-                new Book() {  Name = "Tôi Quyết Định Sống Cho Chính Tôi", Making ="Kim Suhyun", Year = 2016  },
-                new Book() {  Name = "Tôi, Tương Lai Và Thế Giới", Making ="Nguyễn Phi Vân", Year = 2018 },
-                new Book() {  Name = "Đàn Ông Sao Hỏa Đàn Bà Sao Kim", Making ="John Gray", Year = 1992 },
-                new Book() {  Name = "Tìm Mình Trong Thế Giới Hậu Tuổi Thơ", Making ="Đặng Hoàng Giang", Year = 2019 },
-                new Book() {  Name = "Chuyến Tàu Một Chiều Không Trở Lại", Making ="Kiên Trần", Year = 2019 },
-                new Book() {  Name = "Sống Thực Tế Giữa Đời Thực Dụng", Making ="Mễ Mông", Year = 2018 },
-            };
+                string[] entries = item.Split('~');
+                Food newFood = new Food();
+                newFood._nameOfFood = entries[0];
+                newFood._howToFood = entries[1];
+                newFood._cover = entries[2];
+                newFood._rating = int.Parse(entries[3]);
+                newFood._material = entries[4];
+                listFood.Add(newFood);
+            }
+            ListBox_Food.ItemsSource = listFood;
 
-            View_Box.ItemsSource = _list;
         }
-
         
+
+
     }
 }
 
-public class Book : INotifyPropertyChanged
-{
-    private string _imagefood;
-    public string ImageFood
-    {
-        get => _imagefood;
-        set
-        {
-            _imagefood = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ImageFood"));
-        }
-    }
-
-    private string _namebook;
-    public string Name
-    {
-        get => _namebook; set
-        {
-            _namebook = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NameBook"));
-        }
-    }
-
-    private string _makingfood;
-    public string Making
-    {
-        get => _makingfood;
-        set
-        {
-            _makingfood = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Making"));
-        }
-    }
-
-    private int _yearbook;
-    public int Year
-    {
-        get => _yearbook;
-        set
-        {
-            _yearbook = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Year"));
-        }
-    }
-    public event PropertyChangedEventHandler PropertyChanged;
-
-}

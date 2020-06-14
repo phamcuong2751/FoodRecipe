@@ -169,7 +169,7 @@
                                    HorizontalContentAlignment="Right"
                                    FontSize="10" Foreground="Gray" Width="421"  />
                     </DockPanel>
-                    <ListView Name ="View_Box" BorderThickness="0" Margin="10 10 0 10" Height="450">
+                    <ListView Name ="ListBox_Food" BorderThickness="0" Margin="10 10 0 10" Height="450">
                         <ListView.Resources>
                             <SolidColorBrush x:Key="ItemBackgroundHover" Color="Transparent" />
                             <Style TargetType="ListViewItem">
