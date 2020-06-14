@@ -97,17 +97,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModelFood\Food1.cs" />
-    <Compile Include="ViewModelFood\Food2.cs" />
     <Page Include="Infomation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ListFood\Food1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ListFood\Food2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,12 +112,6 @@
     <Compile Include="Food.cs" />
     <Compile Include="Infomation.xaml.cs">
       <DependentUpon>Infomation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListFood\Food1.xaml.cs">
-      <DependentUpon>Food1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListFood\Food2.xaml.cs">
-      <DependentUpon>Food2.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
