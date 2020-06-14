@@ -27,14 +27,7 @@
                     </TextBlock>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-            <Grid  MinWidth="480" MinHeight="480">
-                <Button Panel.ZIndex="100" Background="#AA381F" BorderBrush="#AA381F" HorizontalAlignment="Center"
- VerticalAlignment="Center"                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
-        Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" Height="Auto" Margin="17,-2,698,417">
-                    <materialDesign:PackIcon
-          Kind="Menu" Height="44" Width="55" />
-                </Button>
-            </Grid>
+            <Button Content="Button" HorizontalAlignment="Left" Height="60" Margin="443,138,0,0" VerticalAlignment="Top" Width="161" Click="Button_Click"/>
         </materialDesign:DrawerHost>
         <!--Tố Ngô-->
         <!--Cường Xl-->
