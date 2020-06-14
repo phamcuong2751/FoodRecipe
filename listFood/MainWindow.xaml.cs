@@ -77,16 +77,16 @@ namespace listFood
         {
             _list = new BindingList<Book>()
             {
-                new Book() {  Name = "Vẽ em  bằng màu của nỗi nhớ", Author ="Phạm Minh Tâm", ImageBook = "/img/bia01.jpg", Year = 2013  },
-                new Book() {  Name = "Đừng Lựa Chọn An Nhàn Khi Còn Trẻ", Author ="Cảnh Thiên, Đặng Quân (Dịch)", ImageBook = "/img/bia02.jpg", Year = 2019  },
-                new Book() {  Name = "Tuổi Trẻ Đáng Giá Bao Nhiêu", Author ="Rosie Nguyễn", ImageBook = "/img/bia03.jpg", Year = 2016  },
-                new Book() {  Name = "Nhà Giả Kim", Author ="Paulo Ceolho", ImageBook = "/img/bia04.jpg", Year = 1988 },
-                new Book() {  Name = "Tôi Quyết Định Sống Cho Chính Tôi", Author ="Kim Suhyun", ImageBook = "/img/bia05.jpg", Year = 2016  },
-                new Book() {  Name = "Tôi, Tương Lai Và Thế Giới", Author ="Nguyễn Phi Vân", ImageBook = "/img/bia06.jpg", Year = 2018 },
-                new Book() {  Name = "Đàn Ông Sao Hỏa Đàn Bà Sao Kim", Author ="John Gray", ImageBook = "/img/bia07.jpg", Year = 1992 },
-                new Book() {  Name = "Tìm Mình Trong Thế Giới Hậu Tuổi Thơ", Author ="Đặng Hoàng Giang", ImageBook = "/img/bia08.jpg", Year = 2019 },
-                new Book() {  Name = "Chuyến Tàu Một Chiều Không Trở Lại", Author ="Kiên Trần", ImageBook = "/img/bia09.jpg", Year = 2019 },
-                new Book() {  Name = "Sống Thực Tế Giữa Đời Thực Dụng", Author ="Mễ Mông", ImageBook = "/img/bia10.jpg", Year = 2018 },
+                new Book() {  Name = "Canh dưa nấu bò", Making ="Phạm Minh Tâm", Year = 2013  },
+                new Book() {  Name = "Đừng Lựa Chọn An Nhàn Khi Còn Trẻ", Making ="Cảnh Thiên, Đặng Quân (Dịch)", Year = 2019  },
+                new Book() {  Name = "Tuổi Trẻ Đáng Giá Bao Nhiêu", Making ="Rosie Nguyễn", Year = 2016  },
+                new Book() {  Name = "Nhà Giả Kim", Making ="Paulo Ceolho", Year = 1988 },
+                new Book() {  Name = "Tôi Quyết Định Sống Cho Chính Tôi", Making ="Kim Suhyun", Year = 2016  },
+                new Book() {  Name = "Tôi, Tương Lai Và Thế Giới", Making ="Nguyễn Phi Vân", Year = 2018 },
+                new Book() {  Name = "Đàn Ông Sao Hỏa Đàn Bà Sao Kim", Making ="John Gray", Year = 1992 },
+                new Book() {  Name = "Tìm Mình Trong Thế Giới Hậu Tuổi Thơ", Making ="Đặng Hoàng Giang", Year = 2019 },
+                new Book() {  Name = "Chuyến Tàu Một Chiều Không Trở Lại", Making ="Kiên Trần", Year = 2019 },
+                new Book() {  Name = "Sống Thực Tế Giữa Đời Thực Dụng", Making ="Mễ Mông", Year = 2018 },
             };
 
             View_Box.ItemsSource = _list;
@@ -98,14 +98,14 @@ namespace listFood
 
 public class Book : INotifyPropertyChanged
 {
-    private string _imagebook;
-    public string ImageBook
+    private string _imagefood;
+    public string ImageFood
     {
-        get => _imagebook;
+        get => _imagefood;
         set
         {
-            _imagebook = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ImageBook"));
+            _imagefood = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ImageFood"));
         }
     }
 
@@ -119,14 +119,14 @@ public class Book : INotifyPropertyChanged
         }
     }
 
-    private string _authorbook;
-    public string Author
+    private string _makingfood;
+    public string Making
     {
-        get => _authorbook;
+        get => _makingfood;
         set
         {
-            _authorbook = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Author"));
+            _makingfood = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Making"));
         }
     }
 

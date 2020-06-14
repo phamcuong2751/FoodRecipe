@@ -14,7 +14,8 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Home" MinHeight="600" MinWidth="800" WindowStartupLocation="CenterScreen"
-        WindowState="Maximized" Loaded="Window_Loaded">
+        WindowState="Maximized" Loaded="Window_Loaded"
+        Icon="img/icon_app.ico" RenderOptions.BitmapScalingMode="HighQuality">
     <Window.Resources>
         <local1:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
     </Window.Resources>
@@ -107,7 +108,7 @@
                             Margin="380 0 0 0" 
                             materialDesign:ShadowAssist.ShadowDepth="Depth1" 
                             Width="302">
-                                <Grid >
+                                <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="19*"/>
                                         <RowDefinition Height="13*"/>
@@ -168,7 +169,7 @@
                                    HorizontalContentAlignment="Right"
                                    FontSize="10" Foreground="Gray" Width="421"  />
                     </DockPanel>
-                    <ListView Name ="View_Box" BorderThickness="0" Margin="10 10" Height="450">
+                    <ListView Name ="View_Box" BorderThickness="0" Margin="10 10 0 10" Height="450">
                         <ListView.Resources>
                             <SolidColorBrush x:Key="ItemBackgroundHover" Color="Transparent" />
                             <Style TargetType="ListViewItem">
@@ -182,7 +183,10 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <DockPanel>
-                                    <StackPanel>
+                                    <Image Source="/img/icon_app.ico" Height="70"/>
+                                    <StackPanel Margin="20 0 0 0">
+                                       
+
                                         <TextBlock Margin="0 10 0 0"
                                                     Text="{Binding Name}" 
                                                     FontWeight="Light"
@@ -201,14 +205,16 @@
                     </ListView>
                     <DockPanel Margin="10 5 10 0 ">
 
-                        <Image Source="img/food.ico" Height="15" />
+                        <Image RenderOptions.BitmapScalingMode="HighQuality" Source="img/food.ico" Height="15" />
                         <StackPanel Margin="5 0 0 0" Width="353"
                                         HorizontalAlignment="Left">
                             <Label Content="Chúc bạn có một bữa ăn vui vẻ" Padding="0" Margin="0 5"
                                                Foreground="Gray"  FontSize="13"
                                                VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-
+                           
                         </StackPanel>
+                       
+
                     </DockPanel>
                 </StackPanel>
             </Border>
