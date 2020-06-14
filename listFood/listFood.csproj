@@ -248,6 +248,12 @@
     <None Include="data\img\splashscreen\food_9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="data\img\imgFood\img_1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\img\imgFood\img_2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Font\CAVEMAN.TTF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

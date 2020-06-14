@@ -166,7 +166,6 @@
                     </Canvas>
                 </Grid>
             </StackPanel>
-
             <Border Background="#fff" CornerRadius="7" Margin="10 20" Grid.Column="1" >
                 <StackPanel>
                     <DockPanel>
@@ -209,7 +208,8 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <DockPanel Margin="10 5 10 0 ">
+
+                <DockPanel Margin="10 5 10 0 ">
 
                         <Image RenderOptions.BitmapScalingMode="HighQuality" Source="img/food.ico" Height="15" />
                         <StackPanel Margin="5 0 0 0" Width="353"
@@ -219,10 +219,10 @@
                                                VerticalAlignment="Center" VerticalContentAlignment="Center"/>
 
                         </StackPanel>
+                </DockPanel>
+                </StackPanel>
 
-                </Grid>
-            </DockPanel>
-        </StackPanel>
+        </Border>
         <!--Cường Xl-->
     </Grid>
 </Window>
