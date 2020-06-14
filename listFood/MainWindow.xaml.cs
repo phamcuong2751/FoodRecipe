@@ -29,8 +29,6 @@ namespace listFood
     public partial class Home : Window
     {
     
-
-        
         public Home()
         {
             InitializeComponent();
