@@ -135,7 +135,7 @@
         </StackPanel>
         <Grid Margin="0 75 0 0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
@@ -161,9 +161,9 @@
             <Border Background="#fff" CornerRadius="7" Margin="10 20" Grid.Column="1" >
                 <StackPanel>
                     <DockPanel>
-                        <Label Content="Upcoming" Margin="10 0 0 0"
-                                   Foreground="#333"  FontWeight="DemiBold" FontSize="20"/>
-                        <Label x:Name="TodayFunction" Content="Today" Margin="0"
+                        <Label Content="Danh sách món ăn" Margin="10 0 0 0"
+                                   Foreground="#AA381F"  FontWeight="DemiBold" FontSize="20"/>
+                        <Label Name="lblTime" Margin="0"
                                    HorizontalAlignment="Right" 
                                    HorizontalContentAlignment="Right"
                                    FontSize="10" Foreground="Gray" Width="421"  />
@@ -185,14 +185,14 @@
                                     <StackPanel>
                                         <TextBlock Margin="0 10 0 0"
                                                     Text="{Binding Name}" 
-                                                    FontWeight="Bold"
-                                                    Foreground="#10375c" 
-                                                    FontSize="20"/>
+                                                    FontWeight="Light"
+                                                    Foreground="#AA381F" 
+                                                    FontSize="15"/>
                                         <TextBlock Text="{Binding Author}" 
-                                                    FontSize="15"
+                                                    FontSize="10"
                                                     FontWeight="Light"/>
                                         <TextBlock Text="{Binding Year}"
-                                                    FontSize="15"
+                                                    FontSize="10"
                                                     FontWeight="Light"/>
                                     </StackPanel>
                                 </DockPanel>
@@ -201,15 +201,10 @@
                     </ListView>
                     <DockPanel Margin="10 5 10 0 ">
 
-                        <Border  CornerRadius="10"
-                                     Height="15" Width="15"
-                                     HorizontalAlignment="Center"
-                                     BorderBrush="#9d9d9d"
-                                     BorderThickness="1"
-                                     VerticalAlignment="Center"/>
+                        <Image Source="img/food.ico" Height="15" />
                         <StackPanel Margin="5 0 0 0" Width="353"
                                         HorizontalAlignment="Left">
-                            <Label Content="List redesign goals" Padding="0" Margin="0 5"
+                            <Label Content="Chúc bạn có một bữa ăn vui vẻ" Padding="0" Margin="0 5"
                                                Foreground="Gray"  FontSize="13"
                                                VerticalAlignment="Center" VerticalContentAlignment="Center"/>
 

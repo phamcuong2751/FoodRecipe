@@ -18,6 +18,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using OpenQA.Selenium.Remote;
 using System.ComponentModel;
+using System.Windows.Threading;
 
 namespace listFood
 {
@@ -37,6 +38,15 @@ namespace listFood
         public Home()
         {
             InitializeComponent();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lblTime.Content = DateTime.Now.ToLongTimeString();
         }
 
         private void Button_Out(object sender, RoutedEventArgs e)
