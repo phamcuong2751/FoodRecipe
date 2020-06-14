@@ -16,11 +16,15 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Globalization;
+<<<<<<< Updated upstream
 using OpenQA.Selenium.Remote;
 using System.Data.OleDb;
 using System.Collections.ObjectModel;
 using Aspose.Cells;
 using System.Diagnostics;
+=======
+using System.Collections.ObjectModel;
+>>>>>>> Stashed changes
 
 namespace listFood
 {
@@ -31,15 +35,18 @@ namespace listFood
     {
         public class Food
         {
-            public int ID { get; set; }
-            public string nameOfFood { get; set; }
-            public string howToFood { get; set; }
+            public string _nameOfFood { get; set; }
+            public string _howToFood { get; set; }
+            public int _rating { get; set; }
+            public string _cover { get; set; }
+            public string _material { get; set; }
         }
       
         public Home()
         {
             InitializeComponent();
         }
+<<<<<<< Updated upstream
 
         /// <summary>
         /// 
@@ -57,6 +64,34 @@ namespace listFood
         {
             
 
+=======
+        ObservableCollection<Food> listFood = new ObservableCollection<Food>();
+        string dataFile = "";
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            string folder = AppDomain.CurrentDomain.BaseDirectory; // "C:\Users\dev\"
+            folder = folder.Remove(folder.IndexOf("bin"));
+            dataFile = $"{folder}Data\\dataOfFood.txt";
+
+            // Nạp danh sách món ăn đang có từ tập tin
+            var items = File.ReadAllLines(dataFile).ToList();
+            foreach(string item in items)
+            {
+                string[] entries = item.Split('~');
+                Food newFood = new Food();
+                newFood._nameOfFood = entries[0];
+                newFood._howToFood = entries[1];
+                newFood._cover = entries[2];
+                newFood._rating = int.Parse(entries[3]);
+                newFood._material = entries[4];
+                listFood.Add(newFood);
+            }
+            ListBox_Food.ItemsSource = listFood;
+        }
+        private void Button_Out(object sender, RoutedEventArgs e)
+        {
+        }
+>>>>>>> Stashed changes
 
         }
 
