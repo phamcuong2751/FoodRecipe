@@ -67,7 +67,7 @@ namespace Test_Splash_Screen
             else
             {
                 dt.Tick += new EventHandler(dT_Tick);
-                dt.Interval = new TimeSpan(0, 0, 5);
+                dt.Interval = new TimeSpan(0, 0, 8);
                 dt.Start();
             }
 

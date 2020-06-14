@@ -97,7 +97,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dialog\AddFood.xaml.cs">
+      <DependentUpon>AddFood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\ListFood.xaml.cs">
+      <DependentUpon>ListFood.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RelativeToAbsolutePathConverter.cs" />
+    <Compile Include="ViewDialog\AddFoodCSharp.cs" />
+    <Compile Include="ViewDialog\ListFoodCSharp.cs" />
+    <Page Include="Dialog\AddFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\ListFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Infomation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

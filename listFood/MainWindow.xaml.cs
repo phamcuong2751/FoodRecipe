@@ -18,6 +18,8 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using OpenQA.Selenium.Remote;
 using System.Collections.ObjectModel;
+using listFood.Dialog;
+using MaterialDesignColors.Recommended;
 
 namespace listFood
 {
@@ -77,7 +79,23 @@ namespace listFood
             info.Show();
         }
 
+        private void Button_List(object sender, RoutedEventArgs e)
+        {
+            DataContext = new AddFood();
+        }
 
+        private void Button_Add(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ListFood();
+        }
+        private void Button_Out(object sender, RoutedEventArgs e)
+        {
+            var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if(DR == MessageBoxResult.Yes )
+            {
+                Application.Current.Shutdown();
+            }    
+        }
     }
 }
 

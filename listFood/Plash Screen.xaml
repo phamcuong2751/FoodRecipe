@@ -22,12 +22,13 @@
         materialDesign:ButtonProgressAssist.IndicatorForeground ="#AA381F" materialDesign:ButtonProgressAssist.Maximum="100" 
         RenderTransformOrigin="1.167,1.333" Background="LightGray" Foreground="Black"  BorderBrush="LightGray"  />
         <Image Source="/img/Untitled-1.png"/>
-        <Image Source="{Binding AVT, Converter={StaticResource pathConverter}}" Width="100" Height="auto" Margin="440,164,180,194" />
-        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="370,91,120,294" TextAlignment="Center" Text="{Binding Name}" FontWeight="DemiBold" FontFamily="UVN Bo Quen"/>
-        <Label Content="Món ngon Việt Nam" Margin="396,268,116,136" FontSize="20" FontWeight="DemiBold"></Label>
-        <TextBlock FontSize="20" Margin="124,96,320,321" TextAlignment="Center" FontFamily="Font/#Caveman" Text="WELCOME TO "/>
-        <TextBlock FontSize="35" Margin="126,130,318,278" TextAlignment="Center" FontFamily="Font/#Caveman" Text="APP "/>
-        <TextBlock FontSize="40" Margin="112,206,318,122" TextAlignment="Center" FontFamily="Font/#Caveman"><Run Text="FOOD "/><LineBreak/><Run Text="RECIPE"/></TextBlock>
+        <Image Source="{Binding AVT, Converter={StaticResource pathConverter}}" Width="100" Height="auto" Margin="440,164,180,194">
+        </Image>
+        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="370,108,120,277" TextAlignment="Center" Text="{Binding Name}" FontWeight="Light" FontFamily="Arial"/>
+        <Label Content="Món ngon Việt Nam" Margin="393,271,119,133" FontSize="20" FontWeight="ExtraBlack"></Label>
+        <TextBlock FontSize="20" Margin="126,94,318,323" TextAlignment="Center" FontFamily="Font/#Caveman" Text="WELCOME TO "/>
+        <TextBlock FontSize="38" Margin="128,123,316,283" TextAlignment="Center" FontFamily="Font/#Caveman" Text="APP "/>
+        <TextBlock TextWrapping="Wrap" FontSize="40" Margin="131,211,347,139" TextAlignment="Center" FontFamily="Font/#Caveman" Text="FOOD RECIPE" LineHeight="40"></TextBlock>
         <CheckBox  Content="Không hiển thị lần sau"  Name="Change" Click="Check" IsChecked="False" Margin="458,364,94,58" FontWeight="Bold">
             <CheckBox.Style>
                 <Style TargetType="{x:Type CheckBox}">
