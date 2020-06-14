@@ -29,12 +29,6 @@ namespace listFood
             lblTime.Content = DateTime.Now.ToLongTimeString();
         }
 
-        private void Button_Out(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-
-        }
-
         private void Button_Home(object sender, RoutedEventArgs e)
         {
             Home hr = new Home();
@@ -83,20 +77,6 @@ namespace listFood
             }
             ListBox_Food.ItemsSource = listFood;
         }
-
-        private void Button_Home(RoutedEventArgs e, object sender)
-        {
-            Home hr = new Home();
-            hr.Show();
-            this.Hide();
-        }
-
-        private void Button_Infomation(RoutedEventArgs e, object sender)
-        {
-            Infomation info = new Infomation();
-            info.Show();
-        }
-
         private void Button_List(object sender, RoutedEventArgs e)
         {
             DataContext = new AddFood();
@@ -106,20 +86,20 @@ namespace listFood
         {
             DataContext = new ListFood();
         }
-        private void Button_Out(RoutedEventArgs e, object sender)
-        {
-            var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if(DR == MessageBoxResult.Yes )
-            {
-                Application.Current.Shutdown();
-            }    
-        }
-
         private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if(e.ClickCount == 2)
             {
                 MessageBox.Show("Đã double click");
+            }
+        }
+
+        private void Button_Out(object sender, RoutedEventArgs e)
+        {
+            var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (DR == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
             }
         }
     }

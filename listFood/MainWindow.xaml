@@ -19,12 +19,12 @@
         WindowState="Maximized"
         Loaded="Window_Loaded" >
     <Window.Resources>
-        <!--<DataTemplate x:Name="food1" DataType="{x:Type dialog:AddFood}">
+        <DataTemplate x:Name="food1" DataType="{x:Type dialog:AddFood}">
             <dialog:AddFood DataContext="{Binding}"/>
         </DataTemplate>
         <DataTemplate x:Name="food2" DataType="{x:Type dialog:ListFood}">
             <dialog:ListFood DataContext="{Binding}"/>
-        </DataTemplate>-->
+        </DataTemplate>
         <local:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
     </Window.Resources>
     <Grid>
@@ -225,5 +225,6 @@
                 </StackPanel>
             </Border>
         </Grid>
+        <ContentControl Content="{Binding}"/>
     </Grid>
 </Window>
