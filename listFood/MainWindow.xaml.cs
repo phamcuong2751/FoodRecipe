@@ -114,6 +114,14 @@ namespace listFood
                 Application.Current.Shutdown();
             }    
         }
+
+        private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if(e.ClickCount == 2)
+            {
+                MessageBox.Show("Đã double click");
+            }
+        }
     }
 }
 

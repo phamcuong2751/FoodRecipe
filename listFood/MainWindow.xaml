@@ -19,12 +19,13 @@
         WindowState="Maximized"
         Loaded="Window_Loaded" >
     <Window.Resources>
-        <DataTemplate x:Name="food1" DataType="{x:Type dialog:AddFood}">
+        <!--<DataTemplate x:Name="food1" DataType="{x:Type dialog:AddFood}">
             <dialog:AddFood DataContext="{Binding}"/>
         </DataTemplate>
         <DataTemplate x:Name="food2" DataType="{x:Type dialog:ListFood}">
             <dialog:ListFood DataContext="{Binding}"/>
-        </DataTemplate>
+        </DataTemplate>-->
+        <local:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
     </Window.Resources>
     <Grid>
         <!--Thanh Menu-->
@@ -181,8 +182,8 @@
                     <ListBox Name ="ListBox_Food" BorderThickness="0" Margin="10 10 0 10" Height="450">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <DockPanel>
-                                    <Image Source="/img/icon_app.ico" Height="70"/>
+                                <DockPanel MouseDown="DockPanel_MouseDown">
+                                    <Image RenderOptions.BitmapScalingMode="HighQuality" Source="{Binding _cover,Converter={StaticResource pathConverter}}" Width="70" Height="70"/>
                                     <StackPanel Margin="20 0 0 0">
                                         <TextBlock Margin="0 10 0 0"
                                                     Text="{Binding _nameOfFood}" 
