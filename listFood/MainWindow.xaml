@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Test_Splash_Screen"
+        xmlns:viewmodel="clr-namespace:listFood.ViewModelFood"
+        xmlns:views="clr-namespace:listFood.ListFood"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -16,9 +18,17 @@
         Title="Home" MinHeight="600" MinWidth="800" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
         >
+    <Window.Resources>
+        <DataTemplate x:Name="food1" DataType="{x:Type viewmodel:Food1}">
+            <views:Food1 DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="food2" DataType="{x:Type viewmodel:Food2}">
+            <views:Food2 DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <!--Thanh Menu-->
-        <!--<materialDesign:DrawerHost Panel.ZIndex="500">
+        <materialDesign:DrawerHost Panel.ZIndex="500">
             <Button 
                     Panel.ZIndex="100" 
                     Background="#AA381F" 
@@ -55,14 +65,16 @@
                                 BorderThickness="0 0.5 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0" 
                                 Height="Auto" Margin="0,0,0,5.333"/>
-                        <Button Content="Danh sách món ăn"
+                        <Button Click="Button_Add2"
+                                Content="Danh sách món ăn"
                                 FontWeight="Light"
                                 Background="#AA381F"
                                 BorderBrush="#fff"
                                 BorderThickness="0 0 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0" 
                                 Height="Auto" Margin="0,45,0,4.667" Grid.RowSpan="2"/>
-                        <Button Content="Thêm món" Grid.Row="2"
+                        <Button Click="Button_Add"
+                                Content="Thêm món" Grid.Row="2"
                                 FontWeight="Light"
                                 Background="#AA381F"
                                 BorderBrush="#fff"
@@ -88,7 +100,7 @@
                     </Grid>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-        </materialDesign:DrawerHost>-->
+        </materialDesign:DrawerHost>
         <!--Thanh Menu-->
         <StackPanel>
             <DockPanel>
@@ -172,6 +184,7 @@
                 </Grid>
             </DockPanel>
         </StackPanel>
+        <ContentControl Content="{Binding}"/>
         <!--Cường Xl-->
     </Grid>
 </Window>

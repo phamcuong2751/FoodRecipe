@@ -18,6 +18,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using OpenQA.Selenium.Remote;
 using System.Collections.ObjectModel;
+using listFood.ListFood;
 
 namespace listFood
 {
@@ -29,10 +30,6 @@ namespace listFood
         public class Food
         {
             public string _nameOfFood { get; set; }
-            public string _howToFood { get; set; }
-            public int _rating { get; set; }
-            public string _cover { get; set; }
-            public string _material { get; set; }
         }
 
         public Home()
@@ -54,10 +51,6 @@ namespace listFood
                 string[] entries = item.Split('~');
                 Food newFood = new Food();
                 newFood._nameOfFood = entries[0];
-                newFood._howToFood = entries[1];
-                newFood._cover = entries[2];
-                newFood._rating = int.Parse(entries[3]);
-                newFood._material = entries[4];
                 listFood.Add(newFood);
             }
             ListBox_Food.ItemsSource = listFood;
@@ -77,7 +70,19 @@ namespace listFood
             info.Show();
         }
 
+        private void Button_Add(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Food1();
+        }
 
+        private void Button_Add2(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Food2();
+        }
+        private void Button_Out(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
 
