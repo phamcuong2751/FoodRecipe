@@ -8,7 +8,11 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None"
         Title="Windows1" Height="450" Width="720"
-        FontFamily ="./Font/#somefont" >
+        FontFamily ="./Font/#somefont"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
+    </Window.Resources>
     <Grid>
         <Button Panel.ZIndex="100" materialDesign:ShadowAssist.ShadowDepth="Depth5"
         Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" 
@@ -18,8 +22,8 @@
         materialDesign:ButtonProgressAssist.IndicatorForeground ="#AA381F" materialDesign:ButtonProgressAssist.Maximum="100" 
         RenderTransformOrigin="1.167,1.333" Background="LightGray" Foreground="Black"  BorderBrush="LightGray"  />
         <Image Source="/img/Untitled-1.png"/>
-        <Image Source="/img/Asset 3.png" Width="100" Height="auto" Margin="440,164,180,194" />
-        <TextBlock FontSize="40" Margin="412,91,160,312" TextAlignment="Center" Text="PHỞ" FontWeight="DemiBold" FontFamily="UVN Bo Quen"/>
+        <Image Source="{Binding AVT, Converter={StaticResource pathConverter}}" Width="100" Height="auto" Margin="440,164,180,194" />
+        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="370,91,120,294" TextAlignment="Center" Text="{Binding Name}" FontWeight="DemiBold" FontFamily="UVN Bo Quen"/>
         <Label Content="Món ngon Việt Nam" Margin="396,268,116,136" FontSize="20" FontWeight="DemiBold"></Label>
         <TextBlock FontSize="20" Margin="124,96,320,321" TextAlignment="Center" FontFamily="Font/#Caveman" Text="WELCOME TO "/>
         <TextBlock FontSize="35" Margin="126,130,318,278" TextAlignment="Center" FontFamily="Font/#Caveman" Text="APP "/>
