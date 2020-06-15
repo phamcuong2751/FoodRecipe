@@ -29,7 +29,7 @@
         <DataTemplate x:Name="food2" DataType="{x:Type dialog:ListFood}">
             <dialog:ListFood DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="info" DataType="{x:Type dialog:ListFood}">
+        <DataTemplate x:Name="info" DataType="{x:Type dialog:Infomation}">
             <dialog:Infomation DataContext="{Binding}"/>
         </DataTemplate>
         <local:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
