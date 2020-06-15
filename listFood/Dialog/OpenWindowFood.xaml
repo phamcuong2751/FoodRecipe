@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="listFood.Dialog.OpenWindowFood"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:listFood.Dialog"
+             xmlns:converters="clr-namespace:listFood.Dialog"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" 
+                    Height="75"
+                    VerticalAlignment="Top" 
+                    Background="#AA381F"
+                    >
+            <TextBlock Text="{Binding _nameOfFood}" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       FontWeight="Light"
+                       Margin="10"
+                       FontSize="40" 
+                       Foreground="White"></TextBlock>
+        </StackPanel>
+        <StackPanel Background="Beige"
+                    Grid.Row="1" >
+            <Grid Margin="0 15 0 0 ">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Grid>
+                        <Rectangle RadiusX="75"
+                                   RadiusY="75"
+                                   Width="150" Height="150">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="{Binding _cover,Converter={StaticResource pathConverter}}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Background="AliceBlue"
+                            Grid.Column="1">
+                    <TextBlock  FontSize="20" TextWrapping="Wrap" Text="{Binding _howToFood}"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+   
+</UserControl>

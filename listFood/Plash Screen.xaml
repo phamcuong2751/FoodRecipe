@@ -22,10 +22,17 @@
         materialDesign:ButtonProgressAssist.IndicatorForeground ="#AA381F" materialDesign:ButtonProgressAssist.Maximum="100" 
         RenderTransformOrigin="1.167,1.333" Background="LightGray" Foreground="Black"  BorderBrush="LightGray"  />
         <Image Source="/img/Untitled-1.png"/>
-        <Image Source="{Binding AVT, Converter={StaticResource pathConverter}}" Width="100" Height="auto" Margin="440,164,180,194">
-        </Image>
-        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="370,108,120,277" TextAlignment="Center" Text="{Binding Name}" FontWeight="Light" FontFamily="Arial"/>
-        <Label Content="Món ngon Việt Nam" Margin="393,271,119,133" FontSize="20" FontWeight="ExtraBlack"></Label>
+        <Grid>
+            <Rectangle RadiusX="75"
+                                   RadiusY="75"
+                                   Width="150" Height="150" Margin="412,166,158,134">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="{Binding AVT ,Converter={StaticResource pathConverter}}"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="370,93,120,292" TextAlignment="Center" Text="{Binding Name}" FontWeight="Light" FontFamily="Arial"/>
+        <Label Content="Món ngon Việt Nam" Margin="393,322,119,82" FontSize="20" FontWeight="ExtraBlack"></Label>
         <TextBlock FontSize="20" Margin="126,94,318,323" TextAlignment="Center" FontFamily="Font/#Caveman" Text="WELCOME TO "/>
         <TextBlock FontSize="38" Margin="128,123,316,283" TextAlignment="Center" FontFamily="Font/#Caveman" Text="APP "/>
         <TextBlock TextWrapping="Wrap" FontSize="40" Margin="131,211,347,139" TextAlignment="Center" FontFamily="Font/#Caveman" Text="FOOD RECIPE" LineHeight="40"></TextBlock>
