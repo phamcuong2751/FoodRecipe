@@ -8,6 +8,7 @@ using listFood.Dialog;
 using MaterialDesignColors.Recommended;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using MaterialDesignThemes.Wpf;
 
 namespace listFood
 {
@@ -152,7 +153,11 @@ namespace listFood
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
-            DataContext = new AddFood();
+            var screen = new AddFood();
+            var newFood = screen.newFood;
+            _listFood.Add(screen.newFood);
+            DataContext = screen;
+
         }
         private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {

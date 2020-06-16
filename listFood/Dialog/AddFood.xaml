@@ -23,8 +23,16 @@
                        FontSize="40" 
                        Foreground="White"></TextBlock>
         </StackPanel>
-        <StackPanel Background="White"
+        <Canvas Background="White"
                     Grid.Row="1" >
-        </StackPanel>
+            <Label FontWeight="Bold" Content="Tên món" Canvas.Left="2" Canvas.Top="4" />
+            <TextBox Name="nameFood" Height="40" Canvas.Left="2" TextWrapping="Wrap" Text="Tên món ăn" Canvas.Top="34" Width="450" VerticalContentAlignment="Center"/>
+            <Label FontWeight="Bold" Content="Nguyên liệu" Canvas.Left="2" Canvas.Top="90" />
+            <TextBox AcceptsReturn="True" Name="ingredients" Height="91" Canvas.Left="2" TextWrapping="Wrap" Text="Các nguyên liệu cần chuẩn bị" Canvas.Top="120" Width="450" VerticalContentAlignment="Top"/>
+            <Label FontWeight="Bold" Content="Cách làm" Canvas.Left="2" Canvas.Top="228" />
+            <TextBox AcceptsReturn="True" Name="directions" Height="91" Canvas.Left="2" TextWrapping="Wrap" Text="Từng bước thực hiện" Canvas.Top="258" Width="450" VerticalContentAlignment="Top"/>
+            <Button Content="Add" Height="36" Canvas.Left="662" Canvas.Top="334" Width="134" Click="Button_Click"/>
+
+        </Canvas>
     </Grid>
 </UserControl>
