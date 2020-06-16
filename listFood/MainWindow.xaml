@@ -39,7 +39,7 @@
     </Window.Resources>
     <Grid>
         <!--Thanh Menu-->
-        <!--<materialDesign:DrawerHost Panel.ZIndex="500">
+        <materialDesign:DrawerHost Panel.ZIndex="500">
             <Button 
                     Panel.ZIndex="100" 
                     Background="#AA381F" 
@@ -128,7 +128,7 @@
                     </Grid>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-        </materialDesign:DrawerHost>-->
+        </materialDesign:DrawerHost>
         <!--Thanh Menu-->
         <!--Code Cường-->
         <StackPanel>

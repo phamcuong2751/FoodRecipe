@@ -26,198 +26,201 @@
                 </TextBlock>
             </DockPanel>
         </StackPanel>
-        <Grid Grid.Row="1" Background="White">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="5*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0"
-                      Grid.Column="0">
+        <ScrollViewer Grid.Row="1" Background="White">
+            <Grid >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1.5*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="5*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="THÀNH VIÊN NHÓM"
+                    <Grid Grid.Row="0"
+                      Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="THÀNH VIÊN NHÓM"
                                FontSize="25"
                                Grid.Row="0"
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                    <TextBlock Text="18600011 - Nguyễn Trọng Quyết"
+                        </TextBlock>
+                        <TextBlock Text="18600011 - Nguyễn Trọng Quyết"
                                Grid.Row="1"
                                FontSize="20" 
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                    <TextBlock Text="18600014 - Ngô Tất Tố"
+                        </TextBlock>
+                        <TextBlock Text="18600014 - Ngô Tất Tố"
                                FontSize="20"
                                Grid.Row="2"
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                    <TextBlock Text="18600038 - Phạm Phong Phú Cường"
+                        </TextBlock>
+                        <TextBlock Text="18600038 - Phạm Phong Phú Cường"
                                FontSize="20"
                                Grid.Row="3"
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                </Grid>
-                <Grid Grid.Row="1"
-                      Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1.5*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="CHỨC NĂNG HOÀN THIỆN"
+                        </TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1"
+                      Grid.Column="0" Height="500">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="CHỨC NĂNG HOÀN THIỆN"
                                FontSize="25"
                                Grid.Row="0"
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                    <TextBlock Text="1. PLASHSCREEN"
+                        </TextBlock>
+                        <TextBlock Text="1. PLASHSCREEN"
                                Grid.Row="1"
                                FontSize="20"
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                    <TextBlock Text="2. PLASHSCREEN"
+                        </TextBlock>
+                        <TextBlock Text="2. PLASHSCREEN"
                                Grid.Row="2"
                                FontSize="20"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                    <TextBlock Text="3. PLASHSCREEN"
+                        </TextBlock>
+                        <TextBlock Text="3. PLASHSCREEN"
                                Grid.Row="3"
                                FontSize="20"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                    <TextBlock Text="4. PLASHSCREEN"
+                        </TextBlock>
+                        <TextBlock Text="4. PLASHSCREEN"
                                Grid.Row="4"
                                FontSize="20"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                    <TextBlock Text="5. PLASHSCREEN"
+                        </TextBlock>
+                        <TextBlock Text="5. PLASHSCREEN"
                                Grid.Row="5"
                                FontSize="20"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center" >
-                    </TextBlock>
-                </Grid>
-                <Grid Grid.Column="1"
+                        </TextBlock>
+                      
+                    </Grid>
+                    <Grid Grid.Column="1"
                       Grid.Row="0">
-                    <DockPanel>
-                        <Image Source="/img/Uxa1vpBBANqVU1NmHqv0H3bUdAuTsmkc.jpeg" 
+                        <DockPanel Margin="25,0,0.333,-0.333">
+                            <Image Source="/img/Uxa1vpBBANqVU1NmHqv0H3bUdAuTsmkc.jpeg" 
                            RenderOptions.BitmapScalingMode="HighQuality"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center" 
-                           Margin="10"/>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1.5*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="ĐẠI HỌC KHOA HỌC TỰ NHIÊN"
+                           Margin="10" Height="100"/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.5*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="ĐẠI HỌC KHOA HỌC TỰ NHIÊN"
                                        FontSize="20"
                                        Grid.Row="0"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center" 
                                        FontWeight="ExtraBlack">
-                            </TextBlock>
-                            <TextBlock Text="LỚP 18CK"
+                                </TextBlock>
+                                <TextBlock Text="LỚP 18CK"
                                        FontSize="18"
                                        VerticalAlignment="Center" 
                                        HorizontalAlignment="Center"
                                        Grid.Row="1"
                                        FontWeight="DemiBold">
-                            </TextBlock>
-                            <TextBlock Text="ĐỒ ÁN LẬP TRÌNH WINDOWS"
+                                </TextBlock>
+                                <TextBlock Text="ĐỒ ÁN LẬP TRÌNH WINDOWS"
                                        FontSize="20"
                                        Grid.Row="2"
                                        VerticalAlignment="Center" 
                                        FontWeight="DemiBold"
                                        HorizontalAlignment="Center">
-                            </TextBlock>
-                            <TextBlock Text="FOOD RECIPE APP"
+                                </TextBlock>
+                                <TextBlock Text="FOOD RECIPE APP"
                                        FontSize="18"
                                        Grid.Row="3"
                                        VerticalAlignment="Center" 
                                        FontWeight="DemiBold"
                                        HorizontalAlignment="Center">
-                            </TextBlock>
-                        </Grid>
-                    </DockPanel>
-                </Grid>
-                <Grid Grid.Row="1"
+                                </TextBlock>
+                            </Grid>
+                        </DockPanel>
+                    </Grid>
+                    <Grid Grid.Row="1"
                       Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1.5*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="HƯỚNG DẪN SỬ DỤNG APP"
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="HƯỚNG DẪN SỬ DỤNG APP"
                                Grid.Row="0"
                                FontSize="25"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Margin="5">
-                    </TextBlock>
-                    <TextBlock TextWrapping="Wrap"
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap"
                                Grid.Row="1"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                    </TextBlock>
-                    <TextBlock TextWrapping="Wrap"
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap"
                                Grid.Row="2"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                    </TextBlock>
-                    <TextBlock TextWrapping="Wrap"
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap"
                                Grid.Row="3"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                    </TextBlock>
-                    <TextBlock TextWrapping="Wrap"
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap"
                                Grid.Row="4"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                    </TextBlock>
-                    <TextBlock TextWrapping="Wrap"
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap"
                                Grid.Row="5"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                    </TextBlock>
-                    <TextBlock TextWrapping="Wrap"
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap"
                                Grid.Row="6"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                    </TextBlock>
+                        </TextBlock>
+                    </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>
