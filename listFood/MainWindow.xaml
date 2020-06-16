@@ -21,7 +21,7 @@
         MinWidth="900"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        Loaded="Window_Loaded" >
+        Loaded="Window_Loaded">
     <Window.Resources>
         <DataTemplate x:Name="food1" DataType="{x:Type dialog:AddFood}">
             <dialog:AddFood DataContext="{Binding}"/>
@@ -39,7 +39,7 @@
     </Window.Resources>
     <Grid>
         <!--Thanh Menu-->
-        <materialDesign:DrawerHost Panel.ZIndex="500">
+        <!--<materialDesign:DrawerHost Panel.ZIndex="500">
             <Button 
                     Panel.ZIndex="100" 
                     Background="#AA381F" 
@@ -128,7 +128,7 @@
                     </Grid>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-        </materialDesign:DrawerHost>
+        </materialDesign:DrawerHost>-->
         <!--Thanh Menu-->
         <!--Code Cường-->
         <StackPanel>
@@ -186,59 +186,73 @@
                 <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
-                <Grid Height="auto" >
-                    <Canvas Grid.Row="0" 
-                            Margin="0,0,0.333,0" 
-                            Grid.RowSpan="3">
-                        <Ellipse Height="120" 
-                                 Width="120"
-                                 HorizontalAlignment="Center" 
-                                 VerticalAlignment="Bottom"
-                                 Fill="#AA381F" 
-                                 Canvas.Left="62" 
-                                 Canvas.Top="40"/>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <DockPanel>
+                    <Grid Margin="20 0 0 0" Width="179">
+                        <Ellipse Fill="#AA381F" Height="150" Width="150"/>
                         <Image Source="/img/star-1.png" 
-                               Height="30" 
-                               Canvas.Left="167" 
-                               Canvas.Top="207" 
-                               Panel.ZIndex="100"/>
+                       Height="30" Width="30"
+                       Panel.ZIndex="100" Margin="120,25,0,161"/>
                         <Image Source="/img/Canh.png"
-                               Height="120" 
-                               Width="120" 
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Bottom"
-                               Canvas.Left="70" 
-                               Canvas.Top="40" />
-                    </Canvas>
-                    <Canvas Grid.Row="1"
-                            Margin="0,0,0.333,0" 
-                            Grid.RowSpan="2">
-                        <Ellipse Height="120" 
-                                 Width="120" 
-                                 HorizontalAlignment="Center"
-                                 VerticalAlignment="Bottom"
-                                 Fill="#AA381F" 
-                                 Canvas.Left="70" 
-                                 Canvas.Top="207"/>
-                        <Image Source="img/star-1.png"
-                               Height="30" 
-                               Canvas.Left="167" 
-                               Canvas.Top="40" />
-                        <Image Source="/img/Vit_nuong.png" 
-                               Height="120" 
-                               Width="120" 
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Bottom"
-                               Canvas.Left="78"
-                               Canvas.Top="207" />
-                    </Canvas>
-                </Grid>
-            </StackPanel>
+                       Height="150" 
+                       Width="150" Margin="10,29,-10,37"/>
+                    </Grid>
+                    <Grid>
+                        <ListBox Name="Box_Favorite1" Height="160">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}" FontSize="15"
+                                           FontWeight="Bold" Foreground="#AA381F"/>
+                                        <DockPanel>
+                                            <Image Source="img/Star_Element.png" Height="15" Margin="0 0 10 0"/>
+                                            <TextBlock Text="{Binding shortIngredient}" TextWrapping="WrapWithOverflow"/>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </DockPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <DockPanel>
+                    <Grid Margin="20 0 0 0" Width="179">
+                        <Ellipse Fill="#AA381F" Height="150" Width="150"/>
+                        <Image Source="/img/star-1.png" 
+                       Height="30" Width="30"
+                       Panel.ZIndex="100" Margin="120,25,0,161"/>
+                        <Image Source="/img/Vit_nuong.png"
+                       Height="150" 
+                       Width="150" Margin="10,29,-10,37"/>
+                    </Grid>
+                    <Grid>
+                        <ListBox Name="Box_Favorited2"  Height="160">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}" FontSize="15"
+                                           FontWeight="Bold" Foreground="#AA381F"/>
+                                    <DockPanel>
+                                        <Image Source="img/Star_Element.png" Height="15" Margin="0 0 10 0"/>
+                                        <TextBlock Text="{Binding shortIngredient}" TextWrapping="WrapWithOverflow"/>
+                                    </DockPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    </Grid>
+                </DockPanel>
+            </Grid>
+
             <Border Background="#fff"
                     CornerRadius="7" 
                     Margin="10 20" 
-                    Grid.Column="1" >
+                    Grid.Column="1"  Grid.RowSpan="2">
                 <StackPanel>
                     <DockPanel>
                         <Label Content="Danh sách món ăn"

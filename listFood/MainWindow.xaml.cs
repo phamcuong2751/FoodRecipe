@@ -73,6 +73,7 @@ namespace listFood
             public string _cover { get; set; }
             public string _material { get; set; }
         }
+
         ObservableCollection<Recipe> _listFood = new ObservableCollection<Recipe>();
         ObservableCollection<Food> listFood = new ObservableCollection<Food>();
         string dataFile = "";
@@ -137,15 +138,15 @@ namespace listFood
                     shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
                     Avatar = newFood._images[0],
                     isFavorite = newFood._isFavorite
-
                 };
                 previewFoods.Add(food);
-
             }
 
-
             ListBox_Food.ItemsSource = previewFoods;
+            Box_Favorite1.ItemsSource = previewFoods;
+            Box_Favorited2.ItemsSource = previewFoods;
         }
+
         private void Button_List(object sender, RoutedEventArgs e)
         {
             DataContext = new ListFood();
@@ -159,6 +160,7 @@ namespace listFood
             DataContext = screen;
 
         }
+
         private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var index = ListBox_Food.SelectedIndex;
@@ -167,7 +169,6 @@ namespace listFood
             //if (screen.ShowDiaglog() == true)
             var openWindow = new OpenWindowFood(food);
             DataContext = openWindow;
-
         }
 
         private void Button_Out(object sender, RoutedEventArgs e)
