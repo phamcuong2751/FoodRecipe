@@ -20,14 +20,27 @@ namespace listFood.Dialog
     /// </summary>
     public partial class OpenWindowFood : UserControl
     {
-        private Home.Food newFood;
+        private Home.Recipe newFood;
 
-        public OpenWindowFood(Home.Food food)
+        public OpenWindowFood(Home.Recipe food)
         {
             InitializeComponent();
             this.newFood = food;
-            this.newFood._rating++;
-            DataContext = newFood;
+        }
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Hiện thị từng bước làm
+            listBox_Direction.ItemsSource = newFood._directions;
+            // Xuất avatar cho món ăn
+            string baseFolder = AppDomain.CurrentDomain.BaseDirectory;
+            baseFolder = baseFolder.Remove(baseFolder.IndexOf("bin"));
+            string imagePath = baseFolder+newFood._images[0];
+            Uri uri = new Uri(imagePath, UriKind.Absolute);
+            BitmapImage bitmap = new BitmapImage(uri);
+            mainImage.ImageSource = bitmap;
+            // Thành phần món ăn
+            listBox_Ingredients.ItemsSource = newFood._ingredients;
+
         }
     }
 }

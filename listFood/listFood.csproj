@@ -264,6 +264,13 @@
     <None Include="data\img\imgFood\img_2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="data\dataOfFood1.txt" />
+    <None Include="data\img\imgFood\img_1.1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\img\imgFood\img_1.2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Font\CAVEMAN.TTF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

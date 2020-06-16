@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:listFood.Dialog"
              xmlns:converters="clr-namespace:listFood.Dialog"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <converters:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
     </UserControl.Resources>
@@ -41,17 +42,34 @@
                                    RadiusY="75"
                                    Width="150" Height="150">
                             <Rectangle.Fill>
-                                <ImageBrush ImageSource="{Binding _cover,Converter={StaticResource pathConverter}}"/>
+                                <ImageBrush x:Name="mainImage"/>
                             </Rectangle.Fill>
                         </Rectangle>
                     </Grid>
                 </StackPanel>
                 <StackPanel Background="AliceBlue"
                             Grid.Column="1">
-                    <TextBlock  FontSize="20" TextWrapping="Wrap" Text="{Binding _howToFood}"/>
+                    <TextBlock Margin="10,0" FontSize="20" Foreground="PaleVioletRed" FontWeight="Bold" Text="Directions"></TextBlock>
+                    <ListBox Name="listBox_Direction">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap" Margin="0,0,0,15" Text="{Binding}"></TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </StackPanel>
             </Grid>
+            <StackPanel>
+                <TextBlock FontSize="20" Margin="10,0" Foreground="PaleVioletRed" FontWeight="Bold" Text="Ingredients"></TextBlock>
+                <ListBox Name="listBox_Ingredients">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock TextWrapping="Wrap" Margin="0,0,0,15" Text="{Binding}"></TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
         </StackPanel>
     </Grid>
-   
+
 </UserControl>

@@ -267,22 +267,22 @@
                                    RadiusY="35"
                                    Width="70" Height="70">
                                             <Rectangle.Fill>
-                                                <ImageBrush ImageSource="{Binding _cover,Converter={StaticResource pathConverter}}"/>
+                                                <ImageBrush ImageSource="{Binding Avatar,Converter={StaticResource pathConverter}}"/>
                                             </Rectangle.Fill>
                                         </Rectangle>
                                     </Grid>
                                     <StackPanel Margin="20 0 0 0">
                                         <TextBlock  Margin="0 10 0 0"
-                                                    Text="{Binding _nameOfFood}" 
+                                                    Text= "{Binding Name}" 
                                                     FontWeight="Light"
                                                     Foreground="#AA381F" 
-                                                    FontSize="15"/>
+                                                    FontSize="15" TextWrapping="Wrap"/>
                                         <DockPanel>
                                             <TextBlock Text="Cách nấu: " 
                                                        Margin="0 0 10 0"
                                                        FontSize="10"
                                                        FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding _howToFood}" 
+                                            <TextBlock Text="{Binding shortDirection}" 
                                                        FontSize="10"
                                                        FontWeight="Light"/>
                                         </DockPanel>
@@ -290,7 +290,7 @@
                                             <TextBlock Text="Nguyên liệu: " 
                                                        FontSize="10"
                                                        FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding _material}"
+                                            <TextBlock Text="{Binding shortIngredient}"
                                                     FontSize="10"
                                                     FontWeight="Light"
                                                        TextWrapping="WrapWithOverflow"/>
