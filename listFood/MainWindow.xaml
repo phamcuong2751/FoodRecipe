@@ -36,7 +36,13 @@
             <dialog:OpenWindowFood DataContext="{Binding}"/>
         </DataTemplate>-->
         <local:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
+        <Storyboard x:Key="Storyboard1"/>
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <!--Thanh Menu-->
         <materialDesign:DrawerHost Panel.ZIndex="500">
@@ -49,7 +55,7 @@
                     BorderBrush="#AA381F" 
                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" 
                     Height="60" Width="72" Margin="8,6,0,0">
-                <materialDesign:PackIcon 
+                <materialDesign:PackIcon x:Name="packIcon" 
                     Kind="Menu" 
                     Height="34" 
                     Width="38" />
