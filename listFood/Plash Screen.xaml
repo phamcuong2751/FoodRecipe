@@ -14,35 +14,230 @@
         <local:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
     </Window.Resources>
     <Grid>
-        <Button Panel.ZIndex="100" materialDesign:ShadowAssist.ShadowDepth="Depth5"
-        Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" 
-        materialDesign:ButtonProgressAssist.Value="75"
-        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-        Content="Loading" FontSize="10" FontWeight="ExtraLight" Height="40" Margin="224,316,446,84" Width="40" 
-        materialDesign:ButtonProgressAssist.IndicatorForeground ="#AA381F" materialDesign:ButtonProgressAssist.Maximum="100" 
-        RenderTransformOrigin="1.167,1.333" Background="LightGray" Foreground="Black"  BorderBrush="LightGray"  />
+        <Button Panel.ZIndex="100" 
+                materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                Style="{StaticResource MaterialDesignFloatingActionButton}"
+                materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" 
+                materialDesign:ButtonProgressAssist.Value="75"
+                materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                Content="Loading" 
+                FontSize="10" 
+                FontWeight="ExtraLight"
+                Height="40" 
+                Margin="224,316,446,84"
+                Width="40" 
+                materialDesign:ButtonProgressAssist.IndicatorForeground ="#AA381F"
+                materialDesign:ButtonProgressAssist.Maximum="100" 
+                RenderTransformOrigin="1.167,1.333"
+                Background="LightGray"
+                Foreground="Black" 
+                BorderBrush="LightGray"  />
         <Image Source="/img/Untitled-1.png"/>
         <Grid>
             <Rectangle RadiusX="75"
-                                   RadiusY="75"
-                                   Width="150" Height="150" Margin="412,166,158,134">
+                       RadiusY="75"
+                       Width="150"
+                       Height="150"
+                       Margin="412,166,158,134">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="{Binding AVT ,Converter={StaticResource pathConverter}}"/>
                 </Rectangle.Fill>
             </Rectangle>
         </Grid>
-        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="370,93,120,292" TextAlignment="Center" Text="{Binding Name}" FontWeight="Light" FontFamily="Arial"/>
-        <Label Content="Món ngon Việt Nam" Margin="393,322,119,82" FontSize="20" FontWeight="ExtraBlack"></Label>
-        <TextBlock FontSize="20" Margin="126,94,318,323" TextAlignment="Center" FontFamily="Font/#Caveman" Text="WELCOME TO "/>
-        <TextBlock FontSize="38" Margin="128,123,316,283" TextAlignment="Center" FontFamily="Font/#Caveman" Text="APP "/>
-        <TextBlock TextWrapping="Wrap" FontSize="40" Margin="131,211,347,139" TextAlignment="Center" FontFamily="Font/#Caveman" Text="FOOD RECIPE" LineHeight="40"></TextBlock>
-        <CheckBox  Content="Không hiển thị lần sau"  Name="Change" Click="Check" IsChecked="False" Margin="458,364,94,58" FontWeight="Bold">
+        <TextBlock TextWrapping="Wrap"
+                   FontSize="20"
+                   Margin="370,93,120,292"
+                   TextAlignment="Center"
+                   Text="{Binding Name}" 
+                   FontWeight="Light"
+                   FontFamily="Arial">
+            <TextBlock.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=cb1,Path=IsChecked}"
+                                     Value="true">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         From="0.5" To="1"
+                                                         Duration="0:0:0.8"
+                                                         AutoReverse="True"
+                                                         RepeatBehavior="Forever" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard FillBehavior="Stop">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         Duration="0:0:0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <CheckBox Name="cb1" Content="Show Animation" IsChecked="True" Height="30" HorizontalAlignment="Center" Margin="610,542,2,-122" />
+        <TextBlock Text="Món ngon Việt Nam"
+               Margin="393,322,119,82" 
+               FontSize="20"
+               FontWeight="ExtraBlack">
+            <TextBlock.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=cb1,Path=IsChecked}"
+                                     Value="true">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         From="0.5" To="1"
+                                                         Duration="0:0:0.8"
+                                                         AutoReverse="True"
+                                                         RepeatBehavior="Forever" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard FillBehavior="Stop">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         Duration="0:0:0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBlock FontSize="20"
+                   Margin="126,94,318,323"
+                   TextAlignment="Center"
+                   FontFamily="Font/#Caveman"
+                   Text="WELCOME TO ">
+            <TextBlock.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=cb1,Path=IsChecked}"
+                                     Value="true">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         From="0.5" To="1"
+                                                         Duration="0:0:0.8"
+                                                         AutoReverse="True"
+                                                         RepeatBehavior="Forever" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard FillBehavior="Stop">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         Duration="0:0:0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBlock FontSize="38"
+                   Margin="128,123,316,283" 
+                   TextAlignment="Center"
+                   FontFamily="Font/#Caveman" 
+                   Text="APP ">
+            <TextBlock.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=cb1,Path=IsChecked}"
+                                     Value="true">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         From="0.5" To="1"
+                                                         Duration="0:0:0.8"
+                                                         AutoReverse="True"
+                                                         RepeatBehavior="Forever" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard FillBehavior="Stop">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         Duration="0:0:0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBlock TextWrapping="Wrap"
+                   FontSize="40" 
+                   Margin="131,211,347,139" 
+                   TextAlignment="Center"
+                   FontFamily="Font/#Caveman"
+                   Text="FOOD RECIPE" 
+                   LineHeight="40">
+            <TextBlock.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=cb1,Path=IsChecked}"
+                                     Value="true">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         From="0.5" To="1"
+                                                         Duration="0:0:0.8"
+                                                         AutoReverse="True"
+                                                         RepeatBehavior="Forever" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard FillBehavior="Stop">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         Duration="0:0:0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <CheckBox  Content="Không hiển thị lần sau" 
+                   Name="Change" 
+                   Click="Check"
+                   IsChecked="False"
+                   Margin="458,364,94,58" 
+                   FontWeight="Bold">
             <CheckBox.Style>
                 <Style TargetType="{x:Type CheckBox}">
-                    <Setter Property="Visibility" Value="Visible"/>
+                    <Setter Property="Visibility" 
+                            Value="Visible"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=CommentCheckBox, Path=IsChecked}" Value="True">
-                            <Setter Property="Visibility" Value="Hidden"/>
+                        <DataTrigger Binding="{Binding ElementName=CommentCheckBox, Path=IsChecked}"
+                                     Value="True">
+                            <Setter Property="Visibility" 
+                                    Value="Hidden"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
