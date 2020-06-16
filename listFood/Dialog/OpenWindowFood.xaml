@@ -29,47 +29,74 @@
                        FontSize="40" 
                        Foreground="White"></TextBlock>
         </StackPanel>
-        <StackPanel Background="Beige"
-                    Grid.Row="1" >
-            <Grid Margin="0 15 0 0 ">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="7*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
-                    <Grid>
-                        <Rectangle RadiusX="75"
-                                   RadiusY="75"
-                                   Width="150" Height="150">
-                            <Rectangle.Fill>
-                                <ImageBrush x:Name="mainImage"/>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Background="AliceBlue"
-                            Grid.Column="1">
-                    <TextBlock Margin="10,0" FontSize="20" Foreground="PaleVioletRed" FontWeight="Bold" Text="Directions"></TextBlock>
-                    <ListBox Name="listBox_Direction">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" Margin="0,0,0,15" Text="{Binding}"></TextBlock>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
+        <Grid Grid.Row="1" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Image Name="mainImage" Margin="15" Stretch="Fill"/>
             </Grid>
-            <StackPanel>
-                <TextBlock FontSize="20" Margin="10,0" Foreground="PaleVioletRed" FontWeight="Bold" Text="Ingredients"></TextBlock>
-                <ListBox Name="listBox_Ingredients">
+            <Grid Grid.Column="1" 
+                  Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" 
+                           Margin="5"
+                           FontSize="20" 
+                           Foreground="PaleVioletRed" 
+                           FontWeight="Bold" 
+                           Text="Directions">
+                </TextBlock>
+                <ListView Grid.Row="1" 
+                          Name="listBox_Direction"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock TextWrapping="Wrap" Margin="0,0,0,15" Text="{Binding}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap"
+                                       Margin="0,0,0,15"
+                                       Text="{Binding}">
+                            </TextBlock>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>
-        </StackPanel>
+                </ListView>
+            </Grid>
+            <Grid Grid.Column="0"
+                        Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="20"
+                           Grid.Row="0"
+                           Margin="10,0" 
+                           Foreground="PaleVioletRed"
+                           FontWeight="Bold" 
+                           Text="Ingredients">
+                </TextBlock>
+                <ListView Name="listBox_Ingredients" 
+                          Grid.Row="1"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock TextWrapping="Wrap"
+                                       Margin="0,0,0,15"
+                                       Text="{Binding}">
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="1"
+                  Grid.Column="1">
+            </Grid>
+        </Grid>
     </Grid>
 
 </UserControl>
