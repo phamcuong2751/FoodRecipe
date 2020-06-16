@@ -29,74 +29,78 @@
                        FontSize="40" 
                        Foreground="White"></TextBlock>
         </StackPanel>
-        <Grid Grid.Row="1" Background="White">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="7*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="5*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Image Name="mainImage" Margin="15" Stretch="Fill"/>
-            </Grid>
-            <Grid Grid.Column="1" 
-                  Grid.Row="0">
+        <ScrollViewer Grid.Row="1" Background="White">
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" 
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Image Name="mainImage" Margin="15" Stretch="Fill"/>
+                </Grid>
+                <Grid Grid.Column="1" 
+                  Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" 
                            Margin="5"
                            FontSize="20" 
                            Foreground="PaleVioletRed" 
                            FontWeight="Bold" 
                            Text="Directions">
-                </TextBlock>
-                <ListView Grid.Row="1" 
+                    </TextBlock>
+                    <StackPanel Grid.Row="1">
+                        <ListView Grid.Row="1" 
                           Name="listBox_Direction"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock TextWrapping="Wrap"
-                                       Margin="0,0,0,15"
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap"
+                                       Margin="0,0,0,20"
                                        Text="{Binding}">
-                            </TextBlock>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListView>
-            </Grid>
-            <Grid Grid.Column="0"
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="0"
                         Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="4*"/>
-                </Grid.RowDefinitions>
-                <TextBlock FontSize="20"
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="20"
                            Grid.Row="0"
                            Margin="10,0" 
                            Foreground="PaleVioletRed"
                            FontWeight="Bold" 
                            Text="Ingredients">
-                </TextBlock>
-                <ListView Name="listBox_Ingredients" 
+                    </TextBlock>
+                    <ListView Name="listBox_Ingredients" 
                           Grid.Row="1"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock TextWrapping="Wrap"
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap"
                                        Margin="0,0,0,15"
                                        Text="{Binding}">
-                            </TextBlock>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
-            <Grid Grid.Row="1"
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Row="1"
                   Grid.Column="1">
+                </Grid>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </Grid>
-
 </UserControl>
