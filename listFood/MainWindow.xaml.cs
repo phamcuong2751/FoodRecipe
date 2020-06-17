@@ -189,11 +189,20 @@ namespace listFood
                     isFavorite = newFood._isFavorite
                 };
                 previewFoods.Add(food);
+                
             }
+            for (var i = 0; i< previewFoods.Count;i++)
+            {
+                if(previewFoods[i].isFavorite == true)
+                {
+                    _listFavorite.Add(previewFoods[i]);
+                }
+            }
+            {
 
+            }
             ListBox_Food.ItemsSource = previewFoods;
-            Box_Favorite1.ItemsSource = previewFoods;
-            Box_Favorited2.ItemsSource = previewFoods;
+            Box_Favorite1.ItemsSource = _listFavorite;
         }
 
         private void Button_List(object sender, RoutedEventArgs e)
@@ -233,7 +242,7 @@ namespace listFood
             var openWindow = new OpenWindowFood(food);
             DataContext = openWindow;
         }
-
+        public bool Checked { get; set; }
         private void Button_Out(object sender, RoutedEventArgs e)
         {
             var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -245,8 +254,9 @@ namespace listFood
 
         private void isFavorite_Click(object sender, RoutedEventArgs e)
         {
-            
+                
         }
+
     }
 }
 

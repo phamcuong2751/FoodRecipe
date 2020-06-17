@@ -48,5 +48,10 @@ namespace listFood.Dialog
         {
             
         }
+
+        private void Check_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
