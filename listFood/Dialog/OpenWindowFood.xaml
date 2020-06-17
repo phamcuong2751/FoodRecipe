@@ -52,7 +52,7 @@
                            FontSize="20" 
                            Foreground="PaleVioletRed" 
                            FontWeight="Bold" 
-                           Text="Directions">
+                           Text="Nguyên Liệu">
                 </TextBlock>
                 <ListView Grid.Row="1" 
                           Name="listBox_Direction"
@@ -78,7 +78,7 @@
                            Margin="10,0" 
                            Foreground="PaleVioletRed"
                            FontWeight="Bold" 
-                           Text="Ingredients">
+                           Text="Các bước thực hiện">
                 </TextBlock>
                 <ListView Name="listBox_Ingredients" 
                           Grid.Row="1"
@@ -103,7 +103,7 @@
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Image Width="200" Height="100"  Source="{Binding Converter={StaticResource pathConverter}}"/>
+                            <Image Width="200" Height="200" Stretch="UniformToFill"  Source="{Binding Converter={StaticResource pathConverter}}"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:listFood"
         mc:Ignorable="d"
-        Title="AddFood" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="AddFood" Height="450" Width="650">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"></RowDefinition>
@@ -23,33 +24,65 @@
                        FontSize="40" 
                        Foreground="White"></TextBlock>
         </StackPanel>
-        <Canvas Background="White"
-                    Grid.Row="1" >
-            <Label FontWeight="Bold" Content="Tên món" Canvas.Left="2" Canvas.Top="4" />
-            <TextBox Name="nameFood" Height="40" Canvas.Left="2" TextWrapping="Wrap" Text="Tên món ăn" Canvas.Top="34" Width="450" VerticalContentAlignment="Center"/>
-            <Label FontWeight="Bold" Content="Nguyên liệu" Canvas.Left="2" Canvas.Top="90" />
-            <TextBox AcceptsReturn="True" Name="ingredients" Height="91" Canvas.Left="2" TextWrapping="Wrap" Text="Các nguyên liệu cần chuẩn bị" Canvas.Top="120" Width="450" VerticalContentAlignment="Top"/>
-            <Label FontWeight="Bold" Content="Cách làm" Canvas.Left="2" Canvas.Top="228" />
-            <TextBox AcceptsReturn="True" Name="directions" Height="91" Canvas.Left="2" TextWrapping="Wrap" Text="Từng bước thực hiện" Canvas.Top="258" Width="450" VerticalContentAlignment="Top"/>
-            <Button Content="Add" Height="36" Canvas.Left="647" Canvas.Top="302" Width="134" Click="Button_Click"/>
-            <Button Content="Browse..." Canvas.Left="606" Canvas.Top="236" Click="Button_Click_1"/>
-            <Border 
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label FontWeight="Light"
+                   Content="Tên món" Margin="7,12,239,297" />
+            <TextBox Name="nameFood"
+                     Margin="7,43,55,264"
+                     TextWrapping="Wrap"
+                     BorderThickness="1"/>
+            <Label FontWeight="Light" 
+                   Content="Nguyên liệu" Margin="7,83,221,229" />
+            <TextBox AcceptsReturn="True"
+                     BorderThickness="1" 
+                     Name="ingredients" 
+                     TextWrapping="Wrap" Margin="7,109,54,120"/>
+            <TextBlock FontWeight="Light"
+                   Text="Cách làm"
+                   Margin="7,229,245,90" />
+            <TextBox AcceptsReturn="True" 
+                     BorderThickness="1"
+                     Margin="6,252,55,4"
+                     Name="directions"
+                     TextWrapping="Wrap"/>
+            <Grid Grid.Column="1">
+                <Button Content="Add"
+                    Height="Auto" 
+                    FontWeight="Light"
+                    Background="#AA381F"
+                    BorderThickness="0"
+                    Canvas.Top="308" 
+                    Click="Button_Click" 
+                    Canvas.Left="540" Margin="219,300,4,5"/>
+                <Button Background="#AA381F"
+                    FontWeight="Light"
+                    BorderThickness="0"
+                    Margin="108,199,110,106"
+                    Content="Browse..."  
+                    Click="Button_Click_1" Height="Auto"/>
+                <Border
                 BorderBrush="Black"
-                BorderThickness="2" Canvas.Left="476" Canvas.Top="4">
-                <ListBox HorizontalAlignment="Center" Width="300" Height="225" Name="listImages" Canvas.Left="486" Canvas.Top="4">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal"></WrapPanel>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Image RenderOptions.BitmapScalingMode="HighQuality" Width="50" Height="50" Source="{Binding}"/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                BorderThickness="1" Margin="5 5 5 150">
+                    <ListBox 
+                         Name="listImages">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Image RenderOptions.BitmapScalingMode="HighQuality" Width="100" Height="100" Source="{Binding}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
 
-            </Border>
-        </Canvas>
+                </Border>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
