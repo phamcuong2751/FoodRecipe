@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:listFood"
         mc:Ignorable="d"
         Title="AddFood" Height="450" Width="650"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
     <StackPanel>
         <Grid>
             <Grid.RowDefinitions>
