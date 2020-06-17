@@ -71,15 +71,15 @@
                             FontWeight="Bold" 
                             Foreground="White">
                     </Button>
-                    <Grid Height="225" Width="150">
+                    <Grid Height="200" Width="150">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
                         </Grid.RowDefinitions>
                         <Button Click="Button_Home"
+                                Grid.Row="0"
                                 Content="Trang chủ"
                                 FontWeight="Light"
                                 Background="#AA381F"
@@ -88,18 +88,9 @@
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0" 
                                 Height="Auto" 
                                 Margin="0,0,0,5.333"/>
-                        <Button Click="Button_List"
-                                Content="Danh sách món ăn"
-                                FontWeight="Light"
-                                Background="#AA381F"
-                                BorderBrush="#fff"
-                                BorderThickness="0 0 0 0.5"
-                                materialDesign:ShadowAssist.ShadowDepth="Depth0" 
-                                Height="Auto" 
-                                Margin="0,45,0,4.667"
-                                Grid.RowSpan="2"/>
                         <Button Click="Button_Add"
-                                Content="Thêm món" Grid.Row="2"
+                                Content="Thêm món"
+                                Grid.Row="1"
                                 FontWeight="Light"
                                 Background="#AA381F"
                                 BorderBrush="#fff"
@@ -115,13 +106,11 @@
                                 BorderBrush="#fff"
                                 BorderThickness="0 0 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                                Height="Auto"
-                                Margin="0,44.333,0,4.667" 
-                                Grid.RowSpan="2"/>
+                                Height="Auto"/>
                         <Button Click="Button_Out"
                                 IsCancel="True"
                                 Content="Thoát" 
-                                Grid.Row="4"
+                                Grid.Row="3"
                                 FontWeight="Light"
                                 Background="#AA381F"
                                 BorderBrush="#fff"
@@ -189,25 +178,21 @@
                 <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Grid.RowSpan="2">
+            <Grid Grid.Column="0">
                 <DockPanel>
                     <ListBox Name="Box_Favorite1">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="{Binding Avatar, Converter={StaticResource pathConverter}}" Height="150" Width="150" />
-                                    <Canvas Margin="10">
+                                    <StackPanel Margin="10 0 0 0">
                                         <TextBlock TextWrapping="Wrap" Text="Tên món ăn: " FontWeight="Bold"></TextBlock>
                                         <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
                                         <TextBlock TextWrapping="Wrap" Text="Công thức: " FontWeight="Bold"></TextBlock>
                                         <TextBlock TextWrapping="Wrap" Text="{Binding shortIngredient}"/>
                                         <TextBlock TextWrapping="Wrap" Text="Cách làm: " FontWeight="Bold"></TextBlock>
                                         <TextBlock TextWrapping="Wrap" Text="{Binding shortDirection}"/>
-                                    </Canvas>
+                                    </StackPanel>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -239,7 +224,6 @@
                     </Grid>-->
                 </DockPanel>
             </Grid>
-
             <Border Background="#fff"
                     CornerRadius="7" 
                     Margin="10 20" 
