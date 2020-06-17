@@ -278,7 +278,7 @@
                                    RadiusY="35"
                                    Width="70" Height="70">
                                             <Rectangle.Fill>
-                                                <ImageBrush ImageSource="{Binding Avatar,Converter={StaticResource pathConverter}}"/>
+                                                <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="{Binding Avatar,Converter={StaticResource pathConverter}}"/>
                                             </Rectangle.Fill>
                                         </Rectangle>
                                     </Grid>
