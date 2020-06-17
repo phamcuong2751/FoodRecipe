@@ -206,11 +206,6 @@ namespace listFood
             Box_Favorite1.ItemsSource = _listFavorite;
         }
 
-        private void Button_List(object sender, RoutedEventArgs e)
-        {
-            DataContext = new ListFood();
-        }
-
         private void Button_Add(object sender, RoutedEventArgs e)
         {
             var screen = new AddFood();

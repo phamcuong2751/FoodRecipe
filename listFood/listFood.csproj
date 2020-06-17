@@ -88,9 +88,6 @@
     <Compile Include="Dialog\Infomation.xaml.cs">
       <DependentUpon>Infomation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialog\ListFood.xaml.cs">
-      <DependentUpon>ListFood.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Dialog\OpenWindowFood.xaml.cs">
       <DependentUpon>OpenWindowFood.xaml</DependentUpon>
     </Compile>
@@ -105,10 +102,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialog\Infomation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\ListFood.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

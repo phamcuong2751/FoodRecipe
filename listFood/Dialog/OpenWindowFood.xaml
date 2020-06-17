@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Loaded="UserControl_Loaded">
     <UserControl.Resources>
-        <converters:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
+    <converters:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -103,13 +103,11 @@
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Image Width="200" Height="200" Stretch="UniformToFill"  Source="{Binding Converter={StaticResource pathConverter}}"/>
+                            <Image Width="200" Height="200" Stretch="Fill"  Source="{Binding Converter={StaticResource pathConverter}}"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-
             </Grid>
         </Grid>
     </Grid>
-
 </UserControl>
