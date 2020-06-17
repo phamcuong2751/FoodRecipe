@@ -122,10 +122,11 @@
                       Grid.Row="0">
                         <DockPanel Margin="25,0,0.333,-0.333">
                             <Image Source="/img/Uxa1vpBBANqVU1NmHqv0H3bUdAuTsmkc.jpeg" 
-                           RenderOptions.BitmapScalingMode="HighQuality"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Center" 
-                           Margin="10" Height="100"/>
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" 
+                                   Margin="10" 
+                                   Height="120"/>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="1.5*"/>

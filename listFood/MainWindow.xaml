@@ -292,6 +292,7 @@
                                         </Rectangle>
                                     </Grid>
                                     <StackPanel Margin="20 0 0 0">
+                                        <CheckBox Name="isFavorite" Click="isFavorite_Click" IsChecked="{Binding isFavorite}"/>
                                         <TextBlock  Margin="0 10 0 0"
                                                     Text= "{Binding Name}" 
                                                     FontWeight="Light"
