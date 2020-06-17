@@ -33,14 +33,20 @@ namespace listFood.Dialog
             listBox_Direction.ItemsSource = newFood._directions;
             // Xuất avatar cho món ăn
             string baseFolder = AppDomain.CurrentDomain.BaseDirectory;
-            baseFolder = baseFolder.Remove(baseFolder.IndexOf("bin"));
-            string imagePath = baseFolder+newFood._images[1];
+            string imagePath = baseFolder+newFood._images[0];
             Uri uri = new Uri(imagePath, UriKind.Absolute);
             BitmapImage bitmap = new BitmapImage(uri);
             mainImage.Source = bitmap;
             // Thành phần món ăn
             listBox_Ingredients.ItemsSource = newFood._ingredients;
+            // Xuât list image
+            listImage.ItemsSource = newFood._images;
 
+        }
+
+        private void Check_Click(object sender, RoutedEventArgs e)
+        {
+    
         }
 
         private void Check_Click(object sender, RoutedEventArgs e)

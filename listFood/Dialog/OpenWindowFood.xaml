@@ -54,22 +54,15 @@
                            FontWeight="Bold" 
                            Text="Directions">
                 </TextBlock>
-                <ListView Grid.Row="1"
+                <ListView Grid.Row="1" 
                           Name="listBox_Direction"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                          ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <CheckBox
-                                Margin="0,0,0,20"
-                                Name="Check"
-                                Click="Check_Click">
-                                <ContentControl>
-                                    <TextBlock TextWrapping="Wrap"
+                            <TextBlock TextWrapping="Wrap"
+                                       Margin="0,0,0,15"
                                        Text="{Binding}">
-                                    </TextBlock>
-                                </ContentControl>
-                            </CheckBox>
+                            </TextBlock>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListView>
@@ -89,9 +82,7 @@
                 </TextBlock>
                 <ListView Name="listBox_Ingredients" 
                           Grid.Row="1"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                          Margin="15 0 0 0">
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock TextWrapping="Wrap"
@@ -104,8 +95,21 @@
             </Grid>
             <Grid Grid.Row="1"
                   Grid.Column="1">
+                <ListBox Name="listImage">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Image Width="200" Height="100"  Source="{Binding Converter={StaticResource pathConverter}}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
             </Grid>
         </Grid>
     </Grid>
+
 </UserControl>
