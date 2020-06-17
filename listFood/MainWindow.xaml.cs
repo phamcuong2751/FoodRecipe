@@ -145,6 +145,7 @@ namespace listFood
 
         ObservableCollection<Recipe> _listFood = new ObservableCollection<Recipe>();
         ObservableCollection<previewFood> previewFoods = new ObservableCollection<previewFood>();
+        ObservableCollection<previewFood> _listFavorite = new ObservableCollection<previewFood>();
         string dataFile = "";
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -254,9 +255,8 @@ namespace listFood
 
         private void isFavorite_Click(object sender, RoutedEventArgs e)
         {
-                
-        }
 
+        }
     }
 }
 
