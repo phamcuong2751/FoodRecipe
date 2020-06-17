@@ -267,9 +267,13 @@ namespace listFood
                 preFood.Add(itemFavorite.recipe);
             }
             ListBox_Food.ItemsSource = previewFoods;
+            Random rdg = new Random();
+            int index_rdg = rdg.Next(0, preFood.Count);
             if (preFood.Count > 0)
             {
                 Box_Favorite1.ItemsSource = preFood;
+                Box_Favorite2.ItemsSource = preFood;
+
             }
         }
 
