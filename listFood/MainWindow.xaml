@@ -23,9 +23,6 @@
         WindowState="Maximized"
         Loaded="Window_Loaded">
     <Window.Resources>
-        <DataTemplate x:Name="food1" DataType="{x:Type dialog:AddFood}">
-            <dialog:AddFood DataContext="{Binding}"/>
-        </DataTemplate>
         <DataTemplate x:Name="food2" DataType="{x:Type dialog:ListFood}">
             <dialog:ListFood DataContext="{Binding}"/>
         </DataTemplate>
@@ -39,7 +36,7 @@
     </Window.Resources>
     <Grid>
         <!--Thanh Menu-->
-        <!--<materialDesign:DrawerHost Panel.ZIndex="500">
+        <materialDesign:DrawerHost Panel.ZIndex="500">
             <Button 
                     Panel.ZIndex="100" 
                     Background="#AA381F" 
@@ -128,7 +125,7 @@
                     </Grid>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-        </materialDesign:DrawerHost>-->
+        </materialDesign:DrawerHost>
         <!--Thanh Menu-->
         <!--Code Cường-->
         <StackPanel>

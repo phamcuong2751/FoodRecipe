@@ -65,39 +65,12 @@ namespace listFood
             public bool isFavorite { get; set; }
 
         }
-        public class Food
-        {
-            public string _nameOfFood { get; set; }
-            public string _howToFood { get; set; }
-            public int _rating { get; set; }
-            public string _cover { get; set; }
-            public string _material { get; set; }
-        }
+
 
         ObservableCollection<Recipe> _listFood = new ObservableCollection<Recipe>();
-        ObservableCollection<Food> listFood = new ObservableCollection<Food>();
+        ObservableCollection<previewFood> previewFoods = new ObservableCollection<previewFood>();
         string dataFile = "";
-        //private void Window_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    string folder = AppDomain.CurrentDomain.BaseDirectory; // "C:\Users\dev\"
-        //    folder = folder.Remove(folder.IndexOf("bin"));
-        //    dataFile = $"{folder}Data\\dataOfFood.txt";
 
-        //    // Nạp danh sách món ăn đang có từ tập tin
-        //    var items = File.ReadAllLines(dataFile).ToList();
-        //    foreach (string item in items)
-        //    {
-        //        string[] entries = item.Split('~');
-        //        Food newFood = new Food();
-        //        newFood._nameOfFood = entries[0];
-        //        newFood._howToFood = entries[1];
-        //        newFood._cover = entries[2];
-        //        newFood._rating = int.Parse(entries[3]);
-        //        newFood._material = entries[4];
-        //        listFood.Add(newFood);
-        //    }
-        //    ListBox_Food.ItemsSource = listFood;
-        //}
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             string folder = AppDomain.CurrentDomain.BaseDirectory; // "C:\Users\dev\"
@@ -105,7 +78,7 @@ namespace listFood
             dataFile = $"{folder}Data\\dataOfFood1.txt";
 
             var items = File.ReadAllLines(dataFile).ToList();
-            List<previewFood> previewFoods = new List<previewFood>(); // Lưu thông tin xem trước của món ăn
+             // Lưu thông tin xem trước của món ăn
             foreach (string item in items)
             {
                 string[] entries = item.Split('~');
@@ -155,10 +128,15 @@ namespace listFood
         private void Button_Add(object sender, RoutedEventArgs e)
         {
             var screen = new AddFood();
-            var newFood = screen.newFood;
-            _listFood.Add(screen.newFood);
-            DataContext = screen;
-
+            string item;
+            if (screen.ShowDialog() == true)
+            {
+                var newFood = screen.newFood;
+                _listFood.Add(newFood);
+                item = newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
+                File.AppendAllText(dataFile, '\n'+item);
+            }
+            ListBox_Food.ItemsSource = previewFoods;
         }
 
         private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
