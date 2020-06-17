@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using MaterialDesignThemes.Wpf;
 using System.ComponentModel;
+using System.Windows.Controls;
 
 namespace listFood
 {
@@ -141,8 +142,6 @@ namespace listFood
 
             public event PropertyChangedEventHandler PropertyChanged;
         }
-
-
         ObservableCollection<Recipe> _listFood = new ObservableCollection<Recipe>();
         ObservableCollection<previewFood> previewFoods = new ObservableCollection<previewFood>();
         ObservableCollection<previewFood> _listFavorite = new ObservableCollection<previewFood>();
@@ -181,15 +180,55 @@ namespace listFood
                 }
                 newFood._isFavorite = Boolean.Parse(entries[4]);
                 _listFood.Add(newFood);
-                previewFood food = new previewFood()
+                if (newFood._directions.Count < 2 && newFood._ingredients.Count < 2)
                 {
-                    Name = newFood._name,
-                    shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
-                    shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
-                    Avatar = newFood._images[0],
-                    isFavorite = newFood._isFavorite
-                };
-                previewFoods.Add(food);
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0],
+                        shortDirection = newFood._directions[0],
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                else if(newFood._directions.Count < 2)
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
+                        shortDirection = newFood._directions[0],
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                else if (newFood._ingredients.Count < 2)
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0],
+                        shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                else
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
+                        shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                
                 
             }
             for (var i = 0; i< previewFoods.Count;i++)
@@ -216,15 +255,54 @@ namespace listFood
                 _listFood.Add(newFood);
                 item = newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
                 File.AppendAllText(dataFile, '\n'+item);
-                previewFood food = new previewFood()
+                if (newFood._directions.Count < 2 && newFood._ingredients.Count < 2)
                 {
-                    Name = newFood._name,
-                    shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
-                    shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
-                    Avatar = newFood._images[0],
-                    isFavorite = newFood._isFavorite
-                };
-                previewFoods.Add(food);
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0],
+                        shortDirection = newFood._directions[0],
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                else if (newFood._directions.Count < 2)
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
+                        shortDirection = newFood._directions[0],
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                else if (newFood._ingredients.Count < 2)
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0],
+                        shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                else
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
+                        shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
             }
             ListBox_Food.ItemsSource = previewFoods;
         }

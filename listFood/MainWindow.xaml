@@ -259,7 +259,7 @@
                                     </Grid>
                                     <StackPanel Margin="20 0 0 0">
                                         <!--Làm sao get name được trong ListView-->
-                                        <CheckBox Name="isFavorite" Checked="isFavorite_Click" IsChecked="True"/>
+                                        <CheckBox Name="isFavorite" Checked="isFavorite_Click" IsChecked="{Binding isFavorite}"/>
                                         <TextBlock  Margin="0 10 0 0"
                                                     Text= "{Binding Name}" 
                                                     FontWeight="Light"
