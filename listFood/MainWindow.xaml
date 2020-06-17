@@ -183,43 +183,18 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="{Binding Avatar, Converter={StaticResource pathConverter}}" Height="150" Width="150" />
-                                    <StackPanel Margin="10 0 0 0">
-                                        <TextBlock TextWrapping="Wrap" Text="Tên món ăn: " FontWeight="Bold"></TextBlock>
-                                        <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
-                                        <TextBlock TextWrapping="Wrap" Text="Công thức: " FontWeight="Bold"></TextBlock>
-                                        <TextBlock TextWrapping="Wrap" Text="{Binding shortIngredient}"/>
-                                        <TextBlock TextWrapping="Wrap" Text="Cách làm: " FontWeight="Bold"></TextBlock>
-                                        <TextBlock TextWrapping="Wrap" Text="{Binding shortDirection}"/>
+                                    <StackPanel  Margin="10 0 0 0">
+                                        <TextBlock Text="Tên món ăn: " FontWeight="Bold"></TextBlock>
+                                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding Name}"/>
+                                        <TextBlock Text="Công thức: " FontWeight="Bold"></TextBlock>
+                                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding shortIngredient}"/>
+                                        <TextBlock Text="Cách làm: " FontWeight="Bold"></TextBlock>
+                                        <TextBlock HorizontalAlignment="Stretch"  Text="{Binding shortDirection}"/>
                                     </StackPanel>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <!--<Grid Margin="20 0 0 0" Width="179">
-                        <Ellipse Fill="#AA381F" Height="150" Width="150"/>
-                        <Image Source="/img/star-1.png" 
-                       Height="30" Width="30"
-                       Panel.ZIndex="100" Margin="120,25,0,161"/>
-                        <Image Source="/img/Canh.png"
-                       Height="150" 
-                       Width="150" Margin="10,29,-10,37"/>
-                    </Grid>
-                    <Grid>
-                        <ListBox Name="Box_Favorite1" Height="160">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Name}" FontSize="15"
-                                           FontWeight="Bold" Foreground="#AA381F"/>
-                                        <DockPanel>
-                                            <Image Source="img/Star_Element.png" Height="15" Margin="0 0 10 0"/>
-                                            <TextBlock Text="{Binding shortIngredient}" TextWrapping="WrapWithOverflow"/>
-                                        </DockPanel>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </Grid>-->
                 </DockPanel>
             </Grid>
             <Border Background="#fff"
@@ -271,7 +246,8 @@
                                                        FontWeight="Bold"/>
                                             <TextBlock Text="{Binding shortDirection}" 
                                                        FontSize="10"
-                                                       FontWeight="Light"/>
+                                                       FontWeight="Light"
+                                                       TextWrapping="Wrap"/>
                                         </DockPanel>
                                         <DockPanel>
                                             <TextBlock Text="Nguyên liệu: " 
@@ -280,7 +256,7 @@
                                             <TextBlock Text="{Binding shortIngredient}"
                                                     FontSize="10"
                                                     FontWeight="Light"
-                                                       TextWrapping="WrapWithOverflow"/>
+                                                       TextWrapping="Wrap"/>
                                         </DockPanel>
                                     </StackPanel>
                                 </DockPanel>
