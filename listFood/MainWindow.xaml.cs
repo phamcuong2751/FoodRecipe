@@ -157,6 +157,11 @@ namespace listFood
                 Application.Current.Shutdown();
             }
         }
+
+        private void isFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
 

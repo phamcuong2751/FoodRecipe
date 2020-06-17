@@ -54,15 +54,22 @@
                            FontWeight="Bold" 
                            Text="Directions">
                 </TextBlock>
-                <ListView Grid.Row="1" 
+                <ListView Grid.Row="1"
                           Name="listBox_Direction"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock TextWrapping="Wrap"
-                                       Margin="0,0,0,15"
+                            <CheckBox
+                                Margin="0,0,0,20"
+                                Name="Check"
+                                Click="Check_Click">
+                                <ContentControl>
+                                    <TextBlock TextWrapping="Wrap"
                                        Text="{Binding}">
-                            </TextBlock>
+                                    </TextBlock>
+                                </ContentControl>
+                            </CheckBox>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListView>
@@ -82,7 +89,9 @@
                 </TextBlock>
                 <ListView Name="listBox_Ingredients" 
                           Grid.Row="1"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          Margin="15 0 0 0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock TextWrapping="Wrap"
@@ -95,8 +104,8 @@
             </Grid>
             <Grid Grid.Row="1"
                   Grid.Column="1">
+
             </Grid>
         </Grid>
     </Grid>
-
 </UserControl>
