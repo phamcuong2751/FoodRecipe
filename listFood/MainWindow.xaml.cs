@@ -53,21 +53,26 @@ namespace listFood
         public class Recipe : INotifyPropertyChanged
         {
             private string Name;
-            public string _name { get => Name; set
+            public string _name
+            {
+                get => Name; set
                 {
                     Name = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("_name"));
                 }
             }
             private List<string> ingredients;
-            public List<string> _ingredients { get => ingredients; set 
+            public List<string> _ingredients
+            {
+                get => ingredients; set
                 {
                     ingredients = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("_ingredients"));
                 }
             }
             private List<string> directions;
-            public List<string> _directions {
+            public List<string> _directions
+            {
                 get => directions; set
                 {
                     directions = value;
@@ -75,7 +80,8 @@ namespace listFood
                 }
             }
             private List<string> images;
-            public List<string> _images {
+            public List<string> _images
+            {
                 get => images; set
                 {
                     images = value;
@@ -83,14 +89,26 @@ namespace listFood
                 }
             }
             private bool isFavorite;
-            public bool _isFavorite { get => isFavorite; set
+            public bool _isFavorite
+            {
+                get => isFavorite; set
                 {
                     isFavorite = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("_isFavorite"));
-                } 
+                }
             }
 
             public event PropertyChangedEventHandler PropertyChanged;
+        }
+        public class Favorite
+        {
+            public Favorite(previewFood preview, int i)
+            {
+                recipe = preview;
+                i = index;
+            }
+            public previewFood recipe { get; set; }
+            public int index { get; set; }
         }
         public class previewFood : INotifyPropertyChanged
         {
@@ -144,7 +162,7 @@ namespace listFood
         }
         ObservableCollection<Recipe> _listFood = new ObservableCollection<Recipe>();
         ObservableCollection<previewFood> previewFoods = new ObservableCollection<previewFood>();
-        ObservableCollection<previewFood> _listFavorite = new ObservableCollection<previewFood>();
+        ObservableCollection<Favorite> _listFavorite = new ObservableCollection<Favorite>();
         string dataFile = "";
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -154,7 +172,7 @@ namespace listFood
             dataFile = $"{folder}Data\\dataOfFood1.txt";
 
             var items = File.ReadAllLines(dataFile).ToList();
-             // Lưu thông tin xem trước của món ăn
+            // Lưu thông tin xem trước của món ăn
             foreach (string item in items)
             {
                 string[] entries = item.Split('~');
@@ -192,7 +210,7 @@ namespace listFood
                     };
                     previewFoods.Add(food);
                 }
-                else if(newFood._directions.Count < 2)
+                else if (newFood._directions.Count < 2)
                 {
                     previewFood food = new previewFood()
                     {
@@ -228,21 +246,27 @@ namespace listFood
                     };
                     previewFoods.Add(food);
                 }
-                
-                
+
+
             }
-            for (var i = 0; i< previewFoods.Count;i++)
+            for (var i = 0; i < previewFoods.Count; i++)
             {
-                if(previewFoods[i].isFavorite == true)
+                Favorite temp = new Favorite(previewFoods[i], i);
+                if (previewFoods[i].isFavorite == true)
                 {
-                    _listFavorite.Add(previewFoods[i]);
+                    _listFavorite.Add(temp);
                 }
             }
             {
 
             }
+            List<previewFood> preFood = new List<previewFood>();
+            foreach(Favorite itemFavorite in _listFavorite)
+            {
+                preFood.Add(itemFavorite.recipe);
+            }
             ListBox_Food.ItemsSource = previewFoods;
-            Box_Favorite1.ItemsSource = _listFavorite;
+            Box_Favorite1.ItemsSource = preFood;
         }
 
         private void Button_Add(object sender, RoutedEventArgs e)
@@ -254,7 +278,7 @@ namespace listFood
                 var newFood = screen.newFood;
                 _listFood.Add(newFood);
                 item = newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
-                File.AppendAllText(dataFile, '\n'+item);
+                File.AppendAllText(dataFile, '\n' + item);
                 if (newFood._directions.Count < 2 && newFood._ingredients.Count < 2)
                 {
                     previewFood food = new previewFood()
@@ -311,8 +335,6 @@ namespace listFood
         {
             var index = ListBox_Food.SelectedIndex;
             var food = _listFood[index];
-            //var screen = new OpenWindowOfFood(food);
-            //if (screen.ShowDiaglog() == true)
             var openWindow = new OpenWindowFood(food);
             DataContext = openWindow;
         }
@@ -326,9 +348,14 @@ namespace listFood
             }
         }
 
-        private void isFavorite_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void Box_Favorite1_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var indexFavorite = Box_Favorite1.SelectedIndex;
+            var index  =_listFavorite[indexFavorite].index;
+            var food = _listFood[index];
+            var openWindow = new OpenWindowFood(food);
+            DataContext = openWindow;
         }
     }
 }
