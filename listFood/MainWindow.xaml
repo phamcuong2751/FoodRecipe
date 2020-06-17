@@ -23,9 +23,6 @@
         WindowState="Maximized"
         Loaded="Window_Loaded">
     <Window.Resources>
-        <DataTemplate x:Name="food2" DataType="{x:Type dialog:ListFood}">
-            <dialog:ListFood DataContext="{Binding}"/>
-        </DataTemplate>
         <DataTemplate x:Name="info" DataType="{x:Type dialog:Infomation}">
             <dialog:Infomation DataContext="{Binding}"/>
         </DataTemplate>
