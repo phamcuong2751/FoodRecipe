@@ -160,7 +160,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="data\dataOfFood.txt" />
+    <Resource Include="data\listFavorite.txt" />
     <None Include="data\img\splashscreen\food_1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

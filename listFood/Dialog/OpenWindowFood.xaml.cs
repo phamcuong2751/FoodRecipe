@@ -42,5 +42,10 @@ namespace listFood.Dialog
             listBox_Ingredients.ItemsSource = newFood._ingredients;
 
         }
+
+        private void Check_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

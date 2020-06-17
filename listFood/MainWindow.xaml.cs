@@ -8,6 +8,7 @@ using listFood.Dialog;
 using MaterialDesignColors.Recommended;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Windows.Media.Animation;
 
 namespace listFood
 {
@@ -67,6 +68,7 @@ namespace listFood
 
 
         ObservableCollection<Recipe> _listFood = new ObservableCollection<Recipe>();
+        ObservableCollection<previewFood> _listFavorite = new ObservableCollection<previewFood>();
         string dataFile = "";
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -110,11 +112,20 @@ namespace listFood
                     isFavorite = newFood._isFavorite
                 };
                 previewFoods.Add(food);
+                
             }
+            for (var i = 0; i< previewFoods.Count;i++)
+            {
+                if(previewFoods[i].isFavorite == true)
+                {
+                    _listFavorite.Add(previewFoods[i]);
+                }
+            }
+            {
 
+            }
             ListBox_Food.ItemsSource = previewFoods;
-            Box_Favorite1.ItemsSource = previewFoods;
-            Box_Favorited2.ItemsSource = previewFoods;
+            Box_Favorite1.ItemsSource = _listFavorite;
         }
 
         private void Button_List(object sender, RoutedEventArgs e)
@@ -136,7 +147,7 @@ namespace listFood
             var openWindow = new OpenWindowFood(food);
             DataContext = openWindow;
         }
-
+        public bool Checked { get; set; }
         private void Button_Out(object sender, RoutedEventArgs e)
         {
             var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -148,8 +159,9 @@ namespace listFood
 
         private void isFavorite_Click(object sender, RoutedEventArgs e)
         {
-            
+                
         }
+
     }
 }
 

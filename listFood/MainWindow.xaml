@@ -196,9 +196,26 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" >
+            <Grid Grid.Row="0" Grid.RowSpan="2">
                 <DockPanel>
-                    <Grid Margin="20 0 0 0" Width="179">
+                    <ListBox Name="Box_Favorite1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Avatar, Converter={StaticResource pathConverter}}" Height="150" Width="150" />
+                                    <Canvas Margin="10">
+                                        <TextBlock TextWrapping="Wrap" Text="Tên món ăn: " FontWeight="Bold"></TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
+                                        <TextBlock TextWrapping="Wrap" Text="Công thức: " FontWeight="Bold"></TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding shortIngredient}"/>
+                                        <TextBlock TextWrapping="Wrap" Text="Cách làm: " FontWeight="Bold"></TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding shortDirection}"/>
+                                    </Canvas>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <!--<Grid Margin="20 0 0 0" Width="179">
                         <Ellipse Fill="#AA381F" Height="150" Width="150"/>
                         <Image Source="/img/star-1.png" 
                        Height="30" Width="30"
@@ -222,36 +239,7 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                    </Grid>
-                </DockPanel>
-            </Grid>
-            <Grid Grid.Row="1">
-                <DockPanel>
-                    <Grid Margin="20 0 0 0" Width="179">
-                        <Ellipse Fill="#AA381F" Height="150" Width="150"/>
-                        <Image Source="/img/star-1.png" 
-                       Height="30" Width="30"
-                       Panel.ZIndex="100" Margin="120,25,0,161"/>
-                        <Image Source="/img/Vit_nuong.png"
-                       Height="150" 
-                       Width="150" Margin="10,29,-10,37"/>
-                    </Grid>
-                    <Grid>
-                        <ListBox Name="Box_Favorited2"  Height="160">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Name}" FontSize="15"
-                                           FontWeight="Bold" Foreground="#AA381F"/>
-                                    <DockPanel>
-                                        <Image Source="img/Star_Element.png" Height="15" Margin="0 0 10 0"/>
-                                        <TextBlock Text="{Binding shortIngredient}" TextWrapping="WrapWithOverflow"/>
-                                    </DockPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    </Grid>
+                    </Grid>-->
                 </DockPanel>
             </Grid>
 
@@ -292,7 +280,8 @@
                                         </Rectangle>
                                     </Grid>
                                     <StackPanel Margin="20 0 0 0">
-                                        <CheckBox Name="isFavorite" Click="isFavorite_Click" IsChecked="{Binding isFavorite}"/>
+                                        <!--Làm sao get name được trong ListView-->
+                                        <CheckBox Name="isFavorite" Checked="isFavorite_Click" IsChecked="True"/>
                                         <TextBlock  Margin="0 10 0 0"
                                                     Text= "{Binding Name}" 
                                                     FontWeight="Light"
