@@ -9,6 +9,7 @@ using MaterialDesignColors.Recommended;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using MaterialDesignThemes.Wpf;
+using System.ComponentModel;
 
 namespace listFood
 {
@@ -48,22 +49,97 @@ namespace listFood
         {
 
         }
-        public class Recipe
+        public class Recipe : INotifyPropertyChanged
         {
-            public string _name { get; set; }
-            public List<string> _ingredients { get; set; } = null; // Thành phần món ăn
-            public List<string> _directions { get; set; } = null; // Các bước hướng dẫn
-            public List<string> _images { get; set; } = null;
-            public bool _isFavorite { get; set; }
-        }
-        public class previewFood
-        {
-            public string Name { get; set; }
-            public string shortIngredient { get; set; }
-            public string shortDirection { get; set; }
-            public string Avatar { get; set; }
-            public bool isFavorite { get; set; }
+            private string Name;
+            public string _name { get => Name; set
+                {
+                    Name = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("_name"));
+                }
+            }
+            private List<string> ingredients;
+            public List<string> _ingredients { get => ingredients; set 
+                {
+                    ingredients = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("_ingredients"));
+                }
+            }
+            private List<string> directions;
+            public List<string> _directions {
+                get => directions; set
+                {
+                    directions = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("_directions"));
+                }
+            }
+            private List<string> images;
+            public List<string> _images {
+                get => images; set
+                {
+                    images = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("_images"));
+                }
+            }
+            private bool isFavorite;
+            public bool _isFavorite { get => isFavorite; set
+                {
+                    isFavorite = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("_isFavorite"));
+                } 
+            }
 
+            public event PropertyChangedEventHandler PropertyChanged;
+        }
+        public class previewFood : INotifyPropertyChanged
+        {
+            private string _name;
+            public string Name
+            {
+                get => _name; set
+                {
+                    _name = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+                }
+            }
+            private string ingredients;
+            public string shortIngredient
+            {
+                get => ingredients; set
+                {
+                    ingredients = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("shortIngredient"));
+                }
+            }
+            private string directions;
+            public string shortDirection
+            {
+                get => directions; set
+                {
+                    directions = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("shortDirection"));
+                }
+            }
+            private string images;
+            public string Avatar
+            {
+                get => images; set
+                {
+                    images = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Avatar"));
+                }
+            }
+            private bool Favorite;
+            public bool isFavorite
+            {
+                get => Favorite; set
+                {
+                    Favorite = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isFavorite"));
+                }
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
         }
 
 
@@ -135,6 +211,15 @@ namespace listFood
                 _listFood.Add(newFood);
                 item = newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
                 File.AppendAllText(dataFile, '\n'+item);
+                previewFood food = new previewFood()
+                {
+                    Name = newFood._name,
+                    shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
+                    shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
+                    Avatar = newFood._images[0],
+                    isFavorite = newFood._isFavorite
+                };
+                previewFoods.Add(food);
             }
             ListBox_Food.ItemsSource = previewFoods;
         }

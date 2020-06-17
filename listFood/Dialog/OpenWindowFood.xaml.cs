@@ -39,12 +39,14 @@ namespace listFood.Dialog
             mainImage.Source = bitmap;
             // Thành phần món ăn
             listBox_Ingredients.ItemsSource = newFood._ingredients;
+            // Xuât list image
+            listImage.ItemsSource = newFood._images;
 
         }
 
         private void Check_Click(object sender, RoutedEventArgs e)
         {
-
+    
         }
     }
 }

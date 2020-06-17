@@ -27,15 +27,34 @@ namespace listFood
         {
             InitializeComponent();
         }
+        public string[] checkBreakLine(string[] a)
+        {
+           List<string> b = new List<string>(a);
+            for(int i =0; i < b.Count-1; i++)
+            {
+               if(b[i] == "")
+                {
+                    b.RemoveAt(i);
+                }
+            }
+            if (b[b.Count-1] == "")
+            {
+                b.RemoveAt(b.Count-1);
+            }
+            a = b.ToArray();
+            return a;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string[] entriesIngredients = Regex.Split(ingredients.Text, "\r\n");
+            entriesIngredients = checkBreakLine(entriesIngredients);
             List<string> Ingredients = new List<string>();
             for (var i = 0; i < entriesIngredients.Length; i++)
             {
                 Ingredients.Add(entriesIngredients[i]);
             };
             string[] entriesDirections = Regex.Split(directions.Text, "\r\n");
+            entriesDirections = checkBreakLine(entriesDirections);
             List<string> Directions = new List<string>();
             for (var i = 0; i < entriesDirections.Length; i++)
             {
@@ -43,12 +62,16 @@ namespace listFood
             };
             // ------------------------------------------------------------------------
             List<string> Images = new List<string>();
-            var info = new FileInfo(fileName);
-            string folder = AppDomain.CurrentDomain.BaseDirectory; // "C:\Users\dev\"
-            folder += "/data/img/imgFood/";
-            string name = Guid.NewGuid().ToString();
-            File.Copy(fileName, folder + name + info.Extension);
-            Images.Add($"data/img/imgFood/{name}{info.Extension}");
+            foreach(string item in listPathImage)
+            {
+                var info = new FileInfo(item);
+                string folder = AppDomain.CurrentDomain.BaseDirectory; // "C:\Users\dev\"
+                folder += "/data/img/imgFood/";
+                string name = Guid.NewGuid().ToString();
+                File.Copy(item, folder + name + info.Extension);
+                Images.Add($"data/img/imgFood/{name}{info.Extension}");
+            };
+           
 
             // -------------------------------------------------------------------------
             newFood = new Home.Recipe()
@@ -62,36 +85,22 @@ namespace listFood
             DialogResult = true;
 
         }
-        string fileName = "";
+        List<string> listPathImage = new List<string>();
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var screen = new OpenFileDialog();
-            if (screen.ShowDialog() == true)
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Multiselect = true;
+            ofd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            if(ofd.ShowDialog() == true)
             {
-                fileName = screen.FileName;
-                var bitmap = new BitmapImage(new Uri(screen.FileName, UriKind.Absolute));
-                image_1.Source = bitmap;
+                foreach(string item in ofd.FileNames)
+                {
+                    listPathImage.Add(item);
+                }
             }
-        }
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            var screen = new OpenFileDialog();
-            if (screen.ShowDialog() == true)
-            {
-                fileName = screen.FileName;
-                var bitmap = new BitmapImage(new Uri(screen.FileName, UriKind.Absolute));
-                image_2.Source = bitmap;
-            }
-        }
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            var screen = new OpenFileDialog();
-            if (screen.ShowDialog() == true)
-            {
-                fileName = screen.FileName;
-                var bitmap = new BitmapImage(new Uri(screen.FileName, UriKind.Absolute));
-                image_3.Source = bitmap;
-            }
+            listImages.ItemsSource = listPathImage;
         }
     }
 }
