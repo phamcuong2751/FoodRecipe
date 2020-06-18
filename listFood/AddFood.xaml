@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:listFood"
         mc:Ignorable="d"
-        Title="AddFood" Height="450" Width="650"
-        WindowStartupLocation="CenterScreen"
-        WindowState="Maximized">
-    <StackPanel>
+        Title="AddFood" Height="450" Width="650" MinWidth="450"
+        WindowStartupLocation="CenterScreen" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"></RowDefinition>
@@ -27,75 +31,74 @@
                        Foreground="White"></TextBlock>
             </StackPanel>
         </Grid>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel>
-                <Label FontWeight="Light"
-                   Content="Tên món" Margin="10 10 0 0"/>
-                <TextBox Name="nameFood"
-                         TextWrapping="Wrap"
-                         BorderThickness="1"  Margin="10 0 40 0"/>
-                <Label FontWeight="Light" 
-                       Content="Nguyên liệu" Margin="10 10 0 0"/>
-                <TextBox AcceptsReturn="True"
-                         BorderThickness="1" 
-                         Name="ingredients" 
-                         MinHeight="80"
-                         MaxHeight="120"
-                         TextWrapping="Wrap" Margin="10 0 40 0"/>
-                <TextBlock FontWeight="Light"
-                           Text="Cách làm" Margin="10 10 0 0"/>
-                <TextBox AcceptsReturn="True" 
-                         BorderThickness="1"
-                         Name="directions"
-                         TextWrapping="Wrap"  Margin="10 0 40 0"
-                         MinHeight="90"
-                         MaxHeight="320"/>
-            </StackPanel>
-
-            <!--StackPanels 02-->
-            <StackPanel Grid.Column="1">
-                <Border
-                    BorderBrush="Black"
-                    BorderThickness="1"
-                    MinHeight="180" Margin="25 25 25 15">
-                    <ListBox Padding="0"
-                         Name="listImages">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal"></WrapPanel>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Image RenderOptions.BitmapScalingMode="HighQuality" Width="100" Height="100" Source="{Binding}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox
-                        >
-                </Border>
-                <Button Background="#AA381F"
-                    FontWeight="Light"
-                    BorderThickness="0"
-                    Content="Browse..."  
-                    Click="Button_Click_1" Width="100" Height="30"/>
-                <StackPanel >
-                    <Button Content="Add"
-                        FontWeight="Light"
-                        Background="#AA381F"
-                        BorderThickness="0"
-                        Click="Button_Click" 
-                        Width="100" Margin="0 50 10 0"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Right"/>
+                <StackPanel>
+                    <Label FontWeight="Light"
+                           Content="Tên món" Margin="25 10 0 0"/>
+                    <TextBox Name="nameFood"
+                             TextWrapping="Wrap"
+                             BorderThickness="1"  Margin="25 0 40 0"/>
+                    <Label FontWeight="Light" 
+                            Content="Nguyên liệu" Margin="25 10 0 0"/>
+                    <TextBox AcceptsReturn="True"
+                             BorderThickness="1" 
+                             Name="ingredients" 
+                             MinHeight="80"
+                             MaxHeight="120"
+                             TextWrapping="Wrap" Margin="25 0 40 0"
+                             VerticalScrollBarVisibility="Auto"/>
+                    <TextBlock FontWeight="Light"
+                                Text="Cách làm" Margin="25 10 0 0"/>
+                    <TextBox AcceptsReturn="True" 
+                             BorderThickness="1"
+                             Name="directions"
+                             TextWrapping="Wrap"  Margin="25 0 40 0"
+                             MinHeight="90"
+                             MaxHeight="320"/>
                 </StackPanel>
-            </StackPanel>
-            
-        </Grid>
-    </StackPanel>
+
+                <!--StackPanels 02-->
+                <StackPanel Grid.Column="1">
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            MinHeight="180" MaxHeight="400" Margin="25 25 25 15">
+                        <ListBox Padding="0"
+                         Name="listImages">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal"></WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Image RenderOptions.BitmapScalingMode="HighQuality" Width="100" Height="100" Source="{Binding}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Border>
+                    <Button Background="#AA381F"
+                            FontWeight="Light"
+                            BorderThickness="0"
+                            Content="Browse..."  
+                            Click="Button_Click_1" Width="100" Height="30"/>
+                    <StackPanel >
+                        <Button Content="Add"
+                                FontWeight="Light"
+                                Background="#AA381F"
+                                BorderThickness="0"
+                                Click="Button_Click" 
+                                Width="100" Margin="0 50 10 0"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
 </Window>
