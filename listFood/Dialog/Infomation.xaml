@@ -41,9 +41,7 @@
                       Grid.Column="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1.5*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="4*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="THÀNH VIÊN NHÓM"
                                FontSize="25"
@@ -51,24 +49,23 @@
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" >
                         </TextBlock>
-                        <TextBlock Text="18600011 - Nguyễn Trọng Quyết"
-                               Grid.Row="1"
-                               FontSize="20" 
-                               VerticalAlignment="Center" 
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
-                        <TextBlock Text="18600014 - Ngô Tất Tố"
-                               FontSize="20"
-                               Grid.Row="2"
-                               VerticalAlignment="Center" 
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
-                        <TextBlock Text="18600038 - Phạm Phong Phú Cường"
-                               FontSize="20"
-                               Grid.Row="3"
-                               VerticalAlignment="Center" 
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
+                        <ListView Grid.Row="1" 
+                                  Name="View_Name"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock TextWrapping="Wrap"
+                                               FontSize="20"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding NAME}">
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </Grid>
                     <Grid Grid.Row="1"
                       Grid.Column="0">
@@ -82,7 +79,10 @@
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" >
                         </TextBlock>
-                        <ListView Grid.Row="1" Name="View_Control">
+                        <ListView Grid.Row="1"
+                                  Name="View_Control"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -156,7 +156,10 @@
                                VerticalAlignment="Center"
                                Margin="5">
                         </TextBlock>
-                        <ListView Grid.Row="1" Name="View_Info">
+                        <ListView Grid.Row="1" 
+                                  Name="View_Info"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>

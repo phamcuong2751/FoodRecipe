@@ -44,6 +44,20 @@ namespace listFood.Dialog
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
+    public class Name : INotifyPropertyChanged
+    {
+        private string _Name;
+        public string NAME
+        {
+            get => _Name; set
+            {
+                _Name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
     /// <summary>
     /// Interaction logic for Infomation.xaml
     /// </summary>
@@ -56,6 +70,7 @@ namespace listFood.Dialog
         }
         BindingList<Info> _list;
         BindingList<Control> _list2;
+        BindingList<Name> _list3;
         private void Info_Loaded(object sender, RoutedEventArgs e)
         {
             _list = new BindingList<Info>()
@@ -84,6 +99,14 @@ namespace listFood.Dialog
                 new Control() {CONTROL ="Trang chủ: ......................................................."},
             };
             View_Control.ItemsSource = _list2;
+            View_Name.ItemsSource = _list3;
+            _list3 = new BindingList<Name>()
+            {
+                new Name() {NAME ="18600011 - Nguyễn Trọng Quyết"},
+                new Name() {NAME ="18600014 - Ngô Tất Tố"},
+                new Name() {NAME ="18600038 - Phạm Phong Phú Cường"},
+            };
+            View_Name.ItemsSource = _list3;
         }
     }
 }
