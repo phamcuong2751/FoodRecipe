@@ -260,13 +260,21 @@ namespace listFood
             {
 
             }
+
             List<previewFood> preFood = new List<previewFood>();
-            foreach(Favorite itemFavorite in _listFavorite)
+            foreach (Favorite itemFavorite in _listFavorite)
             {
                 preFood.Add(itemFavorite.recipe);
             }
             ListBox_Food.ItemsSource = previewFoods;
-            Box_Favorite1.ItemsSource = preFood;
+            Random rdg = new Random();
+            int index_rdg = rdg.Next(0, preFood.Count);
+            if (preFood.Count > 0)
+            {
+                Box_Favorite1.ItemsSource = preFood;
+                Box_Favorite2.ItemsSource = preFood;
+
+            }
         }
 
         private void Button_Add(object sender, RoutedEventArgs e)
