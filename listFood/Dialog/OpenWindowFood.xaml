@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:listFood.Dialog"
+             xmlns:dialog ="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:converters="clr-namespace:listFood.Dialog"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
@@ -16,11 +17,10 @@
             <RowDefinition Height="75"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" 
+        <Grid Grid.Row="0" 
                     Height="75"
                     VerticalAlignment="Top" 
-                    Background="#AA381F"
-                    >
+                    Background="#AA381F">
             <TextBlock Text="{Binding _nameOfFood}" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center" 
@@ -28,7 +28,17 @@
                        Margin="10"
                        FontSize="40" 
                        Foreground="White"></TextBlock>
-        </StackPanel>
+            <DockPanel Width="90" HorizontalAlignment="Right" Margin=" 0 0 30 0">
+                <Button HorizontalAlignment="Right"  Background="#AA381F" BorderThickness="0"
+                   Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
+                    <Image Source="/img/Icon_fixed.png" Height="30"/>
+                </Button>
+                <Button HorizontalAlignment="Right" Background="#AA381F" BorderThickness="0"
+                   Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
+                    <Image Source="/img/Delete_Food.png" HorizontalAlignment="Right" Height="30"/>
+                </Button>
+            </DockPanel>
+        </Grid>
         <Grid Grid.Row="1" Background="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>

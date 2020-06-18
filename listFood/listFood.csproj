@@ -143,6 +143,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="img\Delete_Food.png" />
+    <Resource Include="img\Icon_fixed.png" />
     <Resource Include="img\Star_Element.png" />
     <Resource Include="img\Uxa1vpBBANqVU1NmHqv0H3bUdAuTsmkc.jpeg" />
     <Resource Include="icon_app.ico" />
