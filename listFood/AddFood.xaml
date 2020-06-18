@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:listFood"
         mc:Ignorable="d"
-        Title="AddFood" Height="450" Width="650" MinWidth="450"
-        WindowStartupLocation="CenterScreen" >
-
+        Title="AddFood"
+        Height="450"
+        Width="650"
+        MinWidth="450"
+        WindowStartupLocation="CenterScreen" 
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -31,7 +34,8 @@
                        Foreground="White"></TextBlock>
             </StackPanel>
         </Grid>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>

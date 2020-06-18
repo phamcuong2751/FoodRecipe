@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:listFood.Dialog"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Loaded="Info_Loaded"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -71,14 +71,10 @@
                         </TextBlock>
                     </Grid>
                     <Grid Grid.Row="1"
-                      Grid.Column="0" Height="500">
+                      Grid.Column="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1.5*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="10*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="CHỨC NĂNG HOÀN THIỆN"
                                FontSize="25"
@@ -86,37 +82,19 @@
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" >
                         </TextBlock>
-                        <TextBlock Text="1. PLASHSCREEN"
-                               Grid.Row="1"
-                               FontSize="20"
-                               VerticalAlignment="Center" 
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
-                        <TextBlock Text="2. PLASHSCREEN"
-                               Grid.Row="2"
-                               FontSize="20"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
-                        <TextBlock Text="3. PLASHSCREEN"
-                               Grid.Row="3"
-                               FontSize="20"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
-                        <TextBlock Text="4. PLASHSCREEN"
-                               Grid.Row="4"
-                               FontSize="20"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
-                        <TextBlock Text="5. PLASHSCREEN"
-                               Grid.Row="5"
-                               FontSize="20"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
-                      
+                        <ListView Grid.Row="1" Name="View_Control">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock TextWrapping="Wrap"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding CONTROL}">
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </Grid>
                     <Grid Grid.Column="1"
                       Grid.Row="0">
@@ -169,12 +147,7 @@
                       Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1.5*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="10*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="HƯỚNG DẪN SỬ DỤNG APP"
                                Grid.Row="0"
@@ -183,42 +156,19 @@
                                VerticalAlignment="Center"
                                Margin="5">
                         </TextBlock>
-                        <TextBlock TextWrapping="Wrap"
-                               Grid.Row="1"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                        </TextBlock>
-                        <TextBlock TextWrapping="Wrap"
-                               Grid.Row="2"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                        </TextBlock>
-                        <TextBlock TextWrapping="Wrap"
-                               Grid.Row="3"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                        </TextBlock>
-                        <TextBlock TextWrapping="Wrap"
-                               Grid.Row="4"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                        </TextBlock>
-                        <TextBlock TextWrapping="Wrap"
-                               Grid.Row="5"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                        </TextBlock>
-                        <TextBlock TextWrapping="Wrap"
-                               Grid.Row="6"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Text="TRANG CHỦ: Chứa món ăn yêu thích và danh sách món ăn có hướng dẫn">
-                        </TextBlock>
+                        <ListView Grid.Row="1" Name="View_Info">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock TextWrapping="Wrap"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding HuongDan}">
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </Grid>
                 </Grid>
             </Grid>
