@@ -133,5 +133,13 @@ namespace Test_Splash_Screen
             };
             DataContext = _list[rgn.Next(32)];
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Home hr = new Home();
+            hr.Show();
+            dt.Stop();
+            this.Close();
+        }
     }
 }

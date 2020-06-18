@@ -243,5 +243,15 @@
                 </Style>
             </CheckBox.Style>
         </CheckBox>
+        <Button
+                Content="Bỏ qua"
+                FontSize="15"
+                Width="100"
+                FontWeight="Light"
+                Background="#AA381F"
+                BorderThickness="0"
+                Margin="620,420,0,0"
+                Click="Button_Click" 
+                Height="Auto"/>
     </Grid>
 </Window>
