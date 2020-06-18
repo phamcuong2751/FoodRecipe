@@ -45,7 +45,7 @@
                     Background="#AA381F" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                    materialDesign:ShadowAssist.ShadowDepth="Depth0" 
                     BorderBrush="#AA381F" 
                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" 
                     Height="60" Width="72" Margin="8,6,0,0">
@@ -262,6 +262,7 @@
                              MouseDoubleClick="DockPanel_MouseDown">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
+
                                 <DockPanel>
                                     <Grid>
                                         <Rectangle RadiusX="35"
