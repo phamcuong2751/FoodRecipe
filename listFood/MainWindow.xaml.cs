@@ -38,7 +38,7 @@ namespace listFood
         {
             Home hr = new Home();
             hr.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Button_Infomation(object sender, RoutedEventArgs e)
@@ -52,7 +52,7 @@ namespace listFood
         }
         public class Recipe : INotifyPropertyChanged
         {
-            private string Name;
+            public string Name;
             public string _name
             {
                 get => Name; set
@@ -280,6 +280,7 @@ namespace listFood
         private void Button_Add(object sender, RoutedEventArgs e)
         {
             var screen = new AddFood();
+            this.Close();
             string item;
             if (screen.ShowDialog() == true)
             {
@@ -352,7 +353,7 @@ namespace listFood
             var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (DR == MessageBoxResult.Yes)
             {
-                Application.Current.Shutdown();
+                Environment.Exit(0);
             }
         }
 
@@ -365,6 +366,8 @@ namespace listFood
             var openWindow = new OpenWindowFood(food);
             DataContext = openWindow;
         }
+
+      
     }
 }
 

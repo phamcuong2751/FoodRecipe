@@ -26,9 +26,12 @@ namespace listFood.Dialog
         {
             InitializeComponent();
             this.newFood = food;
+            
+
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            nameOfFood.Text = newFood._name;
             // Hiện thị từng bước làm
             listBox_Direction.ItemsSource = newFood._directions;
             // Xuất avatar cho món ăn

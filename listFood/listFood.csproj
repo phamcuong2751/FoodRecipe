@@ -257,11 +257,21 @@
     </None>
     <Resource Include="data\dataOfFood1.txt" />
     <Resource Include="data\Favorite.txt" />
-    <Resource Include="data\img\imgFood\0b3e1f37-f958-4b54-b746-80df4e157604.jpg" />
-    <Resource Include="data\img\imgFood\2fb21b94-b5a3-4821-adb6-b9e144fada9a.jpg" />
-    <Resource Include="data\img\imgFood\325e1656-1aa9-4e50-b047-1b87078085a7.jpg" />
-    <Resource Include="data\img\imgFood\8d0f71a9-bc7b-4d06-a9dc-0a8d5fbc45fb.jpg" />
-    <Resource Include="data\img\imgFood\90a4f382-4c48-4d4a-82bf-8d08e17860ea.jpg" />
+    <None Include="data\img\imgFood\0b3e1f37-f958-4b54-b746-80df4e157604.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\img\imgFood\2fb21b94-b5a3-4821-adb6-b9e144fada9a.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\img\imgFood\325e1656-1aa9-4e50-b047-1b87078085a7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\img\imgFood\8d0f71a9-bc7b-4d06-a9dc-0a8d5fbc45fb.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\img\imgFood\90a4f382-4c48-4d4a-82bf-8d08e17860ea.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Font\CAVEMAN.TTF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

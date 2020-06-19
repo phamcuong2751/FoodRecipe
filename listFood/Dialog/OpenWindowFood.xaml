@@ -21,9 +21,9 @@
                     Height="75"
                     VerticalAlignment="Top" 
                     Background="#AA381F">
-            <TextBlock Text="{Binding _nameOfFood}" 
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center" 
+            <TextBlock VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       Name="nameOfFood"
                        FontWeight="Light"
                        Margin="10"
                        FontSize="40" 
