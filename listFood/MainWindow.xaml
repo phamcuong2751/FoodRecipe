@@ -147,16 +147,20 @@
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Button Style="{DynamicResource MaterialDesignToolButton}"
-                                            Grid.RowSpan="2">
+                                            Grid.RowSpan="2"
+                                            Click="Search_button"
+                                            IsDefault="True">
                                         <materialDesign:PackIcon 
                                             Kind="Magnify" 
                                             Opacity="1" 
                                             Height="22" 
-                                            Width="22" />
+                                            Width="22" 
+                                            />
                                     </Button>
                                     <TextBox  
                                     Grid.Column="1" 
                                     Margin="8,4,0,4"
+                                    Name="Search"
                                     materialDesign:HintAssist.Hint="Nhập từ khoá để tìm công thức..."
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     BorderThickness="0" 
@@ -238,7 +242,6 @@
                              MouseDoubleClick="DockPanel_MouseDown">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-
                                 <DockPanel>
                                     <Grid>
                                         <Rectangle RadiusX="35"
@@ -269,8 +272,8 @@
                                                        FontSize="10"
                                                        FontWeight="Bold"/>
                                             <TextBlock Text="{Binding shortIngredient}"
-                                                    FontSize="10"
-                                                    FontWeight="Light"
+                                                       FontSize="10"
+                                                       FontWeight="Light"
                                                        TextWrapping="WrapWithOverflow"/>
                                         </DockPanel>
                                     </StackPanel>

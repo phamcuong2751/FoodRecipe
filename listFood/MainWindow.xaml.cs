@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using MaterialDesignThemes.Wpf;
 using System.ComponentModel;
 using System.Windows.Controls;
+using System.Data.SqlClient;
 
 namespace listFood
 {
@@ -274,6 +275,7 @@ namespace listFood
                 Box_Favorite1.ItemsSource = preFood;
 
             }
+             
         }
 
         private void Button_Add(object sender, RoutedEventArgs e)
@@ -365,7 +367,18 @@ namespace listFood
             DataContext = openWindow;
         }
 
-      
+        private void Search_button(object sender, RoutedEventArgs e)
+        {
+            var strings = previewFoods.Where(p => p.Name.ToLower().Contains(Search.Text.ToLower()) || p.shortDirection.ToLower().Contains(Search.Text.ToLower()) || p.shortIngredient.ToLower().Contains(Search.Text.ToLower()));
+            if(strings.Count() != 0)
+            {
+                ListBox_Food.ItemsSource = strings.ToList();
+            }   
+            else
+            {
+                MessageBox.Show("Không tìm thấy");
+            }
+        }
     }
 }
 
