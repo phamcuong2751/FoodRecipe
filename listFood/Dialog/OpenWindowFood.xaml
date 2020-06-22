@@ -33,7 +33,7 @@
             <Grid Width="120" HorizontalAlignment="Right" Margin=" 0 0 30 0">
                 <Button HorizontalAlignment="Left"  Background="#AA381F" BorderThickness="0" Click="Click_Favorite"
                    Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
-                    <Image Source="/img/heart-white.png" Height="25" Name="ChangeColorFavorite" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <Image Source="{Binding imageFavorite,Converter={StaticResource pathConverter}}" Height="25" Name="ChangeColorFavorite" RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Button>
                 <Button HorizontalAlignment="Center"  Background="#AA381F" BorderThickness="0"
                    Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
@@ -46,8 +46,9 @@
                 
             </Grid>
         </Grid>
-        <ScrollViewer Grid.Row="1">
-            <Grid Background="White">
+        <ScrollViewer Grid.Row="1" Background="White">
+
+            <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="7*"/>
@@ -57,10 +58,7 @@
                     <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" Grid.Column="0">
-                    <Image Name="mainImage" 
-                           Margin="15" 
-                           Stretch="Fill"  Height="200">
-                    </Image>
+                    <Image Name="mainImage" Margin="15" Stretch="Fill"/>
                 </Grid>
                 <Grid Grid.Column="1" 
                   Grid.Row="0">
@@ -71,21 +69,24 @@
                     <TextBlock Grid.Row="0" 
                            Margin="5"
                            FontSize="20" 
-                           Foreground="#AA381F" 
+                           Foreground="PaleVioletRed" 
                            FontWeight="Bold" 
-                           Text="Nguyên Liệu">
+                           Text="Directions">
                     </TextBlock>
-                    <ListView Grid.Row="1"
-                          Name="listBox_Direction">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap"
-                                       Margin="0,0,0,15"
+                    <StackPanel Grid.Row="1">
+                        <ListView Grid.Row="1" 
+                          Name="listBox_Direction"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap"
+                                       Margin="0,0,0,20"
                                        Text="{Binding}">
-                                </TextBlock>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListView>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
                 </Grid>
                 <Grid Grid.Column="0"
                         Grid.Row="1">
@@ -96,12 +97,13 @@
                     <TextBlock FontSize="20"
                            Grid.Row="0"
                            Margin="10,0" 
-                           Foreground="#AA381F"
+                           Foreground="PaleVioletRed"
                            FontWeight="Bold" 
-                           Text="Các bước thực hiện">
+                           Text="Ingredients">
                     </TextBlock>
-                    <ListView Name="listBox_Ingredients"  ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                          Grid.Row="1">
+                    <ListView Name="listBox_Ingredients" 
+                          Grid.Row="1"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock TextWrapping="Wrap"
@@ -114,24 +116,7 @@
                 </Grid>
                 <Grid Grid.Row="1"
                   Grid.Column="1">
-                    <ListBox Name="listImage">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"></StackPanel>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Image Name="Isimage"
-                                   Width="200"
-                                   Height="200"
-                                   Stretch="Fill"
-                                   RenderTransformOrigin="1,1"
-                                   Source="{Binding Converter={StaticResource pathConverter}}">
-                                </Image>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                    
                 </Grid>
             </Grid>
         </ScrollViewer>

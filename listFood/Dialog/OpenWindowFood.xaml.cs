@@ -20,7 +20,7 @@ namespace listFood.Dialog
     /// </summary>
     public partial class OpenWindowFood : UserControl
     {
-        private Home.Recipe newFood;
+        public Home.Recipe newFood;
 
         public OpenWindowFood(Home.Recipe food)
         {
@@ -42,45 +42,36 @@ namespace listFood.Dialog
             mainImage.Source = bitmap;
             // Thành phần món ăn
             listBox_Ingredients.ItemsSource = newFood._ingredients;
+
             // Xuât list image
-            listImage.ItemsSource = newFood._images;
+            //listImage.ItemsSource = newFood._images;
+            // Hiện món yêu thích
+            if (newFood._isFavorite == true)
+            {
+                ChangeColorFavorite.Source = new BitmapImage(new Uri(@"/img/heart-red.png", UriKind.Relative));
 
-        }
-
-        private void Check_Click(object sender, RoutedEventArgs e)
-        {
-            
+            }
+            else
+            {
+                ChangeColorFavorite.Source = new BitmapImage(new Uri(@"/img/heart-white.png", UriKind.Relative));
+            }
         }
 
         private void Click_Favorite(object sender, RoutedEventArgs e)
         {
-           
-            ChangeColorFavorite.Source = new BitmapImage(new Uri(@"/img/heart-red.png", UriKind.Relative));
+            if (newFood._isFavorite == true)
+            {
+                ChangeColorFavorite.Source = new BitmapImage(new Uri(@"/img/heart-white.png", UriKind.Relative));
+                newFood._isFavorite = false;
 
+            }
+            else
+            {
+                ChangeColorFavorite.Source = new BitmapImage(new Uri(@"/img/heart-red.png", UriKind.Relative));
+                newFood._isFavorite = true;
+            }
+            
         }
 
-
-        //private void mainImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    scale.ScaleX += 0.5;
-        //    scale.ScaleY += 0.5;
-        //}
-
-        //private void mainImage_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    if(scale.ScaleX >0.5)
-        //    {
-        //        scale.ScaleX -= 0.5;
-        //        scale.ScaleY -= 0.5;
-        //    }    
-        //}
-
-
-        //private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    var index = listImage.SelectedIndex;
-        //    showImage showImage = new showImage(newFood._images[index]);
-
-        //}
     }
 }
