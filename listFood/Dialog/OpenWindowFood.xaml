@@ -33,7 +33,7 @@
             <Grid Width="120" HorizontalAlignment="Right" Margin=" 0 0 30 0">
                 <Button HorizontalAlignment="Left"  Background="#AA381F" BorderThickness="0" Click="Click_Favorite"
                    Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
-                    <Image Source="/img/heart-white.png" Height="25" Name="ChangeColorFavorite" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <Image Source="{Binding imageFavorite,Converter={StaticResource pathConverter}}" Height="25" Name="ChangeColorFavorite" RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Button>
                 <Button HorizontalAlignment="Center"  Background="#AA381F" BorderThickness="0"
                    Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
@@ -70,7 +70,7 @@
                 <TextBlock Grid.Row="0" 
                            Margin="5"
                            FontSize="20" 
-                           Foreground="#AA381F" 
+                           Foreground="PaleVioletRed" 
                            FontWeight="Bold" 
                            Text="Nguyên Liệu">
                 </TextBlock>
@@ -95,7 +95,7 @@
                 <TextBlock FontSize="20"
                            Grid.Row="0"
                            Margin="10,0" 
-                           Foreground="#AA381F"
+                           Foreground="PaleVioletRed"
                            FontWeight="Bold" 
                            Text="Các bước thực hiện">
                 </TextBlock>
