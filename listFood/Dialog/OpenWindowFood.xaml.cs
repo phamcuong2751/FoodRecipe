@@ -52,6 +52,14 @@ namespace listFood.Dialog
             
         }
 
+        private void Click_Favorite(object sender, RoutedEventArgs e)
+        {
+           
+            ChangeColorFavorite.Source = new BitmapImage(new Uri(@"/img/heart-red.png", UriKind.Relative));
+
+        }
+
+
         //private void mainImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         //{
         //    scale.ScaleX += 0.5;

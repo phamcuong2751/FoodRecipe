@@ -150,6 +150,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="img\heart-red.png" />
+    <Resource Include="img\heart-white.png" />
     <Resource Include="img\Delete_Food.png" />
     <Resource Include="img\Icon_fixed.png" />
     <Resource Include="img\Star_Element.png" />

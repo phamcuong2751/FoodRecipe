@@ -30,19 +30,24 @@
                        Margin="10"
                        FontSize="40" 
                        Foreground="White"></TextBlock>
-            <DockPanel Width="90" HorizontalAlignment="Right" Margin=" 0 0 30 0">
-                <Button HorizontalAlignment="Right"  Background="#AA381F" BorderThickness="0"
+            <Grid Width="120" HorizontalAlignment="Right" Margin=" 0 0 30 0">
+                <Button HorizontalAlignment="Left"  Background="#AA381F" BorderThickness="0" Click="Click_Favorite"
                    Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
-                    <Image Source="/img/Icon_fixed.png" Height="30"/>
+                    <Image Source="/img/heart-white.png" Height="25" Name="ChangeColorFavorite" RenderOptions.BitmapScalingMode="HighQuality"/>
+                </Button>
+                <Button HorizontalAlignment="Center"  Background="#AA381F" BorderThickness="0"
+                   Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
+                    <Image Source="/img/Icon_fixed.png" Height="30" RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Button>
                 <Button HorizontalAlignment="Right" Background="#AA381F" BorderThickness="0"
                    Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
-                    <Image Source="/img/Delete_Food.png" HorizontalAlignment="Right" Height="30"/>
+                    <Image Source="/img/Delete_Food.png" HorizontalAlignment="Right" Height="30" RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Button>
-            </DockPanel>
+                
+            </Grid>
         </Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="1">
-            <Grid Grid.Row="1" Background="White">
+        <ScrollViewer Grid.Row="1">
+            <Grid Background="White">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="7*"/>
@@ -54,15 +59,7 @@
                 <Grid Grid.Row="0" Grid.Column="0">
                     <Image Name="mainImage" 
                            Margin="15" 
-                           Stretch="Fill" >
-                        <!--<Image.RenderTransform>
-                        <TransformGroup>
-                            <RotateTransform x:Name="rotate"/>
-                            <ScaleTransform x:Name="scale"/>
-                        </TransformGroup>
-                       MouseLeftButtonDown="mainImage_MouseLeftButtonDown"
-                       MouseRightButtonDown="mainImage_MouseRightButtonDown"
-                    </Image.RenderTransform>-->
+                           Stretch="Fill"  Height="200">
                     </Image>
                 </Grid>
                 <Grid Grid.Column="1" 
@@ -74,11 +71,11 @@
                     <TextBlock Grid.Row="0" 
                            Margin="5"
                            FontSize="20" 
-                           Foreground="PaleVioletRed" 
+                           Foreground="#AA381F" 
                            FontWeight="Bold" 
                            Text="Nguyên Liệu">
                     </TextBlock>
-                    <ListView Grid.Row="1" 
+                    <ListView Grid.Row="1"
                           Name="listBox_Direction">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -99,13 +96,12 @@
                     <TextBlock FontSize="20"
                            Grid.Row="0"
                            Margin="10,0" 
-                           Foreground="PaleVioletRed"
+                           Foreground="#AA381F"
                            FontWeight="Bold" 
                            Text="Các bước thực hiện">
                     </TextBlock>
-                    <ListView Name="listBox_Ingredients" 
-                          Grid.Row="1"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView Name="listBox_Ingredients"  ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                          Grid.Row="1">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock TextWrapping="Wrap"
