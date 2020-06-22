@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:listFood.Dialog"
+             xmlns:viewdialog="clr-namespace:listFood.ViewDialog"
              xmlns:dialog ="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:converters="clr-namespace:listFood.Dialog"
              mc:Ignorable="d" 
@@ -11,6 +12,7 @@
              Loaded="UserControl_Loaded">
     <UserControl.Resources>
     <converters:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
+        
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -39,85 +41,103 @@
                 </Button>
             </DockPanel>
         </Grid>
-        <Grid Grid.Row="1" Background="White">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="7*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="5*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Image Name="mainImage" Margin="15" Stretch="Fill"/>
-            </Grid>
-            <Grid Grid.Column="1" 
-                  Grid.Row="0">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+            <Grid Grid.Row="1" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" 
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Image Name="mainImage" 
+                           Margin="15" 
+                           Stretch="Fill" >
+                        <!--<Image.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform x:Name="rotate"/>
+                            <ScaleTransform x:Name="scale"/>
+                        </TransformGroup>
+                       MouseLeftButtonDown="mainImage_MouseLeftButtonDown"
+                       MouseRightButtonDown="mainImage_MouseRightButtonDown"
+                    </Image.RenderTransform>-->
+                    </Image>
+                </Grid>
+                <Grid Grid.Column="1" 
+                  Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" 
                            Margin="5"
                            FontSize="20" 
                            Foreground="PaleVioletRed" 
                            FontWeight="Bold" 
                            Text="Nguyên Liệu">
-                </TextBlock>
-                <ListView Grid.Row="1" 
-                          Name="listBox_Direction"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock TextWrapping="Wrap"
+                    </TextBlock>
+                    <ListView Grid.Row="1" 
+                          Name="listBox_Direction">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap"
                                        Margin="0,0,0,15"
                                        Text="{Binding}">
-                            </TextBlock>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListView>
-            </Grid>
-            <Grid Grid.Column="0"
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Column="0"
                         Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="4*"/>
-                </Grid.RowDefinitions>
-                <TextBlock FontSize="20"
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="20"
                            Grid.Row="0"
                            Margin="10,0" 
                            Foreground="PaleVioletRed"
                            FontWeight="Bold" 
                            Text="Các bước thực hiện">
-                </TextBlock>
-                <ListView Name="listBox_Ingredients" 
+                    </TextBlock>
+                    <ListView Name="listBox_Ingredients" 
                           Grid.Row="1"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock TextWrapping="Wrap"
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap"
                                        Margin="0,0,0,15"
                                        Text="{Binding}">
-                            </TextBlock>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
-            <Grid Grid.Row="1"
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Row="1"
                   Grid.Column="1">
-                <ListBox Name="listImage">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"></StackPanel>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Image Width="200" Height="200" Stretch="Fill"  Source="{Binding Converter={StaticResource pathConverter}}"/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                    <ListBox Name="listImage">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Image Name="Isimage"
+                                   Width="200"
+                                   Height="200"
+                                   Stretch="Fill"
+                                   RenderTransformOrigin="1,1"
+                                   Source="{Binding Converter={StaticResource pathConverter}}">
+                                </Image>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>

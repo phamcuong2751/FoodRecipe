@@ -272,7 +272,6 @@ namespace listFood
             if (preFood.Count > 0)
             {
                 Box_Favorite1.ItemsSource = preFood;
-                Box_Favorite2.ItemsSource = preFood;
 
             }
         }
@@ -280,7 +279,6 @@ namespace listFood
         private void Button_Add(object sender, RoutedEventArgs e)
         {
             var screen = new AddFood();
-            this.Close();
             string item;
             if (screen.ShowDialog() == true)
             {

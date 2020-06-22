@@ -176,7 +176,12 @@
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <DockPanel>
+                <TextBlock Text="Món ăn yêu thích"
+                           Margin="30 25 0 20"
+                           Foreground="#AA381F"
+                           FontWeight="DemiBold"
+                           FontSize="20"/>
+                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ListBox Name="Box_Favorite1" Margin="30"
                              MouseDoubleClick="Box_Favorite1_MouseDoubleClick">
                         <ListBox.ItemTemplate>
@@ -185,35 +190,6 @@
                                     <Grid Width="170" Height="170">
                                         <Image Source="/img/star-1.png" Width="30" Height="30" Margin="110 0 0 120" Panel.ZIndex="15"/>
 
-                                        <Rectangle Height="150" Width="150" RadiusX="75" RadiusY="75" Panel.ZIndex="10">
-                                            <Rectangle.Fill>
-                                                <ImageBrush ImageSource="{Binding Avatar, Converter={StaticResource pathConverter}}"/>
-                                            </Rectangle.Fill>
-                                        </Rectangle>
-                                        <Ellipse Fill="#AA381F" Height="150" Width="150" Margin="0 7 13 0"/>
-                                    </Grid>
-
-                                    <StackPanel Margin="10 0 0 0">
-                                        <TextBlock TextWrapping="WrapWithOverflow" Text="Tên món ăn: " FontWeight="Bold" Foreground="#AA381F"/>
-                                        <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Name}" FontWeight="Light"/>
-                                        <TextBlock TextWrapping="WrapWithOverflow" Text="Công thức: " FontWeight="Bold" Foreground="#AA381F"/>
-                                        <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding shortIngredient}" FontWeight="Light"/>
-                                        <TextBlock TextWrapping="WrapWithOverflow" Text="Cách làm: " FontWeight="Bold" Foreground="#AA381F"/>
-                                        <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding shortDirection}" FontWeight="Light"/>
-                                    </StackPanel>
-                                </DockPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </DockPanel>
-                <DockPanel>
-                    <ListBox Name="Box_Favorite2" Margin="30"
-                             MouseDoubleClick="Box_Favorite1_MouseDoubleClick">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <DockPanel>
-                                    <Grid Width="170" Height="170">
-                                        <Image Source="/img/star-1.png" Width="30" Height="30" Margin="110 0 0 120" Panel.ZIndex="15"/>
                                         <Rectangle Height="150" Width="150" RadiusX="75" RadiusY="75" Panel.ZIndex="10">
                                             <Rectangle.Fill>
                                                 <ImageBrush ImageSource="{Binding Avatar, Converter={StaticResource pathConverter}}"/>

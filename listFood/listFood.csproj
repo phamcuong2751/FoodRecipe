@@ -92,6 +92,9 @@
       <DependentUpon>OpenWindowFood.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialog\RelativeToAbsolutePathConverter.cs" />
+    <Compile Include="Dialog\showImage.xaml.cs">
+      <DependentUpon>showImage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RelativeToAbsolutePathConverter.cs" />
     <Compile Include="ViewDialog\AddFoodCSharp.cs" />
     <Compile Include="ViewDialog\InfomationCSharp.cs" />
@@ -106,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialog\OpenWindowFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\showImage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

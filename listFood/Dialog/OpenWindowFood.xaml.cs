@@ -51,5 +51,28 @@ namespace listFood.Dialog
         {
             
         }
+
+        //private void mainImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    scale.ScaleX += 0.5;
+        //    scale.ScaleY += 0.5;
+        //}
+
+        //private void mainImage_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    if(scale.ScaleX >0.5)
+        //    {
+        //        scale.ScaleX -= 0.5;
+        //        scale.ScaleY -= 0.5;
+        //    }    
+        //}
+
+
+        //private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    var index = listImage.SelectedIndex;
+        //    showImage showImage = new showImage(newFood._images[index]);
+
+        //}
     }
 }
