@@ -16,6 +16,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        RenderOptions.BitmapScalingMode="HighQuality"
         Title="Home" 
         MinHeight="700"
         MinWidth="900"
@@ -185,16 +186,24 @@
                            Foreground="#AA381F"
                            FontWeight="DemiBold"
                            FontSize="20"/>
-                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <DockPanel HorizontalAlignment="Center"
+                           VerticalAlignment="Center">
                     <ListBox Name="Box_Favorite1" Margin="30"
                              MouseDoubleClick="Box_Favorite1_MouseDoubleClick">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <DockPanel>
                                     <Grid Width="170" Height="170">
-                                        <Image Source="/img/star-1.png" Width="30" Height="30" Margin="110 0 0 120" Panel.ZIndex="15"/>
-
-                                        <Rectangle Height="150" Width="150" RadiusX="75" RadiusY="75" Panel.ZIndex="10">
+                                        <Image Source="/img/star-1.png"
+                                               Width="30"
+                                               Height="30" 
+                                               Margin="110 0 0 120"
+                                               Panel.ZIndex="15"/>
+                                        <Rectangle Height="150"
+                                                   Width="150"
+                                                   RadiusX="75"
+                                                   RadiusY="75" 
+                                                   Panel.ZIndex="10">
                                             <Rectangle.Fill>
                                                 <ImageBrush ImageSource="{Binding Avatar, Converter={StaticResource pathConverter}}"/>
                                             </Rectangle.Fill>
@@ -248,7 +257,7 @@
                                    RadiusY="35"
                                    Width="70" Height="70">
                                             <Rectangle.Fill>
-                                                <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="{Binding Avatar,Converter={StaticResource pathConverter}}"/>
+                                                <ImageBrush ImageSource="{Binding Avatar,Converter={StaticResource pathConverter}}"/>
                                             </Rectangle.Fill>
                                         </Rectangle>
                                     </Grid>
@@ -295,8 +304,7 @@
                     </DockPanel>
                     
                     <DockPanel Margin="10 5 10 0 ">
-                        <Image RenderOptions.BitmapScalingMode="HighQuality"
-                               Source="img/food.ico" 
+                        <Image Source="img/food.ico" 
                                Height="15" />
                         <StackPanel Margin="5 0 0 0" 
                                     Width="353"

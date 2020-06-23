@@ -382,14 +382,19 @@ namespace listFood
 
         private void Button_Prev(object sender, RoutedEventArgs e)
         {
-            var next = previewFoods.Skip(-2).Take(4).ToList();
+            var next = previewFoods.Skip(-4).Take(4).ToList();
             ListBox_Food.ItemsSource = next.ToList();
         }
-
         private void Button_Next(object sender, RoutedEventArgs e)
         {
-            var next = previewFoods.Skip(2).Take(4).ToList();
-            ListBox_Food.ItemsSource = next.ToList();
+            int totalPage = _listFood.Count / 4;
+            int PageNum = 0;
+                PageNum = PageNum + 1;
+                if (PageNum > 0 && totalPage >= PageNum)
+                {
+                    var next = previewFoods.Skip(4).Take(4).ToList();
+                    ListBox_Food.ItemsSource = next.ToList();
+                }
         }
     }
 }

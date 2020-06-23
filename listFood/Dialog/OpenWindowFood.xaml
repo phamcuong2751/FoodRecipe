@@ -46,94 +46,92 @@
 
             </Grid>
         </Grid>
-        <ScrollViewer Grid.Row="1">
-            <Grid Background="White">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="7*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="5*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Grid.Column="0">
-                    <Image Name="mainImage" 
+        <Grid Background="White" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Image Name="mainImage" 
                            Margin="15" 
                            Stretch="Fill"  Height="200">
-                    </Image>
-                </Grid>
-                <Grid Grid.Column="1" 
+                </Image>
+            </Grid>
+            <Grid Grid.Column="1" 
                   Grid.Row="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="4*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" 
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" 
                            Margin="5"
                            FontSize="20" 
                            Foreground="#AA381F" 
                            FontWeight="Bold" 
                            Text="Nguyên Liệu">
-                    </TextBlock>
-                    <ListView Grid.Row="1"
+                </TextBlock>
+                <ListView Grid.Row="1"
                           Name="listBox_Direction">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap"
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock TextWrapping="Wrap"
                                        Margin="0,0,0,15"
                                        Text="{Binding}">
-                                </TextBlock>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListView>
-                </Grid>
-                <Grid Grid.Column="0"
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Column="0"
                         Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="4*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock FontSize="20"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="20"
                            Grid.Row="0"
                            Margin="10,0" 
                            Foreground="#AA381F"
                            FontWeight="Bold" 
                            Text="Các bước thực hiện">
-                    </TextBlock>
-                    <ListView Name="listBox_Ingredients"  ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                </TextBlock>
+                <ListView Name="listBox_Ingredients"  ScrollViewer.VerticalScrollBarVisibility="Disabled"
                           Grid.Row="1">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock TextWrapping="Wrap"
                                        Margin="0,0,0,15"
                                        Text="{Binding}">
-                                </TextBlock>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Grid>
-                <Grid Grid.Row="1"
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="1"
                   Grid.Column="1">
-                    <ListBox Name="listImage">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"></StackPanel>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Image Name="Isimage"
+                <ListBox Name="listImage">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Image Name="Isimage"
                                    Width="200"
                                    Height="200"
                                    Stretch="Fill"
                                    RenderTransformOrigin="1,1"
                                    Source="{Binding Converter={StaticResource pathConverter}}">
-                                </Image>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </Grid>
+                            </Image>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </Grid>
-        </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>
