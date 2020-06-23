@@ -248,6 +248,7 @@
                              BorderThickness="0" 
                              Margin="10 10 0 10"
                              Height="450"
+                             ScrollViewer.VerticalScrollBarVisibility="Disabled"
                              MouseDoubleClick="DockPanel_MouseDown">
                         <ListBox.ItemTemplate>
                             <DataTemplate>

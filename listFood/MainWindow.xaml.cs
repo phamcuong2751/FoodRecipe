@@ -20,7 +20,6 @@ namespace listFood
     /// </summary>
     public partial class Home : Window
     {
-
         public Home()
         {
             InitializeComponent();
@@ -51,6 +50,9 @@ namespace listFood
         {
 
         }
+        public int TempNext = 0;
+        public double div = 0;
+        public int temp = 0;
         public class Recipe : INotifyPropertyChanged
         {
             public string Name;
@@ -258,16 +260,15 @@ namespace listFood
                     _listFavorite.Add(temp);
                 }
             }
-            {
-
-            }
 
             List<previewFood> preFood = new List<previewFood>();
             foreach (Favorite itemFavorite in _listFavorite)
             {
                 preFood.Add(itemFavorite.recipe);
             }
-            ListBox_Food.ItemsSource = previewFoods;
+            var str = previewFoods;
+            ListBox_Food.ItemsSource = previewFoods.Take(4);
+            TempNext = 4;
             Random rdg = new Random();
             int index_rdg = rdg.Next(0, preFood.Count);
             if (preFood.Count > 0)
@@ -275,10 +276,10 @@ namespace listFood
                 Box_Favorite1.ItemsSource = preFood;
 
             }
-             
-        }
+            div = previewFoods.Count / 4;
+    }
 
-        private void Button_Add(object sender, RoutedEventArgs e)
+    private void Button_Add(object sender, RoutedEventArgs e)
         {
             var screen = new AddFood();
             string item;
@@ -379,22 +380,26 @@ namespace listFood
                 MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-
         private void Button_Prev(object sender, RoutedEventArgs e)
         {
-            var next = previewFoods.Skip(-4).Take(4).ToList();
-            ListBox_Food.ItemsSource = next.ToList();
+            var prev = previewFoods.Skip(TempNext-4).Take(4).ToList();
+            ListBox_Food.ItemsSource = prev.ToList();
+            temp -= 1;
+            if(temp >= 0)
+            {
+                TempNext -= 4;
+            }    
         }
         private void Button_Next(object sender, RoutedEventArgs e)
         {
-            int totalPage = _listFood.Count / 4;
-            int PageNum = 0;
-                PageNum = PageNum + 1;
-                if (PageNum > 0 && totalPage >= PageNum)
-                {
-                    var next = previewFoods.Skip(4).Take(4).ToList();
-                    ListBox_Food.ItemsSource = next.ToList();
-                }
+            var next = previewFoods.Skip(TempNext).Take(4).ToList();
+            ListBox_Food.ItemsSource = next.ToList();
+            temp += 1;
+            int tempint =(int) Math.Ceiling(div);
+            if(temp <= tempint-1)
+            {
+                TempNext += 4;
+            }
         }
     }
 }
