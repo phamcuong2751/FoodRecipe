@@ -376,8 +376,20 @@ namespace listFood
             }   
             else
             {
-                MessageBox.Show("Không tìm thấy");
+                MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void Button_Prev(object sender, RoutedEventArgs e)
+        {
+            var next = previewFoods.Skip(-2).Take(4).ToList();
+            ListBox_Food.ItemsSource = next.ToList();
+        }
+
+        private void Button_Next(object sender, RoutedEventArgs e)
+        {
+            var next = previewFoods.Skip(2).Take(4).ToList();
+            ListBox_Food.ItemsSource = next.ToList();
         }
     }
 }
