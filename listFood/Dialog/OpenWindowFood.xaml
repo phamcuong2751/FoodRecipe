@@ -9,7 +9,9 @@
              xmlns:converters="clr-namespace:listFood.Dialog"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Loaded="UserControl_Loaded">
+             Loaded="UserControl_Loaded"
+             Unloaded="UserControl_Unloaded"
+             RenderOptions.BitmapScalingMode="HighQuality">
     <UserControl.Resources>
     <converters:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
         
@@ -33,15 +35,15 @@
             <Grid Width="120" HorizontalAlignment="Right" Margin=" 0 0 30 0">
                 <Button HorizontalAlignment="Left"  Background="#AA381F" BorderThickness="0" Click="Click_Favorite"
                    Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
-                    <Image Source="{Binding imageFavorite,Converter={StaticResource pathConverter}}" Height="25" Name="ChangeColorFavorite" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <Image Source="{Binding imageFavorite,Converter={StaticResource pathConverter}}" Height="25" Name="ChangeColorFavorite"/>
                 </Button>
                 <Button HorizontalAlignment="Center"  Background="#AA381F" BorderThickness="0"
                    Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
-                    <Image Source="/img/Icon_fixed.png" Height="30" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <Image Source="/img/Icon_fixed.png" Height="30"/>
                 </Button>
                 <Button HorizontalAlignment="Right" Background="#AA381F" BorderThickness="0"
                    Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
-                    <Image Source="/img/Delete_Food.png" HorizontalAlignment="Right" Height="30" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <Image Source="/img/Delete_Food.png" HorizontalAlignment="Right" Height="30"/>
                 </Button>
 
             </Grid>

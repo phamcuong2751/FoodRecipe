@@ -20,37 +20,6 @@ namespace listFood
     /// </summary>
     public partial class Home : Window
     {
-
-        public Home()
-        {
-            InitializeComponent();
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
-            timer.Start();
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            lblTime.Content = DateTime.Now.ToLongTimeString();
-        }
-
-        private void Button_Home(object sender, RoutedEventArgs e)
-        {
-            Home hr = new Home();
-            hr.Show();
-            this.Close();
-        }
-
-        private void Button_Infomation(object sender, RoutedEventArgs e)
-        {
-            DataContext = new Infomation();
-        }
-
-        private void ListBox_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
-        }
         public class Recipe : INotifyPropertyChanged
         {
             public string Name;
@@ -165,7 +134,109 @@ namespace listFood
         ObservableCollection<previewFood> previewFoods = new ObservableCollection<previewFood>();
         ObservableCollection<Favorite> _listFavorite = new ObservableCollection<Favorite>();
         string dataFile = "";
+        public Home()
+        {
+            InitializeComponent();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+        // Đồng hồ
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lblTime.Content = DateTime.Now.ToLongTimeString();
+        }
+        // Trang chủ
+        private void Button_Home(object sender, RoutedEventArgs e)
+        {
+            Home hr = new Home();
+            hr.Show();
+            this.Close();
 
+        }
+        // Thông tin
+        private void Button_Infomation(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Infomation();
+        }
+        // Thêm món ăn
+        private void Button_Add(object sender, RoutedEventArgs e)
+        {
+            var screen = new AddFood();
+            string item;
+            if (screen.ShowDialog() == true)
+            {
+                var newFood = screen.newFood;
+                _listFood.Add(newFood);
+                item = newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
+                File.AppendAllText(dataFile, '\n' + item);
+                if (newFood._directions.Count < 2 && newFood._ingredients.Count < 2)
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0],
+                        shortDirection = newFood._directions[0],
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                else if (newFood._directions.Count < 2)
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
+                        shortDirection = newFood._directions[0],
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                else if (newFood._ingredients.Count < 2)
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0],
+                        shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+                else
+                {
+                    previewFood food = new previewFood()
+                    {
+                        Name = newFood._name,
+                        shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
+                        shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
+                        Avatar = newFood._images[0],
+                        isFavorite = newFood._isFavorite
+                    };
+                    previewFoods.Add(food);
+                }
+            }
+            ListBox_Food.ItemsSource = previewFoods;
+        }
+        // Thoát ứng dụng
+        private void Button_Out(object sender, RoutedEventArgs e)
+        {
+            var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (DR == MessageBoxResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+        }
+        private void ListBox_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
+
+        // Khởi động app
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             string folder = AppDomain.CurrentDomain.BaseDirectory; // "C:\Users\dev\"
@@ -278,92 +349,37 @@ namespace listFood
              
         }
 
-        private void Button_Add(object sender, RoutedEventArgs e)
-        {
-            var screen = new AddFood();
-            string item;
-            if (screen.ShowDialog() == true)
-            {
-                var newFood = screen.newFood;
-                _listFood.Add(newFood);
-                item = newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
-                File.AppendAllText(dataFile, '\n' + item);
-                if (newFood._directions.Count < 2 && newFood._ingredients.Count < 2)
-                {
-                    previewFood food = new previewFood()
-                    {
-                        Name = newFood._name,
-                        shortIngredient = newFood._ingredients[0],
-                        shortDirection = newFood._directions[0],
-                        Avatar = newFood._images[0],
-                        isFavorite = newFood._isFavorite
-                    };
-                    previewFoods.Add(food);
-                }
-                else if (newFood._directions.Count < 2)
-                {
-                    previewFood food = new previewFood()
-                    {
-                        Name = newFood._name,
-                        shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
-                        shortDirection = newFood._directions[0],
-                        Avatar = newFood._images[0],
-                        isFavorite = newFood._isFavorite
-                    };
-                    previewFoods.Add(food);
-                }
-                else if (newFood._ingredients.Count < 2)
-                {
-                    previewFood food = new previewFood()
-                    {
-                        Name = newFood._name,
-                        shortIngredient = newFood._ingredients[0],
-                        shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
-                        Avatar = newFood._images[0],
-                        isFavorite = newFood._isFavorite
-                    };
-                    previewFoods.Add(food);
-                }
-                else
-                {
-                    previewFood food = new previewFood()
-                    {
-                        Name = newFood._name,
-                        shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
-                        shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
-                        Avatar = newFood._images[0],
-                        isFavorite = newFood._isFavorite
-                    };
-                    previewFoods.Add(food);
-                }
-            }
-            ListBox_Food.ItemsSource = previewFoods;
-        }
-
+     
+        // Mở món ăn trong list 
         private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var index = ListBox_Food.SelectedIndex;
             var food = _listFood[index];
             var openWindow = new OpenWindowFood(food);
+           
             DataContext = openWindow;
-        }
-        public bool Checked { get; set; }
-        private void Button_Out(object sender, RoutedEventArgs e)
-        {
-            var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (DR == MessageBoxResult.Yes)
+            if (openWindow.IsVisible == true) 
             {
-                Environment.Exit(0);
+                MessageBox.Show("Test");
+                _listFood[index] = openWindow.newFood;
+
             }
         }
+        
 
-
+        //Mở món ăn trong list yêu thích
         private void Box_Favorite1_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var indexFavorite = Box_Favorite1.SelectedIndex;
             var index  =_listFavorite[indexFavorite].index;
             var food = _listFood[index];
             var openWindow = new OpenWindowFood(food);
+            if (openWindow.newFood._isFavorite)
+            {
+
+                MessageBox.Show("Mon AN");
+            }
+            
             DataContext = openWindow;
         }
 
