@@ -17,9 +17,9 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Home" 
-        MinHeight="700"
+        MinHeight="720"
         MinWidth="900"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         WindowState="Maximized"
         Loaded="Window_Loaded">
     <Window.Resources>
@@ -237,17 +237,18 @@
                     </DockPanel>
                     <ListBox Name ="ListBox_Food" 
                              BorderThickness="0" 
-                             Margin="10 10 0 10"
+                             Margin="0 10 0 10"
                              Height="450"
+                             ScrollViewer.VerticalScrollBarVisibility="Disabled"
                              MouseDoubleClick="DockPanel_MouseDown">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <UniformGrid Rows="3" Columns="2"/>
+                                <UniformGrid Rows="2" Columns="2"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <DockPanel Height="225" x:Name="_food">
+                                <StackPanel x:Name="_food">
                                     <Grid>
                                         <Rectangle RadiusX="35"
                                    RadiusY="40"
@@ -262,7 +263,8 @@
                                                     Text= "{Binding Name}" 
                                                     FontWeight="Light"
                                                     Foreground="#AA381F" 
-                                                    FontSize="15" TextWrapping="Wrap"/>
+                                                    FontSize="15"
+                                                    HorizontalAlignment="Center"/>
                                         <DockPanel>
                                             <TextBlock Text="Cách nấu: " 
                                                        Margin="0 0 10 0"
@@ -278,21 +280,40 @@
                                                        FontWeight="Bold"/>
                                             <TextBlock Text="{Binding shortIngredient}"
                                                        FontSize="10"
-                                                       FontWeight="Light"
-                                                       TextWrapping="WrapWithOverflow"/>
+                                                       FontWeight="Light"/>
                                         </DockPanel>
                                     </StackPanel>
-                                </DockPanel>
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <DockPanel>
+                    <DockPanel HorizontalAlignment="Center">
                         <Button Click="Button_Prev"
+                                Background="#AA381F"
+                                BorderBrush="#AA381F"
+                                BorderThickness="10"
                                 Width="100" 
                                 Height="25" 
                                 Content="Prev"
-                                Margin="200 0 0 0"/>
+                                Margin="100 0 0 0"/>
+                        <Border Width="30"
+                                Height="30"
+                                CornerRadius="15"
+                                HorizontalAlignment="Center"
+                                Background="#AA381F"
+                                Margin="50 0 50 0">
+                            <TextBlock Name="numPage" 
+                                       Foreground="White" 
+                                       FontSize="15"
+                                       FontWeight="Bold" 
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"></TextBlock>
+                            
+                        </Border>
                         <Button Click="Button_Next"
+                                Background="#AA381F"
+                                BorderBrush="#AA381F"
+                                BorderThickness="10"
                                 Width="100" 
                                 Height="25" 
                                 Content="Next"

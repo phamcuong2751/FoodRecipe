@@ -21,7 +21,9 @@ namespace listFood.Dialog
     public partial class OpenWindowFood : UserControl
     {
         public Home.Recipe newFood;
-
+        public int TempNext = 1;
+        public double div = 0;
+        public int temp = 0;
         public OpenWindowFood(Home.Recipe food)
         {
             InitializeComponent();
@@ -43,8 +45,8 @@ namespace listFood.Dialog
             // Thành phần món ăn
             listBox_Ingredients.ItemsSource = newFood._ingredients;
 
-            // Xuât list image
-            //listImage.ItemsSource = newFood._images;
+            //Xuât list image
+            listImage.ItemsSource = newFood._images.Take(2);
             // Hiện món yêu thích
             if (newFood._isFavorite == true)
             {
@@ -55,6 +57,7 @@ namespace listFood.Dialog
             {
                 ChangeColorFavorite.Source = new BitmapImage(new Uri(@"/img/heart-white.png", UriKind.Relative));
             }
+            div = newFood._images.Count / 1;
         }
 
         private void Click_Favorite(object sender, RoutedEventArgs e)
@@ -70,8 +73,60 @@ namespace listFood.Dialog
                 ChangeColorFavorite.Source = new BitmapImage(new Uri(@"/img/heart-red.png", UriKind.Relative));
                 newFood._isFavorite = true;
             }
+
+        }
+
+        private void Button_Prev_Food(object sender, RoutedEventArgs e)
+        {
+            if (TempNext <= 1)
+            {
+                if (TempNext == 1)
+                {
+                    var prev = newFood._images.Skip(TempNext-2).Take(2).ToList();
+                    listImage.ItemsSource = prev.ToList();
+                    temp = 0;
+                }
+                else
+                {
+                    temp = 0;
+                }
+
+            }
+            else
+            {
+                var prev = newFood._images.Skip(TempNext - 2).Take(2).ToList();
+                listImage.ItemsSource = prev.ToList();
+                temp -= 1;
+                if (temp >= 0)
+                {
+                    TempNext -= 1;
+                }
+            }
+        }
+
+        private void Button_Next_Food(object sender, RoutedEventArgs e)
+        {
+            if (TempNext >= newFood._images.Count)
+            {
+                temp = (int)div;
+            }
+            else
+            {
+                var next = newFood._images.Skip(TempNext).Take(2).ToList();
+                listImage.ItemsSource = next.ToList();
+                temp += 1;
+                int tempint = (int)Math.Ceiling(div);
+
+                if (temp <= tempint - 1)
+                {
+                    TempNext += 1;
+                }
+            }
             
         }
 
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }
