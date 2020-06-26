@@ -12,6 +12,12 @@ using MaterialDesignThemes.Wpf;
 using System.ComponentModel;
 using System.Windows.Controls;
 using System.Data.SqlClient;
+using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Drawing;
+using System.Windows.Input;
 
 namespace listFood
 {
@@ -167,6 +173,7 @@ namespace listFood
         private void Button_Infomation(object sender, RoutedEventArgs e)
         {
             DataContext = new Infomation();
+
         }
         // Thêm món ăn
         private void Button_Add(object sender, RoutedEventArgs e)
@@ -231,6 +238,8 @@ namespace listFood
                 }
             }
             ListBox_Food.ItemsSource = previewFoods;
+            totalPage = totalPageCurrent(_listFood);
+            numPage.Text = $"{currentPage.ToString()}/{totalPage}";
         }
         // Thoát ứng dụng
         private void Button_Out(object sender, RoutedEventArgs e)
@@ -368,7 +377,12 @@ namespace listFood
             numPage.Text = $"{currentPage.ToString()}/{totalPage}";
         }
 
-
+        public int totalPageCurrent(ObservableCollection<Recipe> recipes)
+        {
+            double temp = recipes.Count / 4.0;
+            int toReturn = (int)Math.Ceiling(temp);
+            return toReturn;
+        }
         // Mở món ăn trong list 
         private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -390,16 +404,26 @@ namespace listFood
         //Mở món ăn trong list yêu thích
         private void Box_Favorite1_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            var indexFavorite = Box_Favorite1.SelectedIndex;
-            var index  =_listFavorite[indexFavorite].index;
-            var food = _listFood[index];
+
+            var newindexOfFood = Box_Favorite1.SelectedItem as previewFood;
+            var getID = newindexOfFood._id - 1;
+            var food = _listFood[getID];
             var openWindow = new OpenWindowFood(food);
             DataContext = openWindow;
+        }
+
+        //Loại Tiếng Việt 
+        public static string convertToUnSign3(string s)
+        {
+            Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+            string temp = s.Normalize(NormalizationForm.FormD);
+            return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
         }
         // Tìm kiếm món ăn
         private void Search_button(object sender, RoutedEventArgs e)
         {
-            var strings = previewFoods.Where(p => p.Name.ToLower().Contains(Search.Text.ToLower()) || p.shortDirection.ToLower().Contains(Search.Text.ToLower()) || p.shortIngredient.ToLower().Contains(Search.Text.ToLower()));
+
+            var strings = previewFoods.Where(p => convertToUnSign3(p.Name.ToLower()).Contains(convertToUnSign3(Search.Text.ToLower())));
             if(strings.Count() != 0)
             {
                 ListBox_Food.ItemsSource = strings.ToList();
@@ -470,6 +494,10 @@ namespace listFood
                 }
             }
         }
-           
+
+        private void Hover_Image(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+
+        }
     }
 }

@@ -55,7 +55,8 @@
                     Width="38" />
             </Button>
             <materialDesign:DrawerHost.LeftDrawerContent>
-                <StackPanel Width="200"
+                <StackPanel x:Name="ShowMenu"
+                            Width="200"
                             Background="#AA381F" >
                     <Button Margin="4 20 4 40" 
                             HorizontalAlignment="Center"
@@ -246,15 +247,18 @@
                                 <UniformGrid Rows="2" Columns="2"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
+                        
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel x:Name="_food">
+                                <StackPanel MouseMove="Hover_Image" x:Name="_food">
                                     <Grid>
-                                        <Rectangle RadiusX="35"
-                                   RadiusY="40"
-                                   Width="80" Height="80">
+                                        <Rectangle x:Name="image" RadiusX="60"
+                                   RadiusY="60"
+                                   Width="115" Height="115">
                                             <Rectangle.Fill>
-                                                <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="{Binding Avatar,Converter={StaticResource pathConverter}}"/>
+
+                                                <ImageBrush x:Name="ImageofFood"
+                                                            ImageSource="{Binding Avatar,Converter={StaticResource pathConverter}}"/>
                                             </Rectangle.Fill>
                                         </Rectangle>
                                     </Grid>

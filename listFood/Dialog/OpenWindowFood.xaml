@@ -72,7 +72,7 @@
                            FontSize="20" 
                            Foreground="#AA381F" 
                            FontWeight="Bold" 
-                           Text="Nguyên Liệu">
+                           Text="Các bước thực hiện">
                 </TextBlock>
                 <ListView Grid.Row="1"
                           Name="listBox_Direction"
@@ -80,10 +80,15 @@
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock TextWrapping="Wrap"
-                                       Margin="0,0,0,15"
+                            <CheckBox Background="#AA381F" Margin="0 0 10 15" >
+                                <CheckBox.Content>
+                                    <TextBlock VerticalAlignment="Center" 
+                                               TextWrapping="Wrap"
                                        Text="{Binding}">
-                            </TextBlock>
+                                    </TextBlock>
+                                </CheckBox.Content>
+                            </CheckBox>
+                            
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListView>
@@ -99,16 +104,20 @@
                            Margin="10,0" 
                            Foreground="#AA381F"
                            FontWeight="Bold" 
-                           Text="Các bước thực hiện">
+                           Text="Nguyên liệu">
                 </TextBlock>
                 <ListView Name="listBox_Ingredients"  ScrollViewer.VerticalScrollBarVisibility="Disabled"
                           Grid.Row="1">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock TextWrapping="Wrap"
-                                       Margin="0,0,0,15"
+                            <CheckBox Margin="0 0 10 15">
+                                <CheckBox.Content>
+                                    <TextBlock  VerticalAlignment="Center" 
+                                       TextWrapping="Wrap"
                                        Text="{Binding}">
-                            </TextBlock>
+                                    </TextBlock>
+                                </CheckBox.Content>
+                            </CheckBox>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -130,7 +139,7 @@
                             <Image Name="Isimage"
                                    Width="200"
                                    Height="200"
-                                   Stretch="Fill"
+                                   Stretch="Uniform"
                                    RenderTransformOrigin="1,1"
                                    Source="{Binding Converter={StaticResource pathConverter}}">
                             </Image>
