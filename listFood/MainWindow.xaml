@@ -253,7 +253,7 @@
                                 <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
-                        
+
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel HorizontalAlignment="Center">
@@ -316,7 +316,7 @@
                                        FontWeight="Bold" 
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"></TextBlock>
-                            
+
                         </Border>
                         <Button Click="Button_Next"
                                 Background="#AA381F"
@@ -327,7 +327,7 @@
                                 Content="Next"
                                 HorizontalAlignment="Center"/>
                     </DockPanel>
-                    
+
                     <DockPanel Margin="10 5 10 0 ">
                         <Image RenderOptions.BitmapScalingMode="HighQuality"
                                Source="img/food.ico" 

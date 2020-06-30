@@ -298,7 +298,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\search.png" />
-    <Resource Include="img\Asset 1.png" />
+    <Resource Include="img\Home.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

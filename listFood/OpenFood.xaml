@@ -29,17 +29,40 @@
                        Margin="10"
                        FontSize="40" 
                        Foreground="White"></TextBlock>
-            <Button Content="Home" Width="40" Height="40" Click="homeButton_Click" HorizontalAlignment="Left"/>
-            <Grid Width="120" HorizontalAlignment="Right" Margin=" 0 0 30 0">
-                <Button HorizontalAlignment="Left"  Background="#AA381F" BorderThickness="0" Click="Click_Favorite"
-                   Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
-                    <Image Source="/img/heart-white.png" Height="25" Name="ChangeColorFavorite" RenderOptions.BitmapScalingMode="HighQuality"/>
+            <Image Source="/img/Home.png" 
+                   HorizontalAlignment="Left"
+                   Height="40"
+                   RenderOptions.BitmapScalingMode="HighQuality"
+                   Margin="10 0 0 0"
+                   MouseDown="homeButton_Click"/>
+            <Grid Width="122" 
+                  HorizontalAlignment="Right"
+                  Margin="0 0 -10 0">
+                <Button HorizontalAlignment="Left"
+                        Background="#AA381F"
+                        BorderThickness="0"
+                        Click="Click_Favorite"
+                        Height="40"
+                        Width="40"
+                        Padding="0"
+                        dialog:ShadowAssist.ShadowDepth="Depth0">
+                    <Image Source="/img/heart-white.png" 
+                           Height="25"
+                           Name="ChangeColorFavorite" 
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Button>
-                <Button Click="deleteButton" HorizontalAlignment="Center"  Background="#AA381F" BorderThickness="0"
-                   Height="40" Width="40" Padding="0" dialog:ShadowAssist.ShadowDepth="Depth0">
-                    <Image Source="/img/Delete_Food.png" Height="30" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <Button Click="deleteButton"
+                        HorizontalAlignment="Center" 
+                        Background="#AA381F" 
+                        BorderThickness="0"
+                        Height="40"
+                        Width="40"
+                        Padding="0"
+                        dialog:ShadowAssist.ShadowDepth="Depth0">
+                    <Image Source="/img/Delete_Food.png" 
+                           Height="30" 
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Button>
-
             </Grid>
         </Grid>
         <Grid Background="White" Grid.Row="1">
