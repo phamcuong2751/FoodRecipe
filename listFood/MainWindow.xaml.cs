@@ -590,7 +590,6 @@ namespace listFood
                         File.AppendAllText(dataFile, item);
 
                     }
-                    Application.Current.Shutdown();
 
                     // Xoá tất cả hình ảnh của các món ăn bị xoá
                     if (Garbage.Count != 0)
@@ -603,8 +602,9 @@ namespace listFood
                         }
                     }
                 }
+                Environment.Exit(0);
             }
-             
+
 
         }
     }
