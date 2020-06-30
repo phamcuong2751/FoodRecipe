@@ -4,177 +4,72 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:listFood.Dialog"
-             mc:Ignorable="d" Loaded="Info_Loaded"
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" 
-                    Height="75"
-                    VerticalAlignment="Top" 
-                    Background="#AA381F">
-            <DockPanel>
-                <TextBlock Text="THÔNG TIN" 
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center" 
-                       FontWeight="Light"
-                       Margin="10"
-                       FontSize="40" 
-                       Foreground="White">
-                </TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#AA381F"/>
+        <Rectangle Fill="White" Grid.Row="1"/>
+        <TextBlock Text="ĐỒ ÁN MÔN HỌC LẬP TRÌNH WINDOW" Grid.Row="1"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   FontSize="20"
+                   FontWeight="Bold" Foreground="#AA381F"/>
+        <Rectangle Fill="#AA381F" Grid.Row="2"/>
+        <Image Source="/img/bn2_v4.jpg" Grid.ColumnSpan="2" Grid.RowSpan="3"
+               HorizontalAlignment="Right" Panel.ZIndex="-1" Stretch="Uniform"/>
+        <StackPanel Grid.Row="2">
+            <DockPanel Margin="0 15 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Rectangle Fill="White" Width="3" Height="40"
+                       Margin="0 0 5 0"/>
+                <StackPanel>
+                    <TextBlock Text="Tên đồ án: Food Recipe App"
+                           Foreground="White" FontWeight="Bold" FontSize="17"/>
+                    <TextBlock Text="Lớp: 18CK2"
+                           Foreground="White" FontWeight="Bold" FontSize="17"/>
+                </StackPanel>
             </DockPanel>
+            <StackPanel Width="350">
+                <TextBlock Text="THÔNG TIN NHÓM" Grid.Row="2" HorizontalAlignment="Center" Height="30"
+                           Margin="0 20" FontWeight="Bold" FontSize="20" Foreground="White"/>
+                <StackPanel>
+                    <DockPanel>
+                        <Label Content="18600011" Background="White" Foreground="#AA381F"
+                               FontWeight="Bold" FontSize="15"/>
+                        <Label Content="NGUYỄN TRỌNG QUYẾT" BorderThickness="1" BorderBrush="White"
+                               FontWeight="Bold" FontSize="15" Foreground="White"/>
+                    </DockPanel>
+                    <TextBlock Text="ntquyet37@gmail.com" FontSize="15" FontWeight="Light" 
+                               Foreground="White" Margin="0 0 0 30"/>
+                </StackPanel>
+                <StackPanel>
+                    <DockPanel>
+                        <Label Content="18600014" Background="White" Foreground="#AA381F"
+                               FontWeight="Bold" FontSize="15"/>
+                        <Label Content="NGÔ TẤT TỐ" BorderThickness="1" BorderBrush="White"
+                               FontWeight="Bold" FontSize="15" Foreground="White"/>
+                    </DockPanel>
+                    <TextBlock Text="tongo0209@gmail.com" FontSize="15" FontWeight="Light" 
+                               Foreground="White" Margin="0 0 0 30"/>
+                </StackPanel>
+                <StackPanel>
+                    <DockPanel>
+                        <Label Content="18600038" Background="White" Foreground="#AA381F"
+                               FontWeight="Bold" FontSize="15"/>
+                        <Label Content="PHẠM PHONG PHÚ CƯỜNG" BorderThickness="1" BorderBrush="White"
+                               FontWeight="Bold" FontSize="15" Foreground="White"/>
+                    </DockPanel>
+                    <TextBlock Text="phamcuong2751@gmail.com" FontSize="15" FontWeight="Light" 
+                               Foreground="White"/>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
-        <ScrollViewer Grid.Row="1" Background="White">
-            <Grid >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="5*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition Height="5*"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0"
-                      Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1.5*"/>
-                            <RowDefinition Height="4*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="THÀNH VIÊN NHÓM"
-                               FontSize="25"
-                               Grid.Row="0"
-                               VerticalAlignment="Center" 
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
-                        <ListView Grid.Row="1" 
-                                  Name="View_Name"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock TextWrapping="Wrap"
-                                               FontSize="20"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
-                                               Text="{Binding NAME}">
-                                        </TextBlock>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </Grid>
-                    <Grid Grid.Row="1"
-                      Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1.5*"/>
-                            <RowDefinition Height="10*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="CHỨC NĂNG HOÀN THIỆN"
-                               FontSize="25"
-                               Grid.Row="0"
-                               VerticalAlignment="Center" 
-                               HorizontalAlignment="Center" >
-                        </TextBlock>
-                        <ListView Grid.Row="1"
-                                  Name="View_Control"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock TextWrapping="Wrap"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
-                                               Text="{Binding CONTROL}">
-                                        </TextBlock>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </Grid>
-                    <Grid Grid.Column="1"
-                      Grid.Row="0">
-                        <DockPanel Margin="25,0,0.333,-0.333">
-                            <Image Source="/img/Uxa1vpBBANqVU1NmHqv0H3bUdAuTsmkc.jpeg" 
-                                   RenderOptions.BitmapScalingMode="HighQuality"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Center" 
-                                   Margin="10" 
-                                   Height="120"/>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="1.5*"/>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="ĐẠI HỌC KHOA HỌC TỰ NHIÊN"
-                                       FontSize="20"
-                                       Grid.Row="0"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center" 
-                                       FontWeight="ExtraBlack">
-                                </TextBlock>
-                                <TextBlock Text="LỚP 18CK"
-                                       FontSize="18"
-                                       VerticalAlignment="Center" 
-                                       HorizontalAlignment="Center"
-                                       Grid.Row="1"
-                                       FontWeight="DemiBold">
-                                </TextBlock>
-                                <TextBlock Text="ĐỒ ÁN LẬP TRÌNH WINDOWS"
-                                       FontSize="20"
-                                       Grid.Row="2"
-                                       VerticalAlignment="Center" 
-                                       FontWeight="DemiBold"
-                                       HorizontalAlignment="Center">
-                                </TextBlock>
-                                <TextBlock Text="FOOD RECIPE APP"
-                                       FontSize="18"
-                                       Grid.Row="3"
-                                       VerticalAlignment="Center" 
-                                       FontWeight="DemiBold"
-                                       HorizontalAlignment="Center">
-                                </TextBlock>
-                            </Grid>
-                        </DockPanel>
-                    </Grid>
-                    <Grid Grid.Row="1"
-                      Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1.5*"/>
-                            <RowDefinition Height="10*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="HƯỚNG DẪN SỬ DỤNG APP"
-                               Grid.Row="0"
-                               FontSize="25"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Margin="5">
-                        </TextBlock>
-                        <ListView Grid.Row="1" 
-                                  Name="View_Info"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock TextWrapping="Wrap"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
-                                               Text="{Binding HuongDan}">
-                                        </TextBlock>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </ScrollViewer>
     </Grid>
 </UserControl>
