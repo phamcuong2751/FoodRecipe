@@ -141,6 +141,27 @@ namespace listFood
         int totalPage;
         int currentPage = 1;
         string dataFile = "";
+        public ObservableCollection<previewFood> reNewFood (ObservableCollection<previewFood> list)
+        {
+            ObservableCollection<previewFood> newList = new ObservableCollection<previewFood>();
+            Random rng = new Random();
+            if (list.Count > 2)
+            {
+                int idX = rng.Next(0, list.Count);
+                int idY;
+                do
+                {
+                    idY = rng.Next(0, list.Count);
+                } while (idX == idY);
+                newList.Add(list[idX]);
+                newList.Add(list[idY]);
+                return newList;
+            }
+            else
+            {
+                return list;
+            }
+        }
         public Home()
         {
             InitializeComponent();
@@ -249,7 +270,7 @@ namespace listFood
         // Thoát ứng dụng
         private void Button_Out(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            
         }
 
         // Khởi động app
@@ -364,7 +385,7 @@ namespace listFood
             int index_rdg = rdg.Next(0, preFood.Count);
             if (preFood.Count > 0)
             {
-                Box_Favorite1.ItemsSource = preFood;
+                Box_Favorite1.ItemsSource = preFood.Take(2);
 
             }
             div = previewFoods.Count / 4.0;
@@ -415,7 +436,7 @@ namespace listFood
                     
                 }
                 ListBox_Food.ItemsSource = openWindow.previewFoods;
-                Box_Favorite1.ItemsSource = openWindow.listFavorite;
+                Box_Favorite1.ItemsSource = reNewFood(openWindow.listFavorite).Take(2);
             }
             pos = Box_Favorite1.SelectedIndex;
             if (pos != -1)
@@ -441,11 +462,10 @@ namespace listFood
                         _listFood[getID] = openWindow.newFood;
                         openWindow.Close();
                     }
-                    ListBox_Food.ItemsSource = openWindow.previewFoods;
 
                 }
                 ListBox_Food.ItemsSource = openWindow.previewFoods;
-                Box_Favorite1.ItemsSource = openWindow.listFavorite;
+                Box_Favorite1.ItemsSource = reNewFood(openWindow.listFavorite).Take(2);
             }
 
         }
@@ -533,10 +553,14 @@ namespace listFood
             }
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        private void Window_Closed(object sender, CancelEventArgs e)
         {
             var resultDialog = MessageBox.Show("Bạn có muốn thoát không", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Information);
-            if (resultDialog == MessageBoxResult.Yes)
+            if(resultDialog == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
             {
                 File.WriteAllText(dataFile, String.Empty);
                 for (int i = 0; i <_listFood.Count; i++)
@@ -564,6 +588,15 @@ namespace listFood
                     }
                 }
             }
+            
+
+        }
+
+        private void reload_FavoriteFood(object sender, MouseButtonEventArgs e)
+        {
+            ObservableCollection<previewFood> newListFavorite = new ObservableCollection<previewFood>();
+            newListFavorite = reNewFood(_listFavorite);
+            Box_Favorite1.ItemsSource = newListFavorite;
 
         }
     }
