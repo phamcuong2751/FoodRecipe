@@ -23,14 +23,11 @@
         WindowStartupLocation="CenterOwner"
         WindowState="Maximized"
         Loaded="Window_Loaded"
-        Closing="Window_Closed">
+        Closed="Window_Closed">
     <Window.Resources>
         <DataTemplate x:Name="info" DataType="{x:Type dialog:Infomation}">
             <dialog:Infomation DataContext="{Binding}"/>
         </DataTemplate>
-        <!--<DataTemplate x:Name="WindowFood" DataType="{x:Type dialog:OpenWindowFood}">
-            <dialog:OpenWindowFood DataContext="{Binding}"/>
-        </DataTemplate>-->
         <local:RelativeToAbsolutePathConverter x:Key="pathConverter"/>
         <Storyboard x:Key="Storyboard1"/>
     </Window.Resources>
@@ -107,22 +104,11 @@
                                 BorderThickness="0 0 0 0.5"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0"
                                 Height="Auto"/>
-                        <Button Click="Button_Out"
-                                IsCancel="True"
-                                Content="Thoát" 
-                                Grid.Row="3"
-                                FontWeight="Light"
-                                Background="#AA381F"
-                                BorderBrush="#fff"
-                                BorderThickness="0 0 0 0.5"
-                                materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                                Height="Auto"/>
+
                     </Grid>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
         </materialDesign:DrawerHost>
-        <!--Thanh Menu-->
-        <!--Code Cường-->
         <StackPanel>
             <StackPanel>
                 <materialDesign:ColorZone Padding="16" 
@@ -192,7 +178,7 @@
                     <Image MouseDown="reload_FavoriteFood" DockPanel.Dock="Right" Source="/img/refresh.png" Height="40" Width="40" RenderTransformOrigin="0.207,1.077" />
                     <Label></Label>
                 </DockPanel>
-                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <DockPanel VerticalAlignment="Center">
                     <ListBox Name="Box_Favorite1" Margin="30"
                              MouseDoubleClick="openFood_MouseDown">
                         <ListBox.ItemTemplate>
