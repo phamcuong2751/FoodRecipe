@@ -190,7 +190,7 @@ namespace listFood
         {
             Home hr = new Home();
             hr.Show();
-            this.Close();
+            this.Hide();
 
         }
         // Thông tin
@@ -564,38 +564,48 @@ namespace listFood
 
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        private void Window_Closed(object sender, CancelEventArgs e)
         {
-
-            // Làm rỗng file
-            File.WriteAllText(dataFile, String.Empty);
-            for (int i = 0; i < _listFood.Count; i++)
+            var result = MessageBox.Show("Bạn có muốn đóng ứng dụng không", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.No)
             {
-                var newFood = _listFood[i];
-                var item = newFood.ID.ToString() + '~' + newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
-                if (i != 0)
-                {
-                    File.AppendAllText(dataFile, '\n' + item);
+                e.Cancel = true;
+            }
 
-                }
-                else
+            else
+            {
+                // Làm rỗng file
+                File.WriteAllText(dataFile, String.Empty);
+                for (int i = 0; i < _listFood.Count; i++)
                 {
-                    File.AppendAllText(dataFile, item);
-
-                }
-                Application.Current.Shutdown();
-
-                // Xoá tất cả hình ảnh của các món ăn bị xoá
-                if (Garbage.Count != 0)
-                {
-                    foreach (string path in Garbage)
+                    var newFood = _listFood[i];
+                    var item = newFood.ID.ToString() + '~' + newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
+                    if (i != 0)
                     {
-                        System.GC.Collect();
-                        System.GC.WaitForPendingFinalizers();
-                        File.Delete(path);
+                        File.AppendAllText(dataFile, '\n' + item);
+
+                    }
+                    else
+                    {
+                        File.AppendAllText(dataFile, item);
+
+                    }
+                    Application.Current.Shutdown();
+
+                    // Xoá tất cả hình ảnh của các món ăn bị xoá
+                    if (Garbage.Count != 0)
+                    {
+                        foreach (string path in Garbage)
+                        {
+                            System.GC.Collect();
+                            System.GC.WaitForPendingFinalizers();
+                            File.Delete(path);
+                        }
                     }
                 }
             }
+             
+
         }
     }
 }

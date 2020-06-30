@@ -23,7 +23,7 @@
         WindowStartupLocation="CenterOwner"
         WindowState="Maximized"
         Loaded="Window_Loaded"
-        Closed="Window_Closed">
+        Closing="Window_Closed">
     <Window.Resources>
         <DataTemplate x:Name="info" DataType="{x:Type dialog:Infomation}">
             <dialog:Infomation DataContext="{Binding}"/>
