@@ -27,6 +27,7 @@ namespace listFood
     /// </summary>
     public partial class Home : Window
     {
+        // Class thông tin các bước làm
         public class Recipe : INotifyPropertyChanged
         {
             public int ID;
@@ -79,7 +80,7 @@ namespace listFood
 
             public event PropertyChangedEventHandler PropertyChanged;
         }
-
+        // Class hiện thị rút ngọn thông tin món ăn
         public class previewFood : INotifyPropertyChanged
         {
             public int _id;
@@ -131,17 +132,16 @@ namespace listFood
 
             public event PropertyChangedEventHandler PropertyChanged;
         }
+        // Danh sách các món ăn
         ObservableCollection<Recipe> _listFood = new ObservableCollection<Recipe>();
+        // Danh sách thông tin món ăn rút ngọn
         ObservableCollection<previewFood> previewFoods = new ObservableCollection<previewFood>();
+        // Danh sách món yêu thích
         ObservableCollection<previewFood> _listFavorite = new ObservableCollection<previewFood>();
+        // Chức các hình ảnh cần xoá khi xoá món ăn
         List<string> Garbage = new List<string>();
-        public int TempNext = 0;
-        public double div = 0.0;
-        public int temp = 0;
-        int totalPage;
-        int currentPage = 1;
-        string dataFile = "";
-        public ObservableCollection<previewFood> reNewFood (ObservableCollection<previewFood> list)
+        // Danh sách random món ăn yêu thích
+        public ObservableCollection<previewFood> reNewFood(ObservableCollection<previewFood> list)
         {
             ObservableCollection<previewFood> newList = new ObservableCollection<previewFood>();
             Random rng = new Random();
@@ -162,12 +162,22 @@ namespace listFood
                 return list;
             }
         }
+
+        // Các biến để hiện thị số trang
+        public int TempNext = 0;
+        public double div = 0.0;
+        public int temp = 0;
+        int totalPage;
+        int currentPage = 1;
+        // Đường dẫn data
+        string dataFile = "";
+        // Trang home
         public Home()
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
-            //timer.Tick += timer_Tick;
+            timer.Tick += timer_Tick;
             timer.Start();
         }
         //Đồng hồ
@@ -267,15 +277,11 @@ namespace listFood
             totalPage = totalPageCurrent(_listFood);
             numPage.Text = $"{currentPage.ToString()}/{totalPage}";
         }
-        // Thoát ứng dụng
-        private void Button_Out(object sender, RoutedEventArgs e)
-        {
-            
-        }
 
         // Khởi động app
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            // Load đường dẫn data
             string folder = AppDomain.CurrentDomain.BaseDirectory; // "C:\Users\dev\"
             folder = folder.Remove(folder.IndexOf("bin"));
             dataFile = $"{folder}Data\\dataOfFood1.txt";
@@ -363,6 +369,7 @@ namespace listFood
 
 
             }
+            // Load các món ăn yêu thích
             for (var i = 0; i < previewFoods.Count; i++)
             {
                 previewFood temp = previewFoods[i];
@@ -371,26 +378,15 @@ namespace listFood
                     _listFavorite.Add(previewFoods[i]);
                 }
             }
-            
+            // Xuất 2 món yêu thích 
+            Box_Favorite1.ItemsSource = reNewFood(_listFavorite).Take(2);
 
-            List<previewFood> preFood = new List<previewFood>();
-            foreach (previewFood itemFavorite in _listFavorite)
-            {
-                preFood.Add(itemFavorite);
-            }
-            var str = previewFoods;
+            // Xuất 4 món ăn/list
             ListBox_Food.ItemsSource = previewFoods.Take(4);
             TempNext = 4;
-            Random rdg = new Random();
-            int index_rdg = rdg.Next(0, preFood.Count);
-            if (preFood.Count > 0)
-            {
-                Box_Favorite1.ItemsSource = preFood.Take(2);
-
-            }
             div = previewFoods.Count / 4.0;
             totalPage = (int)Math.Ceiling(div);
-            if(totalPage > 0)
+            if (totalPage > 0)
             {
                 numPage.Text = $"{currentPage.ToString()}/{totalPage}";
             }
@@ -398,9 +394,9 @@ namespace listFood
             {
                 numPage.Text = "0";
             }
-            
-        }
 
+        }
+        // Lấy tổng số trang
         public int totalPageCurrent(ObservableCollection<Recipe> recipes)
         {
             double temp = recipes.Count / 4.0;
@@ -410,16 +406,18 @@ namespace listFood
         // Mở món ăn trong list 
         private void openFood_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            // Mở món ăn ở " Danh sách yêu thích "
             int pos = ListBox_Food.SelectedIndex;
             if (pos != -1)
             {
                 var newindexOfFood = ListBox_Food.SelectedItem as previewFood;
                 var getID = newindexOfFood._id - 1;
                 var food = _listFood[getID];
-                var openWindow = new OpenFood(_listFood,getID,previewFoods,_listFavorite);
+                var openWindow = new OpenFood(_listFood, getID, previewFoods, _listFavorite);
 
                 if (openWindow.ShowDialog() == true)
                 {
+                    // Món ăn bị thay đổi trạng thái yêu thích
                     if (openWindow.status == 1)
                     {
                         _listFood[getID] = openWindow.newFood;
@@ -427,17 +425,20 @@ namespace listFood
                     }
                     else
                     {
+                        // Món ăn bị xoá
                         _listFood = openWindow._listFood;
-                        foreach(string item in openWindow.garbage)
+                        foreach (string item in openWindow.garbage)
                         {
+                            // Hình ảnh của món ăn bị xoá
                             Garbage.Add(item);
                         }
                     }
-                    
+
                 }
                 ListBox_Food.ItemsSource = openWindow.previewFoods;
                 Box_Favorite1.ItemsSource = reNewFood(openWindow.listFavorite).Take(2);
             }
+            // Mở món ăn ở " Danh sách yêu thích "
             pos = Box_Favorite1.SelectedIndex;
             if (pos != -1)
             {
@@ -448,17 +449,20 @@ namespace listFood
 
                 if (openWindow.ShowDialog() == true)
                 {
-                    
-                    if(openWindow.status ==0)
+
+                    if (openWindow.status == 0)
                     {
+                        // Món ăn bị xoá
                         _listFood = openWindow._listFood;
                         foreach (string item in openWindow.garbage)
                         {
+                            // Hình ảnh của món ăn bị xoá
                             Garbage.Add(item);
                         }
                     }
                     else
                     {
+                        // Món ăn bị thay đổi trạng thái yêu thích
                         _listFood[getID] = openWindow.newFood;
                         openWindow.Close();
                     }
@@ -480,7 +484,7 @@ namespace listFood
         // Tìm kiếm món ăn
         private void Search_button(object sender, RoutedEventArgs e)
         {
-
+            // strings để tìm kiếm chuỗi hoặc kí tự của tên món ăn
             var strings = previewFoods.Where(p => convertToUnSign3(p.Name.ToLower()).Contains(convertToUnSign3(Search.Text.ToLower())));
             if (strings.Count() != 0)
             {
@@ -552,35 +556,39 @@ namespace listFood
                 }
             }
         }
-
-        private void Window_Closed(object sender, CancelEventArgs e)
+        private void reload_FavoriteFood(object sender, MouseButtonEventArgs e)
         {
-            var resultDialog = MessageBox.Show("Bạn có muốn thoát không", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Information);
-            if(resultDialog == MessageBoxResult.No)
+            ObservableCollection<previewFood> newListFavorite = new ObservableCollection<previewFood>();
+            newListFavorite = reNewFood(_listFavorite);
+            Box_Favorite1.ItemsSource = newListFavorite;
+
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+
+            // Làm rỗng file
+            File.WriteAllText(dataFile, String.Empty);
+            for (int i = 0; i < _listFood.Count; i++)
             {
-                e.Cancel = true;
-            }
-            else
-            {
-                File.WriteAllText(dataFile, String.Empty);
-                for (int i = 0; i <_listFood.Count; i++)
+                var newFood = _listFood[i];
+                var item = newFood.ID.ToString() + '~' + newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
+                if (i != 0)
                 {
-                    var newFood = _listFood[i];
-                    var item= newFood.ID.ToString() + '~' + newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
-                    if (i != 0)
-                    {
-                        File.AppendAllText(dataFile, '\n' + item);
+                    File.AppendAllText(dataFile, '\n' + item);
 
-                    }
-                    else
-                    {
-                        File.AppendAllText(dataFile,item);
-
-                    }
                 }
-                if(Garbage.Count != 0)
+                else
                 {
-                    foreach(string path in Garbage)
+                    File.AppendAllText(dataFile, item);
+
+                }
+                Application.Current.Shutdown();
+
+                // Xoá tất cả hình ảnh của các món ăn bị xoá
+                if (Garbage.Count != 0)
+                {
+                    foreach (string path in Garbage)
                     {
                         System.GC.Collect();
                         System.GC.WaitForPendingFinalizers();
@@ -588,16 +596,6 @@ namespace listFood
                     }
                 }
             }
-            
-
-        }
-
-        private void reload_FavoriteFood(object sender, MouseButtonEventArgs e)
-        {
-            ObservableCollection<previewFood> newListFavorite = new ObservableCollection<previewFood>();
-            newListFavorite = reNewFood(_listFavorite);
-            Box_Favorite1.ItemsSource = newListFavorite;
-
         }
     }
 }
