@@ -82,8 +82,6 @@ namespace listFood
                     File.Copy(item, folder + name + info.Extension);
                     Images.Add($"data/img/imgFood/{name}{info.Extension}");
                 };
-
-
                 // -------------------------------------------------------------------------
                 newFood = new Home.Recipe()
                 {

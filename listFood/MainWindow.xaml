@@ -175,7 +175,11 @@
                            Foreground="#AA381F"
                            FontWeight="DemiBold"
                            FontSize="20"/>
-                    <Image MouseDown="reload_FavoriteFood" DockPanel.Dock="Right" Source="/img/refresh.png" Height="40" Width="40" RenderTransformOrigin="0.207,1.077" />
+                    <Image MouseDown="reload_FavoriteFood" 
+                           DockPanel.Dock="Right"
+                           Source="/img/refresh.png"                     
+                           Height="40"
+                           RenderTransformOrigin="0.207,1.077" />
                     <Label></Label>
                 </DockPanel>
                 <DockPanel VerticalAlignment="Center">
@@ -239,7 +243,7 @@
                                 <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
-                        
+
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel HorizontalAlignment="Center">
@@ -302,7 +306,7 @@
                                        FontWeight="Bold" 
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"></TextBlock>
-                            
+
                         </Border>
                         <Button Click="Button_Next"
                                 Background="#AA381F"
@@ -313,7 +317,7 @@
                                 Content="Next"
                                 HorizontalAlignment="Center"/>
                     </DockPanel>
-                    
+
                     <DockPanel Margin="10 5 10 0 ">
                         <Image RenderOptions.BitmapScalingMode="HighQuality"
                                Source="img/food.ico" 

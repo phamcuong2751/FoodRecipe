@@ -23,8 +23,13 @@
                    FontSize="20"
                    FontWeight="Bold" Foreground="#AA381F"/>
         <Rectangle Fill="#AA381F" Grid.Row="2"/>
-        <Image Source="/img/bn2_v4.jpg" Grid.ColumnSpan="2" Grid.RowSpan="3"
-               HorizontalAlignment="Right" Panel.ZIndex="-1" Stretch="Uniform"/>
+        <Image Source="/img/bn2_v4.jpg"
+               Grid.ColumnSpan="2"
+               Grid.RowSpan="3"
+               HorizontalAlignment="Right"
+               Panel.ZIndex="-1"
+               Stretch="Uniform"
+               RenderOptions.BitmapScalingMode="HighQuality"/>
         <StackPanel Grid.Row="2">
             <DockPanel Margin="0 15 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <Rectangle Fill="White" Width="3" Height="40"
