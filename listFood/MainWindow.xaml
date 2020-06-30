@@ -189,7 +189,11 @@
                            Foreground="#AA381F"
                            FontWeight="DemiBold"
                            FontSize="20"/>
-                    <Image MouseDown="reload_FavoriteFood" DockPanel.Dock="Right" Source="/img/refresh.png" Height="40" Width="40" RenderTransformOrigin="0.207,1.077" />
+                    <Image MouseDown="reload_FavoriteFood" 
+                           DockPanel.Dock="Right"
+                           Source="/img/refresh.png"                     
+                           Height="40"
+                           RenderTransformOrigin="0.207,1.077" />
                     <Label></Label>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">

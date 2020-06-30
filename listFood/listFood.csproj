@@ -89,13 +89,7 @@
     <Compile Include="Dialog\Infomation.xaml.cs">
       <DependentUpon>Infomation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialog\OpenWindowFood.xaml.cs">
-      <DependentUpon>OpenWindowFood.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Dialog\RelativeToAbsolutePathConverter.cs" />
-    <Compile Include="Dialog\showImage.xaml.cs">
-      <DependentUpon>showImage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="OpenFood.xaml.cs">
       <DependentUpon>OpenFood.xaml</DependentUpon>
     </Compile>
@@ -104,22 +98,11 @@
     <Compile Include="ViewDialog\InfomationCSharp.cs" />
     <Compile Include="ViewDialog\ListFoodCSharp.cs" />
     <Compile Include="ViewDialog\OpenCSharp.cs" />
-    <Compile Include="Youtube.xaml.cs">
-      <DependentUpon>Youtube.xaml</DependentUpon>
-    </Compile>
     <Page Include="AddFood.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialog\Infomation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\OpenWindowFood.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\showImage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,10 +126,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Youtube.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Plash Screen.xaml.cs">
@@ -165,8 +144,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Resource Include="img\bn2_v4.jpg" />
     <Resource Include="img\refresh.png" />
+    <Resource Include="img\bn2_v4.jpg" />
     <Resource Include="img\youtube.png" />
     <Resource Include="img\cross.png" />
     <Resource Include="img\heart-red.png" />
