@@ -19,9 +19,11 @@
         Title="Home" 
         MinHeight="720"
         MinWidth="900"
+        RenderOptions.BitmapScalingMode="HighQuality"
         WindowStartupLocation="CenterOwner"
         WindowState="Maximized"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        Closing="Window_Closed">
     <Window.Resources>
         <DataTemplate x:Name="info" DataType="{x:Type dialog:Infomation}">
             <dialog:Infomation DataContext="{Binding}"/>
@@ -188,7 +190,7 @@
                            FontSize="20"/>
                 <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ListBox Name="Box_Favorite1" Margin="30"
-                             MouseDoubleClick="Box_Favorite1_MouseDoubleClick">
+                             MouseDoubleClick="openFood_MouseDown">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <DockPanel>
@@ -241,24 +243,22 @@
                              Margin="0 10 0 10"
                              Height="450"
                              ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                             MouseDoubleClick="DockPanel_MouseDown">
+                             MouseDoubleClick="openFood_MouseDown">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <UniformGrid Rows="2" Columns="2"/>
+                                <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel MouseMove="Hover_Image" x:Name="_food">
+                                <StackPanel HorizontalAlignment="Center">
                                     <Grid>
-                                        <Rectangle x:Name="image" RadiusX="60"
+                                        <Rectangle RadiusX="60"
                                    RadiusY="60"
                                    Width="115" Height="115">
                                             <Rectangle.Fill>
-
-                                                <ImageBrush x:Name="ImageofFood"
-                                                            ImageSource="{Binding Avatar,Converter={StaticResource pathConverter}}"/>
+                                                <ImageBrush ImageSource="{Binding Avatar,Converter={StaticResource pathConverter}}"/>
                                             </Rectangle.Fill>
                                         </Rectangle>
                                     </Grid>

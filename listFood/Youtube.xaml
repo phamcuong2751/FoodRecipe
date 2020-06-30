@@ -1,0 +1,13 @@
+﻿<Window x:Class="listFood.Youtube"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:listFood"
+        mc:Ignorable="d"
+        Title="Youtube" Height="450" Width="800">
+    
+    <Grid>
+        <!--<WebBrowser x:Name="ytbBrowser" Source="https://www.youtube-nocookie.com/embed/W152nHe9rkM?rel=0&amp;showinfo=0" />-->
+    </Grid>
+</Window>

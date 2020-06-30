@@ -81,7 +81,14 @@
                             </ListBox.ItemsPanel>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Image RenderOptions.BitmapScalingMode="HighQuality" Width="100" Height="100" Source="{Binding}"/>
+                                    <StackPanel>
+                                        <StackPanel.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Click="imageDelete" Header="Delete"></MenuItem>
+                                            </ContextMenu>
+                                        </StackPanel.ContextMenu>
+                                        <Image RenderOptions.BitmapScalingMode="HighQuality" Width="100" Height="100" Source="{Binding}"/>
+                                    </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>

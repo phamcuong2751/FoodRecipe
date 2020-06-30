@@ -18,6 +18,7 @@ using System.Text.RegularExpressions;
 using System.Collections;
 using System.Drawing;
 using System.Windows.Input;
+using Image = System.Windows.Controls.Image;
 
 namespace listFood
 {
@@ -78,16 +79,7 @@ namespace listFood
 
             public event PropertyChangedEventHandler PropertyChanged;
         }
-        public class Favorite
-        {
-            public Favorite(previewFood preview, int i)
-            {
-                recipe = preview;
-                i = index;
-            }
-            public previewFood recipe { get; set; }
-            public int index { get; set; }
-        }
+
         public class previewFood : INotifyPropertyChanged
         {
             public int _id;
@@ -141,7 +133,8 @@ namespace listFood
         }
         ObservableCollection<Recipe> _listFood = new ObservableCollection<Recipe>();
         ObservableCollection<previewFood> previewFoods = new ObservableCollection<previewFood>();
-        ObservableCollection<Favorite> _listFavorite = new ObservableCollection<Favorite>();
+        ObservableCollection<previewFood> _listFavorite = new ObservableCollection<previewFood>();
+        List<string> Garbage = new List<string>();
         public int TempNext = 0;
         public double div = 0.0;
         public int temp = 0;
@@ -185,12 +178,22 @@ namespace listFood
             {
                 var newFood = screen.newFood;
                 _listFood.Add(newFood);
-                item =  newFood.ID.ToString() + '~' + newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
-                File.AppendAllText(dataFile, '\n' + item);
+                item = newFood.ID.ToString() + '~' + newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
+                if (new FileInfo(dataFile).Length != 0)
+                {
+                    File.AppendAllText(dataFile, '\n' + item);
+
+                }
+                else
+                {
+                    File.AppendAllText(dataFile, item);
+
+                }
                 if (newFood._directions.Count < 2 && newFood._ingredients.Count < 2)
                 {
                     previewFood food = new previewFood()
                     {
+                        _id = newFood.ID,
                         Name = newFood._name,
                         shortIngredient = newFood._ingredients[0],
                         shortDirection = newFood._directions[0],
@@ -203,6 +206,7 @@ namespace listFood
                 {
                     previewFood food = new previewFood()
                     {
+                        _id = newFood.ID,
                         Name = newFood._name,
                         shortIngredient = newFood._ingredients[0] + '\n' + newFood._ingredients[1] + '\n' + "...",
                         shortDirection = newFood._directions[0],
@@ -215,6 +219,7 @@ namespace listFood
                 {
                     previewFood food = new previewFood()
                     {
+                        _id = newFood.ID,
                         Name = newFood._name,
                         shortIngredient = newFood._ingredients[0],
                         shortDirection = newFood._directions[0] + '\n' + newFood._directions[1] + '\n' + "...",
@@ -244,15 +249,7 @@ namespace listFood
         // Thoát ứng dụng
         private void Button_Out(object sender, RoutedEventArgs e)
         {
-            var DR = MessageBox.Show("Bạn có muốn thoát", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (DR == MessageBoxResult.Yes)
-            {
-                Environment.Exit(0);
-            }
-        }
-        private void ListBox_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
+            Application.Current.Shutdown();
         }
 
         // Khởi động app
@@ -342,25 +339,23 @@ namespace listFood
                     };
                     previewFoods.Add(food);
                 }
-               
+
 
             }
             for (var i = 0; i < previewFoods.Count; i++)
             {
-                Favorite temp = new Favorite(previewFoods[i], i);
-                if (previewFoods[i].isFavorite == true)
+                previewFood temp = previewFoods[i];
+                if (temp.isFavorite == true)
                 {
-                    _listFavorite.Add(temp);
+                    _listFavorite.Add(previewFoods[i]);
                 }
             }
-            {
-
-            }
+            
 
             List<previewFood> preFood = new List<previewFood>();
-            foreach (Favorite itemFavorite in _listFavorite)
+            foreach (previewFood itemFavorite in _listFavorite)
             {
-                preFood.Add(itemFavorite.recipe);
+                preFood.Add(itemFavorite);
             }
             var str = previewFoods;
             ListBox_Food.ItemsSource = previewFoods.Take(4);
@@ -374,7 +369,15 @@ namespace listFood
             }
             div = previewFoods.Count / 4.0;
             totalPage = (int)Math.Ceiling(div);
-            numPage.Text = $"{currentPage.ToString()}/{totalPage}";
+            if(totalPage > 0)
+            {
+                numPage.Text = $"{currentPage.ToString()}/{totalPage}";
+            }
+            else
+            {
+                numPage.Text = "0";
+            }
+            
         }
 
         public int totalPageCurrent(ObservableCollection<Recipe> recipes)
@@ -384,32 +387,67 @@ namespace listFood
             return toReturn;
         }
         // Mở món ăn trong list 
-        private void DockPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void openFood_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            var newindexOfFood = ListBox_Food.SelectedItem as previewFood;
-            var getID = newindexOfFood._id - 1;
-            var food = _listFood[getID];
-            var openWindow = new OpenWindowFood(food);
-
-            if (openWindow.IsEnabled == true)
+            int pos = ListBox_Food.SelectedIndex;
+            if (pos != -1)
             {
-                _listFood[getID] = openWindow.newFood;
+                var newindexOfFood = ListBox_Food.SelectedItem as previewFood;
+                var getID = newindexOfFood._id - 1;
+                var food = _listFood[getID];
+                var openWindow = new OpenFood(_listFood,getID,previewFoods,_listFavorite);
 
+                if (openWindow.ShowDialog() == true)
+                {
+                    if (openWindow.status == 1)
+                    {
+                        _listFood[getID] = openWindow.newFood;
+                        openWindow.Close();
+                    }
+                    else
+                    {
+                        _listFood = openWindow._listFood;
+                        foreach(string item in openWindow.garbage)
+                        {
+                            Garbage.Add(item);
+                        }
+                    }
+                    
+                }
+                ListBox_Food.ItemsSource = openWindow.previewFoods;
+                Box_Favorite1.ItemsSource = openWindow.listFavorite;
             }
-            DataContext = openWindow;
+            pos = Box_Favorite1.SelectedIndex;
+            if (pos != -1)
+            {
+                var newindexOfFood = Box_Favorite1.SelectedItem as previewFood;
+                var getID = newindexOfFood._id - 1;
+                var food = _listFood[getID];
+                var openWindow = new OpenFood(_listFood, getID, previewFoods, _listFavorite);
 
-        }
+                if (openWindow.ShowDialog() == true)
+                {
+                    
+                    if(openWindow.status ==0)
+                    {
+                        _listFood = openWindow._listFood;
+                        foreach (string item in openWindow.garbage)
+                        {
+                            Garbage.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        _listFood[getID] = openWindow.newFood;
+                        openWindow.Close();
+                    }
+                    ListBox_Food.ItemsSource = openWindow.previewFoods;
 
+                }
+                ListBox_Food.ItemsSource = openWindow.previewFoods;
+                Box_Favorite1.ItemsSource = openWindow.listFavorite;
+            }
 
-        //Mở món ăn trong list yêu thích
-        private void Box_Favorite1_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-
-            var newindexOfFood = Box_Favorite1.SelectedItem as previewFood;
-            var getID = newindexOfFood._id - 1;
-            var food = _listFood[getID];
-            var openWindow = new OpenWindowFood(food);
-            DataContext = openWindow;
         }
 
         //Loại Tiếng Việt 
@@ -424,10 +462,10 @@ namespace listFood
         {
 
             var strings = previewFoods.Where(p => convertToUnSign3(p.Name.ToLower()).Contains(convertToUnSign3(Search.Text.ToLower())));
-            if(strings.Count() != 0)
+            if (strings.Count() != 0)
             {
                 ListBox_Food.ItemsSource = strings.ToList();
-            }   
+            }
             else
             {
                 MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -443,18 +481,18 @@ namespace listFood
             }
             if (TempNext <= 4)
             {
-                if(TempNext == 4)
+                if (TempNext == 4)
                 {
                     var prev = previewFoods.Skip(TempNext - 4).Take(4).ToList();
                     ListBox_Food.ItemsSource = prev.ToList();
                     temp = 0;
-                    
+
                 }
                 else
                 {
                     temp = 0;
                 }
-                
+
             }
             else
             {
@@ -466,7 +504,7 @@ namespace listFood
                     TempNext -= 4;
                 }
             }
-          
+
         }
         // Tiến trang
         private void Button_Next(object sender, RoutedEventArgs e)
@@ -476,7 +514,7 @@ namespace listFood
                 currentPage++;
                 numPage.Text = $"{currentPage.ToString()}/{totalPage}";
             }
-            
+
             if (TempNext >= previewFoods.Count)
             {
                 temp = (int)div;
@@ -495,8 +533,37 @@ namespace listFood
             }
         }
 
-        private void Hover_Image(object sender, System.Windows.Input.MouseEventArgs e)
+        private void Window_Closed(object sender, EventArgs e)
         {
+            var resultDialog = MessageBox.Show("Bạn có muốn thoát không", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            if (resultDialog == MessageBoxResult.Yes)
+            {
+                File.WriteAllText(dataFile, String.Empty);
+                for (int i = 0; i <_listFood.Count; i++)
+                {
+                    var newFood = _listFood[i];
+                    var item= newFood.ID.ToString() + '~' + newFood._name + '~' + string.Join("\\", newFood._ingredients.ToArray()) + '~' + string.Join("\\", newFood._directions.ToArray()) + '~' + string.Join("\\", newFood._images.ToArray()) + '~' + newFood._isFavorite;
+                    if (i != 0)
+                    {
+                        File.AppendAllText(dataFile, '\n' + item);
+
+                    }
+                    else
+                    {
+                        File.AppendAllText(dataFile,item);
+
+                    }
+                }
+                if(Garbage.Count != 0)
+                {
+                    foreach(string path in Garbage)
+                    {
+                        System.GC.Collect();
+                        System.GC.WaitForPendingFinalizers();
+                        File.Delete(path);
+                    }
+                }
+            }
 
         }
     }

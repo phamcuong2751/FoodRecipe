@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -96,8 +97,7 @@ namespace listFood
                 DialogResult = true;
             }
         }
-        List<string> listPathImage = new List<string>();
-        private int currentID;
+        BindingList<string> listPathImage = new BindingList<string>();
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -111,8 +111,16 @@ namespace listFood
                 {
                     listImages.Items.Add(item);
                     listPathImage.Add(item);
+
                 }
             }
+        }
+
+        private void imageDelete(object sender, RoutedEventArgs e)
+        {
+            var index = listImages.SelectedIndex;
+            listImages.Items.RemoveAt(index);
+            listPathImage.RemoveAt(index);
         }
     }
 }
