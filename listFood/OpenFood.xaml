@@ -128,7 +128,7 @@
                           Grid.Row="1">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <CheckBox Margin="0 0 10 15">
+                            <CheckBox Margin="0 0 10 15" Background="#AA381F">
                                 <CheckBox.Content>
                                     <TextBlock  VerticalAlignment="Center" 
                                        TextWrapping="Wrap"
